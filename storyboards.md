@@ -15,5 +15,10 @@ Storyboard for nearby available study rooms idea
 ![Christy-Storyboard2](storyboards/christy2.png)
 
 ## Arlen
+Storyboard for Nearby Things To Do
+![Arlen-Storyboard1](storyboards/arlen1.jpg)
+
+Storyboard for Location Feed Alerts
+![Arlen-Storyboard](storyboards/arlen2.jpg)
 
 ## Mohsin
