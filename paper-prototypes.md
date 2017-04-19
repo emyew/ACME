@@ -1,10 +1,10 @@
 # Paper Prototypes
 
 ## Arlen
-![Arlen-Prototype](paper-prototypes/arlen.jpg)
+![Arlen-Prototype](paper-prototypes/arlen.JPG)
 
 ## Emily
-![Emily-Prototype](paper-prototypes/emily.png)
+![Emily-Prototype](paper-prototypes/emily.PNG)
 
 ## Christy
 
