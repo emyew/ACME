@@ -9,5 +9,6 @@
 ## Christy
 
 ## Mohsin
+![Mohsin-Prototype](paper-prototypes/mohsin.jpg)
 
 ## Arlen
