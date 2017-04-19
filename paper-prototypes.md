@@ -7,7 +7,6 @@
 ![Emily-Prototype](paper-prototypes/emily.jpg)
 
 ## Christy
+![Christy-Prototype](paper-prototypes/christy.JPG)
 
 ## Mohsin
-
-## Arlen
