@@ -1,4 +1,13 @@
 # Paper Prototypes
 
 ## Arlen
-![Arlen-Prototype1](paper-prototypes/arlen.jpg)
+![Arlen-Prototype](paper-prototypes/arlen.jpg)
+
+## Emily
+![Emily-Prototype](paper-prototypes/emily.png)
+
+## Christy
+
+## Mohsin
+
+## Arlen
