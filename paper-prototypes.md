@@ -4,7 +4,7 @@
 ![Arlen-Prototype](paper-prototypes/arlen.JPG)
 
 ## Emily
-![Emily-Prototype](paper-prototypes/emily.png)
+![Emily-Prototype](paper-prototypes/emily.jpg)
 
 ## Christy
 
