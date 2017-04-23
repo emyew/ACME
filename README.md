@@ -2,6 +2,8 @@
 
 Project repo for COGS 121
 
+See `docs` folder for milestone documentation
+
 ### Dev
 
 - open two terminals
