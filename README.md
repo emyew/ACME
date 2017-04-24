@@ -8,7 +8,7 @@ See `docs` folder for milestone documentation
 
 - First install node modules with `npm install`
 
-- Local server: use `npm start`
+- Start local dev server: use `npm run dev`
 
 - for styling, (preferably) edit scss files only. Saving them will autocompile into a single css file as stylesheets/css/main.css
 
