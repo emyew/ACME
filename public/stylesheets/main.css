@@ -1,3 +1,6 @@
 body {
   margin: 0;
   background-color: lightblue; }
+
+#map {
+  height: 800px; }
