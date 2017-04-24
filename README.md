@@ -20,4 +20,4 @@ See `docs` folder for milestone documentation
 
 - try to stick to one SASS file to reduce requests (everything will compile into one css file. Use sass @imports if you're trying to separate page css)
 
-- [Handlebars Documentation](https://www.npmjs.com/package/express-hbs). Look up if you're trying to make a page that doesn't use the general layout.hbs or importing page specific js/css libraries (see: blocks and layout-specific rendering options)
+- [Handlebars Documentation](http://handlebarsjs.com/). If you are trying to use page-specific CSS/JS then use {{#extend}} (see index.hbs for an example)
