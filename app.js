@@ -12,6 +12,16 @@ var test = require('./routes/test');
 
 var app = express();
 
+// force redirect HTTPS
+app.use(function (req, res, next) {
+  var sslUrl;
+  if (process.env.NODE_ENV === 'production' && req.headers['x-forwarded-proto'] !== 'https') {
+    sslUrl = ['https://acme-cogs121.herokuapp.com', req.url].join('');
+    return res.redirect(sslUrl);
+  }
+  return next();
+});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');

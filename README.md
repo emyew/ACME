@@ -6,6 +6,8 @@ See `docs` folder for milestone documentation
 
 ### Get Started
 
+- install `nodemon` and `node-sass` via npm
+
 - open two terminals (need to find a way to combine the two scripts) and run the following respectively
 
 - `nodemon start`
