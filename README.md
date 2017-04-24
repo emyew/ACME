@@ -6,13 +6,7 @@ See `docs` folder for milestone documentation
 
 ### Get Started
 
-- install `nodemon` and `node-sass` via npm
-
-- open two terminals (need to find a way to combine the two scripts) and run the following respectively
-
-- `nodemon start`
-
-- `npm run watch-css`
+- Local server: use `npm start`
 
 - for styling, (preferably) edit scss files only. Saving them will autocompile into a single css file as stylesheets/css/main.css
 
