@@ -25,10 +25,30 @@ function initMap() {
         lng: position.coords.longitude
       };
 
-      infoWindow.setPosition(pos);
-      infoWindow.setContent('Location found.');
-      infoWindow.open(map);
+      // infoWindow.setPosition(pos);
+      // infoWindow.setContent('Location found.');
+      // infoWindow.open(map);
       map.setCenter(pos);
+
+      var marker = new google.maps.Marker({
+		    position: pos,
+		    map: map,
+		    title: 'You are here.',
+		    animation: google.maps.Animation.DROP
+		  });
+
+		  infoWindow.setContent('You are here.');
+		  infoWindow.open(map, marker);
+
+		  marker.addListener('click', function() {
+		  	if (marker.open) {
+		  		infoWindow.open(map, marker);
+		  		marker.open = false;
+		  	} else {
+		  		infoWindow.close();
+		  		marker.open = true;
+		  	}
+      });
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
     });
