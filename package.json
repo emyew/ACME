@@ -16,8 +16,9 @@
     "express": "~4.15.2",
     "hbs": "*",
     "morgan": "~1.8.1",
-    "serve-favicon": "~2.4.2",
-    "request": "*"
+    "redis": "^2.7.1",
+    "request": "*",
+    "serve-favicon": "~2.4.2"
   },
   "devDependencies": {
     "node-sass": "^4.5.2",

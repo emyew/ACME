@@ -7,6 +7,16 @@ var bodyParser = require('body-parser');
 var request = require('request');
 var hbs = require('hbs');
 
+// setup REDIS. comment out this block to disable redis
+// if (process.env.REDISTOGO_URL) {
+//     // authenticating redis in production env
+//     var rtg   = require("url").parse(process.env.REDISTOGO_URL);
+//     var redis = require("redis").createClient(rtg.port, rtg.hostname);
+//     redis.auth(rtg.auth.split(":")[1]);
+// } else {
+//     var redis = require("redis").createClient();
+// }
+
 var index = require('./routes/index');
 var test = require('./routes/test');
 
