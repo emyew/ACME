@@ -1,13 +1,29 @@
-$badass: lightblue;
+$badass: white;
+html, body {
+	height: 100%;
+}
 body { 
   margin: 0; 
-  background-color: $badass; 
+  background-color: $badass;
 }
-
+#left {
+	width: 25%;
+	float: left;
+	text-align: center;
+}
+#header {
+	margin-top: 25px;
+}
+#waypoints {
+	height: 100px;
+}
 #map {
-	position: absolute;
+/*	position: absolute;
 	top: 0;
 	bottom: 0;
 	left: 0;
-	right: 0;
+	right: 0;*/
+	height: 100%;
+	width: 75%;
+	float: left;
 }
