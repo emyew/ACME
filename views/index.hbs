@@ -1,12 +1,6 @@
 {{#extend "stylesheets"}}
 {{/extend}}
 
-{{#extend "scripts"}}
-	<script>
-	  console.log("Hello");
-	</script>
-{{/extend}}
-
 <!-- <div class="container">
 	<div class="row">
 		<div class="four columns">
@@ -36,6 +30,7 @@
 </div>
 <div id="map"></div>
 
+{{#extend "scripts"}}
 <script>
 var map, infoWindow, currPos;
 function initMap() {
@@ -149,4 +144,4 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pos) {
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7l3pxQ6dq-Kgg-aVUO6-A0zf2swG2Cec&callback=initMap">
 </script>
-
+{{/extend}}

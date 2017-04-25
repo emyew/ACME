@@ -6,21 +6,33 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var request = require('request');
 var hbs = require('hbs');
-
-// setup REDIS. comment out this block to disable redis
-// if (process.env.REDISTOGO_URL) {
-//     // authenticating redis in production env
-//     var rtg   = require("url").parse(process.env.REDISTOGO_URL);
-//     var redis = require("redis").createClient(rtg.port, rtg.hostname);
-//     redis.auth(rtg.auth.split(":")[1]);
-// } else {
-//     var redis = require("redis").createClient();
-// }
-
-var index = require('./routes/index');
-var test = require('./routes/test');
-
 var app = express();
+
+// setup REDIS. comment out this block to disable redis =======================
+var redis = require('redis');
+if (process.env.REDISTOGO_URL) {
+    // authenticating redis in production env
+    var rtg   = require("url").parse(process.env.REDISTOGO_URL);
+    var rclient = redis.createClient(rtg.port, rtg.hostname);
+    rclient.auth(rtg.auth.split(":")[1]);
+} else {
+    var rclient = redis.createClient();
+}
+
+rclient.on('connect', function() {
+    console.log('Redis connected!');
+});
+
+rclient.on("error", function (err) {
+    console.log("Error " + err);
+});
+
+rclient.set("key", "value", redis.print);
+rclient.get("key", redis.print);
+rclient.get("key", function(err, res) {
+  console.log(res);
+});
+// ============================================================================
 
 // force redirect HTTPS
 app.use(function (req, res, next) {
@@ -60,9 +72,9 @@ hbs.registerHelper('block', function(name) {
     return val;
 });
 
-// ROUTES
-app.use('/', index);
-app.use('/test', test);
+// ROUTES =====================================================================
+app.use('/', require('./routes/index'));
+app.use('/test', require('./routes/test'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
