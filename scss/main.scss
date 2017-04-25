@@ -10,9 +10,18 @@ body {
 	width: 25%;
 	float: left;
 	text-align: center;
+	height: 100%;
+	overflow: auto;
 }
 #header {
 	margin-top: 25px;
+}
+#desc {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+#instr {
+	font-size: 12px;
 }
 #waypoints {
 	height: 100px;

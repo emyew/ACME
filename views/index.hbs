@@ -17,11 +17,11 @@
 	<h4 id="header">Popular Lists Near You</h4>
 	<hr>
 	<h5><b>La Jolla Day Trip</b></h5>
-	<p><b>Destinations</b><br>(Ctrl+Click or Cmd+Click for multiple selection & click submit to see the suggested path)</p>
+	<p id="desc"><b>Destinations</b><br>Select* the places you want to visit & click submit to see the suggested path starting from your current location.<br><span id="instr">*Ctrl+Click or Cmd+Click for multiple selection</span></p>
 	<select multiple id="waypoints">
     <option value="7702 Fay Ave, La Jolla, CA 92037">The Cottage</option>
     <option value="8300 Camino Del Oro, La Jolla, CA 92037">La Jolla Shores</option>
-    <option value="1100 Coast Blvd, La Jolla, San Diego, CA 92037-3600">La Jolla Cove</option>
+    <option value="1100 Coast Blvd, La Jolla, San Diego, CA 92037">La Jolla Cove</option>
     <option value="3750 Sports Arena Blvd, San Diego, CA 92110">Phil's BBQ</option>
   </select>
   <br>
@@ -32,7 +32,7 @@
 
 {{#extend "scripts"}}
 <script>
-var map, infoWindow, currPos;
+var map, infoWindow, currPos, currPosMarker;
 function initMap() {
 	var directionsService = new google.maps.DirectionsService;
   var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -56,23 +56,24 @@ function initMap() {
       map.setCenter(pos);
       currPos = pos;
 
-      var marker = new google.maps.Marker({
+      currPosMarker = new google.maps.Marker({
 		    position: currPos,
 		    map: map,
 		    title: 'You are here.',
-		    animation: google.maps.Animation.DROP
+		    animation: google.maps.Animation.DROP,
+        visible: true
 		  });
 
 		  infoWindow.setContent('You are here.');
-		  infoWindow.open(map, marker);
+		  infoWindow.open(map, currPosMarker);
 
-		  marker.addListener('click', function() {
-		  	if (marker.open) {
-		  		infoWindow.open(map, marker);
-		  		marker.open = false;
+		  currPosMarker.addListener('click', function() {
+		  	if (currPosMarker.open) {
+		  		infoWindow.open(map, currPosMarker);
+		  		currPosMarker.open = false;
 		  	} else {
 		  		infoWindow.close();
-		  		marker.open = true;
+		  		currPosMarker.open = true;
 		  	}
       });
     }, function() {
@@ -84,10 +85,15 @@ function initMap() {
   }
 
   directionsDisplay.setMap(map);
+  directionsDisplay.setPanel(document.getElementById('directions-panel'));
 
   document.getElementById('submit').addEventListener('click', function() {
+    // hide current location's marker
+    currPosMarker.setVisible(false);
+    infoWindow.close();
+    currPosMarker.open = true;
+
   	calculateAndDisplayRoute(directionsService, directionsDisplay, currPos);
-  	marker.hide;
   });
 }
 
@@ -120,7 +126,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pos) {
   }, function(response, status) {
     if (status === 'OK') {
       directionsDisplay.setDirections(response);
-      var route = response.routes[0];
+      /*var route = response.routes[0];
       var summaryPanel = document.getElementById('directions-panel');
       summaryPanel.innerHTML = '';
       // For each route, display summary information.
@@ -134,7 +140,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pos) {
         summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
         summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
         summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
-      }
+      }*/
     } else {
       window.alert('Directions request failed due to ' + status);
     }
