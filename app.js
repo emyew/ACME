@@ -27,21 +27,26 @@ rclient.on("error", function (err) {
     console.log("Error " + err);
 });
 
+// sample redis commands
 rclient.set("key", "value", redis.print);
+rclient.set("key2", "value2", redis.print);
 rclient.get("key", redis.print);
 rclient.get("key", function(err, res) {
-  console.log(res);
+    console.log("REDIS: retrieving 'key' value: "+ res);
+});
+rclient.keys("*", function(err, res) {
+    console.log("REDIS: Retrieving all keys: " + res);
 });
 // ============================================================================
 
 // force redirect HTTPS
 app.use(function (req, res, next) {
-  var sslUrl;
-  if (process.env.NODE_ENV === 'production' && req.headers['x-forwarded-proto'] !== 'https') {
-    sslUrl = ['https://acme-cogs121.herokuapp.com', req.url].join('');
-    return res.redirect(sslUrl);
-  }
-  return next();
+    var sslUrl;
+    if (process.env.NODE_ENV === 'production' && req.headers['x-forwarded-proto'] !== 'https') {
+        sslUrl = ['https://acme-cogs121.herokuapp.com', req.url].join('');
+        return res.redirect(sslUrl);
+    }
+    return next();
 });
 
 // view engine setup
@@ -77,21 +82,21 @@ app.use('/', require('./routes/index'));
 app.use('/test', require('./routes/test'));
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+app.use(function(req, res, next) {  
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
 });
 
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('404');
+    // render the error page
+    res.status(err.status || 500);
+    res.render('404');
 });
 
 module.exports = app;
