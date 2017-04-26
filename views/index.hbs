@@ -108,7 +108,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 function calculateAndDisplayRoute(directionsService, directionsDisplay, pos) {
   var waypts = [];
   var checkboxArray = document.getElementById('waypoints');
-  for (var i = 0; i < checkboxArray.length; i++) {
+  for (var i = 0; i < checkboxArray.length-1; i++) {
     if (checkboxArray.options[i].selected) {
       waypts.push({
         location: checkboxArray[i].value,
@@ -116,6 +116,16 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pos) {
       });
     }
   }
+	//Mohsin's addition start
+	for (var j = checkboxArray.length-1) {
+    if (checkboxArray.options[j].selected) {
+      waypts.push({
+        location: checkboxArray[j].value,
+        stopover: false
+      });
+    }
+  }
+	//Mohsin's addition end
 
   directionsService.route({
     origin: currPos,
