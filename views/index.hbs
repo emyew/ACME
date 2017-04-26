@@ -116,6 +116,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pos) {
       });
     }
   }
+
 	waypts.slice(-1)[0].stopover = false;
 
   directionsService.route({
