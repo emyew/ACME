@@ -7,6 +7,7 @@ The landing screen that gets displayed when the user first goes onto the site is
 The user can select destinations from the list and the map will display a path starting from the user's current location, going through the selected destinations in the order of the list and ending with the last place selected from the list. There will also be directions displayed (driving directions for now) from each destination to the next.
 
 ### Emily
+I experimented with different Map API's and helped flesh out more ideas for the app. I helped Christy find resources and examples for implementing the Map and helped plan out some user interactions. I also helped in deciding which technologies we would use for the backend and which frameworks we would use for the front end.
 
 ### Christy
 I worked on setting up the map using the Google Maps API. I also worked on the simple map interaction for this milestone, which is displaying a path starting from the user's current location and going through the points/places the user selects from the fixed list of places we have on the left side. I also worked on displaying the directions for the path.
