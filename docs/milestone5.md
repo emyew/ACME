@@ -12,6 +12,7 @@ The user can select destinations from the list and the map will display a path s
 I worked on setting up the map using the Google Maps API. I also worked on the simple map interaction for this milestone, which is displaying a path starting from the user's current location and going through the points/places the user selects from the fixed list of places we have on the left side. I also worked on displaying the directions for the path.
 
 ### Mohsin
+I worked on the simple map interaction for this milestone. I worked to troubleshoot the displayed directions between waypoints and looked into adding customization for the waypoint markers and adjusting the route preferences.
 
 ### Arlen
 I set up the infrastructure of the code and the development environment. We decided to use NodeJS with the Express wrapper combined with Handlebars templating due to our experience and familiarity with it. We also decided to use a SASS precompiler in order to make CSS easier. I worked on creating a dev script using parallelshell and nodemon in order to create a development environment that automatically refreshes the local server (and compiles SASS) every time a relevant file is updated.
