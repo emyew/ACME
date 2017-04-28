@@ -23,3 +23,5 @@ See `docs` folder for milestone documentation
 - [Skeleton.js Documentation](http://getskeleton.com/)
 
 - [Redis Documentation](https://github.com/NodeRedis/node_redis) & [Redis Tutorial (with command explanations!)](https://redis.io/topics/twitter-clone)
+
+- [Express Routing & Requests](https://expressjs.com/en/guide/routing.html)
