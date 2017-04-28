@@ -14,4 +14,4 @@ I worked on setting up the map using the Google Maps API. I also worked on the s
 ### Mohsin
 
 ### Arlen
-I set up the infrastructure of the code and the development environment. We decided to use NodeJS with the Express wrapper combined with Handlebars templating due to our experience and familiarity with it. We also decided to use a SASS precompiler in order to make CSS easier. I worked on creating a dev script using parallelshell and nodemon in order to create a development environment that automatically refreshes the local server (and compiles SASS) every time a relevant file is updated.
+I set up the infrastructure of the code and the development environment. We decided to use NodeJS with the Express wrapper combined with Handlebars templating due to our experience and familiarity with it. We also decided to use a SASS precompiler in order to make CSS easier. I worked on creating a dev script using parallelshell and nodemon in order to create a development environment that automatically refreshes the local server (and compiles SASS) every time a relevant file is updated. 
