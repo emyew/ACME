@@ -27,10 +27,15 @@ rclient.on("error", function(err) {
     console.log("Error " + err);
 });
 
+// sample redis commands
 rclient.set("key", "value", redis.print);
+rclient.set("key2", "value2", redis.print);
 rclient.get("key", redis.print);
 rclient.get("key", function(err, res) {
-    console.log(res);
+    console.log("REDIS: retrieving 'key' value: "+ res);
+});
+rclient.keys("*", function(err, res) {
+    console.log("REDIS: Retrieving all keys: " + res);
 });
 // =============================================================================
 
@@ -77,7 +82,7 @@ app.use('/', require('./routes/index'));
 app.use('/test', require('./routes/test'));
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function(req, res, next) {  
     var err = new Error('Not Found');
     err.status = 404;
     next(err);

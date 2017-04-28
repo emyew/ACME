@@ -1,4 +1,4 @@
-# [ACME](acme-cogs121.herokuapp.com)
+# [ACME](https://acme-cogs121.herokuapp.com)
 
 Project repo for COGS 121
 
@@ -21,3 +21,5 @@ See `docs` folder for milestone documentation
 - [Handlebars Documentation](http://handlebarsjs.com/). If you are trying to use page-specific CSS/JS then use {{#extend}} (see index.hbs for an example)
 
 - [Skeleton.js Documentation](http://getskeleton.com/)
+
+- [Redis Documentation](https://github.com/NodeRedis/node_redis) & [Redis Tutorial (with command explanations!)](https://redis.io/topics/twitter-clone)
