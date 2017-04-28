@@ -37,7 +37,7 @@ rclient.get("key", function(err, res) {
 rclient.keys("*", function(err, res) {
     console.log("REDIS: Retrieving all keys: " + res);
 });
-// ============================================================================
+// =============================================================================
 
 // force redirect HTTPS
 app.use(function(req, res, next) {
@@ -77,7 +77,7 @@ hbs.registerHelper('block', function(name) {
     return val;
 });
 
-// ROUTES =====================================================================
+// ROUTES ======================================================================
 app.use('/', require('./routes/index'));
 app.use('/test', require('./routes/test'));
 app.use('/explore', require('./routes/explore'));
