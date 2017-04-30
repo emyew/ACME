@@ -20,7 +20,7 @@
 <div id="map"></div>
 
 {{#extend "scripts"}}
-<script>
+<!--<script>
 var map, infoWindow, currPos, currPosMarker;
 
 function initMap() {
@@ -31,7 +31,8 @@ function initMap() {
             lat: 32.8801,
             lng: -117.2340
         },
-        zoom: 13
+        zoom: 13,
+        styles: mapStyle
     });
     infoWindow = new google.maps.InfoWindow;
 
@@ -141,7 +142,8 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pos) {
         }
     });
 }
-</script>
+</script>-->
+<script type="text/javascript" src="/javascripts/map.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7l3pxQ6dq-Kgg-aVUO6-A0zf2swG2Cec&callback=initMap">
 </script>
 {{/extend}}
