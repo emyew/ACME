@@ -116,5 +116,5 @@ main {
 .modal {
   display: none; }
 
-.navbar-links li:nth-child(3), .navbar-links li:nth-child(4) {
+.navbar-right .navbar-links li:nth-child(3), .navbar-right .navbar-links li:nth-child(4) {
   display: none; }
