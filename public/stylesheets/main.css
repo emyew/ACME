@@ -14,12 +14,17 @@ header.navbar {
   padding: 0 20px; }
 
 .navbar {
-  list-style-type: none; }
+  list-style-type: none;
+  z-index: 3; }
 
-.navbar li {
+ul.navbar-links {
+  margin: 0px; }
+
+ul.navbar-links li {
   float: left;
   position: relative;
-  display: block; }
+  display: block;
+  margin-bottom: 0 !important; }
 
 .navbar li a {
   text-decoration: none;
