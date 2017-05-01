@@ -1,16 +1,72 @@
 html, body {
-  height: 100%; }
-
-body {
+  height: 100%;
   margin: 0;
   background-color: white; }
 
-#left {
-  width: 25%;
+header.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0; }
+
+.navbar-container {
+  margin: auto;
+  padding: 0 20px; }
+
+.navbar {
+  list-style-type: none; }
+
+.navbar li {
   float: left;
-  text-align: center;
-  height: 100%;
-  overflow: auto; }
+  position: relative;
+  display: block; }
+
+.navbar li a {
+  text-decoration: none;
+  display: inline-block;
+  height: 50px;
+  padding: 0 20px;
+  float: left;
+  line-height: 50px;
+  width: auto; }
+
+.navbar button {
+  border: none !important;
+  background: none;
+  display: none; }
+
+.icon-bar {
+  width: auto;
+  height: 5px; }
+
+.navbar-left {
+  float: left; }
+
+.navbar-right {
+  float: right; }
+
+main {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+
+#side-menu {
+  width: 30%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  min-height: 100%;
+  overflow: scroll;
+  z-index: 2; }
+
+#side-menu-content {
+  padding: 20px;
+  position: relative;
+  float: left;
+  text-align: center; }
 
 #header {
   margin-top: 25px; }
@@ -26,11 +82,18 @@ body {
   height: 100px; }
 
 #map {
-  /*	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;*/
   height: 100%;
-  width: 75%;
+  width: 100%;
   float: left; }
+
+#map-container {
+  width: 70%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  min-height: 100%;
+  overflow: hidden; }
+
+.modal {
+  display: none; }
