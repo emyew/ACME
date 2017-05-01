@@ -1,23 +1,141 @@
 {{#extend "stylesheets"}} {{/extend}}
-
-<div id="left">
-    <h4 id="header">Popular Lists Near You</h4>
-    <hr>
-    <h5><b>La Jolla Day Trip</b></h5>
-    <p id="desc"><b>Destinations</b>
+<div class="register modal">
+  <section class="register-popup">
+    <h1>Register</h1>
+    <div class="popup-content">
+      <p>Register for a RoadRunner account below.</p>
+      <div class="form-content">
+        <form id="register-form" action="index.html" method="post">
+          <div class="form-group">
+            <label for="register-name">Name</label>
+            <div class="input-helpers">
+              <input type="text" id="register-name" name="name" value>
+              <span class="field-error"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="register-email">Email</label>
+            <div class="input-helpers">
+              <input type="email" id="register-email" name="email" value>
+              <span class="field-error"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="register-password">Password</label>
+            <div class="input-helpers">
+              <input type="password" id="register-password" name="password" value>
+              <span class="field-error"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="register-password">Confirm Password</label>
+            <div class="input-helpers">
+              <input type="password" id="register-password" name="password" value>
+              <span class="field-error"></span>
+            </div>
+          </div>
+        </form>
+      </div>
+      <button type="button">X</button>
+    </div>
+  </section>
+</div>
+<div class="signin modal">
+  <section class="signin-popup">
+    <h1>Log In</h1>
+    <div class="popup-content">
+      <p>Enter your email and password below to log in.</p>
+      <div class="form-content">
+        <form id="signin-form" action="index.html" method="post">
+          <div class="form-group">
+            <label for="signin-name">Name</label>
+            <div class="input-helpers">
+              <input type="text" id="signin-name" name="name" value>
+              <span class="field-error"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="signin-email">Email</label>
+            <div class="input-helpers">
+              <input type="email" id="signin-email" name="email" value>
+              <span class="field-error"></span>
+            </div>
+          </div>
+        </form>
+      </div>
+      <button type="button">X</button>
+    </div>
+  </section>
+</div>
+<header class="navbar">
+  <div class="navbar-container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">
+        <span class="brand"></span>
+      </a>
+    </div>
+    <nav class="navbar-lists">
+      <div class="navbar-left">
+        <ul class="navbar-links">
+          <li>
+            <a href="#">Explore</a>
+          </li>
+          <li>
+            <a href="#">Create</a>
+          </li>
+          <li>
+            <a href="#">My Lists</a>
+          </li>
+        </ul>
+      </div>
+      <div class="navbar-right">
+        <ul class="navbar-links">
+          <li>
+            <a href="#">Register</a>
+          </li>
+          <li>
+            <a href="#">Log In</a>
+          </li>
+          <li>
+            <a href="#">Favorites</a>
+          </li>
+          <li>
+            <a href="#">Profile</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+<main>
+  <div id="map-container">
+    <div id="map"></div>
+  </div>
+  <div id="side-menu">
+    <section id="side-menu-content">
+      <h4 id="header">Popular Lists Near You</h4>
+      <hr>
+      <h5><b>La Jolla Day Trip</b></h5>
+      <p id="desc"><b>Destinations</b>
         <br>Select* the places you want to visit & click submit to see the suggested path starting from your current location.
         <br><span id="instr">*Ctrl+Click or Cmd+Click for multiple selection</span></p>
-    <select multiple id="waypoints">
-        <option value="7702 Fay Ave, La Jolla, CA 92037">The Cottage</option>
-        <option value="8300 Camino Del Oro, La Jolla, CA 92037">La Jolla Shores</option>
-        <option value="1100 Coast Blvd, La Jolla, San Diego, CA 92037">La Jolla Cove</option>
-        <option value="3750 Sports Arena Blvd, San Diego, CA 92110">Phil's BBQ</option>
-    </select>
-    <br>
-    <input type="submit" id="submit">
-    <div id="directions-panel"></div>
-</div>
-<div id="map"></div>
+        <select multiple id="waypoints">
+          <option value="7702 Fay Ave, La Jolla, CA 92037">The Cottage</option>
+          <option value="8300 Camino Del Oro, La Jolla, CA 92037">La Jolla Shores</option>
+          <option value="1100 Coast Blvd, La Jolla, San Diego, CA 92037">La Jolla Cove</option>
+          <option value="3750 Sports Arena Blvd, San Diego, CA 92110">Phil's BBQ</option>
+        </select>
+        <br>
+        <input type="submit" id="submit">
+        <div id="directions-panel"></div>
+    </section>
+    </div>
+  </main>
 
 {{#extend "scripts"}}
 <!--<script>
