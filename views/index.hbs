@@ -1,4 +1,5 @@
 {{#extend "stylesheets"}} {{/extend}}
+
 <div class="register modal">
   <section class="register-popup">
     <h1>Register</h1>
@@ -122,14 +123,21 @@
       <hr>
       <h5><b>La Jolla Day Trip</b></h5>
       <p id="desc"><b>Destinations</b>
-        <br>Select* the places you want to visit & click submit to see the suggested path starting from your current location.
+        <!--<br>Select* the places you want to visit & click submit to see the suggested path starting from your current location.
         <br><span id="instr">*Ctrl+Click or Cmd+Click for multiple selection</span></p>
         <select multiple id="waypoints">
           <option value="7702 Fay Ave, La Jolla, CA 92037">The Cottage</option>
           <option value="8300 Camino Del Oro, La Jolla, CA 92037">La Jolla Shores</option>
           <option value="1100 Coast Blvd, La Jolla, San Diego, CA 92037">La Jolla Cove</option>
           <option value="3750 Sports Arena Blvd, San Diego, CA 92110">Phil's BBQ</option>
-        </select>
+        </select>-->
+        <br>Click submit to see the suggested path starting from your current location. Drag & reorder places for different paths.
+        <ul id="waypoints" style="list-style-type: none;">
+            <li data-value="7702 Fay Ave, La Jolla, CA 92037" class="points" draggable="true">The Cottage</li>
+            <li data-value="8300 Camino Del Oro, La Jolla, CA 92037" class="points" draggable="true">La Jolla Shores</li>
+            <li data-value="1100 Coast Blvd, La Jolla, San Diego, CA 92037" class="points" draggable="true">La Jolla Cove</li>
+            <li data-value="3750 Sports Arena Blvd, San Diego, CA 92110" class="points" draggable="true">Phil's BBQ</li>
+        </ul>
         <br>
         <input type="submit" id="submit">
         <div id="directions-panel"></div>

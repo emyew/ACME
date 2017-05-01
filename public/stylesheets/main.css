@@ -97,3 +97,6 @@ main {
 
 .modal {
   display: none; }
+
+.points {
+  cursor: move !important; }
