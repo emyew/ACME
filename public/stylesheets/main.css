@@ -10,7 +10,8 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  line-height: 50px; }
+  line-height: 50px;
+  background-color: #6aadc9; }
   .navbar .navbar-container {
     display: flex;
     align-items: center;
@@ -30,7 +31,8 @@ body {
       display: inline; }
   .navbar a {
     text-decoration: none;
-    padding: 0 20px; }
+    padding: 0 20px;
+    color: #ae6219; }
   .navbar .navbar-menu {
     order: 4;
     padding: 0 20px;
@@ -70,7 +72,10 @@ main {
     padding: 50px 20px 20px 20px;
     position: relative;
     float: left;
-    text-align: center; }
+    text-align: center;
+    color: #243690; }
+  #side-menu #submit {
+    background-color: #fcb131; }
 
 #map-container {
   width: 70%;
@@ -136,7 +141,7 @@ main {
     justify-content: center;
     align-items: center; }
     .modal .modal-inner .modal-content {
-      background-color: white;
+      background-color: #6aadc9;
       max-width: 35em;
       padding: 1em 1.5em;
       position: relative;
@@ -160,3 +165,13 @@ main {
           margin-left: 1em; }
           .modal .modal-inner .modal-content .modal-buttons button:first-child {
             margin-left: 0; }
+      .modal .modal-inner .modal-content .fa-times {
+        color: #ae6219; }
+      .modal .modal-inner .modal-content #link-register {
+        color: #ae6219; }
+      .modal .modal-inner .modal-content .button-cancel {
+        color: #ae6219;
+        border-color: #ae6219; }
+      .modal .modal-inner .modal-content .button-primary {
+        background-color: #ae6219;
+        border-color: #ae6219; }

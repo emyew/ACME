@@ -386,7 +386,8 @@ function initMap() {
                 map: map,
                 title: 'You are here.',
                 animation: google.maps.Animation.DROP,
-                visible: true
+                visible: true,
+                icon: "http://maps.google.com/mapfiles/kml/paddle/blu-stars.png"
             });
 
             infoWindow.setContent('You are here.');

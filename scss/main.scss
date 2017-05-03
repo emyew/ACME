@@ -13,6 +13,7 @@ body {
     left: 0;
     right: 0;
     line-height: 50px;
+    background-color: #6aadc9;
     .navbar-container {
         display: flex;
         align-items: center;
@@ -39,6 +40,7 @@ body {
     a {
         text-decoration: none;
         padding: 0 20px;
+        color: #ae6219;
     }
     .navbar-menu {
         order: 4;
@@ -90,6 +92,11 @@ main {
         position: relative;
         float: left;
         text-align: center;
+        color: #243690;
+    }
+
+    #submit {
+      background-color: #fcb131;
     }
 }
 
@@ -166,7 +173,7 @@ main {
         justify-content: center;
         align-items: center;
         .modal-content {
-            background-color: white;
+            background-color: #6aadc9;
             max-width: 35em;
             padding: 1em 1.5em;
             position: relative;
@@ -181,6 +188,7 @@ main {
             }
             .modal-content-inner {
                 margin-right: 0.5em;
+
             }
             .modal-buttons-separator {
                 margin: 1.5em 0;
@@ -196,6 +204,20 @@ main {
                         margin-left: 0;
                     }
                 }
+            }
+            .fa-times {
+              color: #ae6219;
+            }
+            #link-register {
+              color: #ae6219;
+            }
+            .button-cancel {
+              color: #ae6219;
+              border-color: #ae6219;
+            }
+            .button-primary {
+              background-color: #ae6219;
+              border-color: #ae6219;
             }
         }
     }
