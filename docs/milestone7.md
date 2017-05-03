@@ -7,6 +7,7 @@ For this milestone, we wanted to focus on implementing the reordering functional
 In this screenshot, we reordered the list by dragging "The Cottage" and switching its order with "Phil's BBQ". We then resubmitted the list and a new path is displayed on the map.
 
 ### Emily
+I worked on restructuring the HTML and adding a navbar and modals to the page. I edited the SASS code to support the new HTML structure and hide the modals and other links to display the default view.
 
 ### Christy
 I worked on implementing the drag and reorder functionality for the fixed list we have right now. I also worked on making the map redisplay the path once the user resubmits the newly reordered list.
