@@ -1,9 +1,10 @@
 # Milestone 7
 ## Screenshots
+![Milestone7-Screenshot1](milestone7-imgs/milestone7-1.png)
+For this milestone, we wanted to focus on implementing the reordering functionality of the list of places (drag and reorder). In this screenshot, the default list is submitted and the path is shown on the map.
 
-Screenshot 1
-
-Screenshot 2
+![Milestone7-Screenshot2](milestone7-imgs/milestone7-2.png)
+In this screenshot, we reordered the list by dragging "The Cottage" and switching its order with "Phil's BBQ". We then resubmitted the list and a new path is displayed on the map.
 
 ### Emily
 
