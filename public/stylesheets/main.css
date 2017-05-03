@@ -11,7 +11,7 @@ body {
   left: 0;
   right: 0;
   line-height: 50px;
-  background-color: #6aadc9; }
+  background-color: white; }
   .navbar .navbar-container {
     display: flex;
     align-items: center;
@@ -141,7 +141,7 @@ main {
     justify-content: center;
     align-items: center; }
     .modal .modal-inner .modal-content {
-      background-color: #6aadc9;
+      background-color: white;
       max-width: 35em;
       padding: 1em 1.5em;
       position: relative;
@@ -151,6 +151,7 @@ main {
         position: absolute;
         right: 1.5em; }
         .modal .modal-inner .modal-content .modal-close-icon a {
+          color: #fcb131;
           text-decoration: none; }
       .modal .modal-inner .modal-content .modal-content-inner {
         margin-right: 0.5em; }
@@ -165,13 +166,11 @@ main {
           margin-left: 1em; }
           .modal .modal-inner .modal-content .modal-buttons button:first-child {
             margin-left: 0; }
-      .modal .modal-inner .modal-content .fa-times {
-        color: #ae6219; }
-      .modal .modal-inner .modal-content #link-register {
-        color: #ae6219; }
+      .modal .modal-inner .modal-content a {
+        color: #fcb131; }
       .modal .modal-inner .modal-content .button-cancel {
-        color: #ae6219;
-        border-color: #ae6219; }
+        color: #fcb131;
+        border-color: #fcb131; }
       .modal .modal-inner .modal-content .button-primary {
-        background-color: #ae6219;
-        border-color: #ae6219; }
+        background-color: #fcb131;
+        border-color: #fcb131; }

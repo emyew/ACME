@@ -1,4 +1,8 @@
-$badass: white;
+$color-bg-main: #6aadc9;
+$color-bg-second: white;
+$color-accent: #ae6219;
+$color-accent2: #fcb131;
+$color-text: #243690;
 html,
 body {
     height: 100%;
@@ -13,7 +17,7 @@ body {
     left: 0;
     right: 0;
     line-height: 50px;
-    background-color: #6aadc9;
+    background-color: $color-bg-second;
     .navbar-container {
         display: flex;
         align-items: center;
@@ -40,7 +44,7 @@ body {
     a {
         text-decoration: none;
         padding: 0 20px;
-        color: #ae6219;
+        color: $color-accent;
     }
     .navbar-menu {
         order: 4;
@@ -92,11 +96,11 @@ main {
         position: relative;
         float: left;
         text-align: center;
-        color: #243690;
+        color: $color-text;
     }
 
     #submit {
-      background-color: #fcb131;
+      background-color: $color-accent2;
     }
 }
 
@@ -173,7 +177,7 @@ main {
         justify-content: center;
         align-items: center;
         .modal-content {
-            background-color: #6aadc9;
+            background-color: $color-bg-second;
             max-width: 35em;
             padding: 1em 1.5em;
             position: relative;
@@ -183,6 +187,7 @@ main {
                 position: absolute;
                 right: 1.5em;
                 a {
+                    color: $color-accent2;
                     text-decoration: none;
                 }
             }
@@ -205,19 +210,16 @@ main {
                     }
                 }
             }
-            .fa-times {
-              color: #ae6219;
-            }
-            #link-register {
-              color: #ae6219;
+            a {
+              color: $color-accent2;
             }
             .button-cancel {
-              color: #ae6219;
-              border-color: #ae6219;
+              color: $color-accent2;
+              border-color: $color-accent2;
             }
             .button-primary {
-              background-color: #ae6219;
-              border-color: #ae6219;
+              background-color: $color-accent2;
+              border-color: $color-accent2;
             }
         }
     }
