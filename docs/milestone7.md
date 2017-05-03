@@ -15,4 +15,4 @@ I worked on implementing the drag and reorder functionality for the fixed list w
 I experimented with customizing the waypoint markers and paths between destinations. I changed the default current position marker and applied a color scheme to the landing page and login modals.
 
 ### Arlen
-I modified the navbar to become fully responsive with three flexbox settings based on media queries. I created the login and register modals and created two responsive layouts for the landing page.
+I modified the navbar to become fully responsive with three flexbox settings based on media queries. I created a general modal class and the login/register modals and created two responsive layouts for the landing page. I also restructured SASS code to become more modular and easier to read.
