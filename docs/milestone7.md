@@ -7,7 +7,7 @@ For this milestone, we wanted to focus on implementing the reordering functional
 In this screenshot, we reordered the list by dragging "The Cottage" and switching its order with "Phil's BBQ". We then resubmitted the list and a new path is displayed on the map.
 
 ### Emily
-I worked on restructuring the HTML and adding a navbar and modals to the page. I edited the SASS code to support the new HTML structure and hide the modals and other links to display the default view.
+I worked on restructuring the HTML and adding a navbar and login/register modals to the page. I edited the SASS code to support the new HTML structure and hide the modals and other links to display the default view.
 
 ### Christy
 I worked on implementing the drag and reorder functionality for the fixed list we have right now. I also worked on making the map redisplay the path once the user resubmits the newly reordered list.
@@ -16,4 +16,4 @@ I worked on implementing the drag and reorder functionality for the fixed list w
 I experimented with customizing the waypoint markers and paths between destinations. I changed the default current position marker and applied a color scheme to the landing page and login modals.
 
 ### Arlen
-I modified the navbar to become fully responsive with three flexbox settings based on media queries. I created a general modal class and the login/register modals and created two responsive layouts for the landing page. I also restructured SASS code to become more modular and easier to read.
+I modified the navbar to become fully responsive with three flexbox settings based on media queries. I created a general modal class and created two responsive layouts for the landing page. I also restructured SASS code to become more modular and easier to read.
