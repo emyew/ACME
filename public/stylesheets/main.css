@@ -38,13 +38,18 @@ body {
     padding: 0 20px;
     display: none;
     cursor: pointer; }
-
-@media (max-width: 550px) {
-  .navbar-left .navbar-links li {
-    display: none; } }
+    .navbar .navbar-menu .icon-bar {
+      width: 25px;
+      height: 3px;
+      background: #ae6219;
+      margin: 3px 2px;
+      display: block;
+      border-radius: 1.5px; }
+  .navbar .signedin {
+    display: none; }
 
 @media (max-width: 750px) {
-  .navbar-right .navbar-links li {
+  .navbar-right, .navbar-left {
     display: none; }
   .navbar-menu {
     display: inline !important; } }
@@ -70,7 +75,10 @@ main {
     float: left;
     text-align: center; }
   #side-menu #submit {
-    background-color: #fcb131; }
+    background-color: #fcb131;
+    border-color: #fcb131; }
+  #side-menu table {
+    width: 100%; }
   @media (max-width: 750px) {
     #side-menu {
       width: 100%;
@@ -116,60 +124,70 @@ main {
   content: '\2630';
   padding-right: 5px; }
 
+@keyframes popup {
+  from {
+    -ms-transform: scale(0.95) translate(0px, 20px);
+    /* IE 9 */
+    -webkit-transform: scale(0.95) translate(0px, 20px);
+    /* Chrome, Safari, Opera */
+    transform: scale(0.95) translate(0px, 20px);
+    opacity: 0; }
+  to {
+    -ms-transform: scale(1) translate(0px, 0px);
+    /* IE 9 */
+    -webkit-transform: scale(1) translate(0px, 0px);
+    /* Chrome, Safari, Opera */
+    transform: scale(1) translate(0px, 0px);
+    opacity: 1; } }
+
 .modal {
+  display: none;
   position: fixed;
-  left: 0;
   top: 0;
-  right: 0;
   bottom: 0;
+  left: 0;
+  right: 0;
   background-color: rgba(0, 0, 0, 0.65);
-  visibility: hidden;
-  backface-visibility: hidden;
-  opacity: 0;
-  transition: opacity .15s ease-in-out; }
-  .modal.modal-open {
-    visibility: visible;
-    backface-visibility: visible;
-    opacity: 1;
-    z-index: 4; }
-  .modal .modal-inner {
+  z-index: 5;
+  width: 100%; }
+  .modal .popup {
     position: relative;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; }
-    .modal .modal-inner .modal-content {
-      background-color: white;
-      max-width: 35em;
-      padding: 1em 1.5em;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    max-width: 400px;
+    margin: auto; }
+    .modal .popup .popup-content {
+      animation-name: popup;
+      animation-duration: .2s;
+      border-radius: 5px;
       position: relative;
-      margin: 2em;
-      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.35); }
-      .modal .modal-inner .modal-content .modal-close-icon {
-        position: absolute;
-        right: 1.5em; }
-        .modal .modal-inner .modal-content .modal-close-icon a {
-          color: #fcb131;
-          text-decoration: none; }
-      .modal .modal-inner .modal-content .modal-content-inner {
-        margin-right: 0.5em; }
-      .modal .modal-inner .modal-content .modal-buttons-separator {
-        margin: 1.5em 0; }
-      .modal .modal-inner .modal-content .modal-buttons {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        align-items: center; }
-        .modal .modal-inner .modal-content .modal-buttons button {
-          margin-left: 1em; }
-          .modal .modal-inner .modal-content .modal-buttons button:first-child {
-            margin-left: 0; }
-      .modal .modal-inner .modal-content a {
-        color: #fcb131; }
-      .modal .modal-inner .modal-content .button-cancel {
-        color: #fcb131;
+      max-width: 100%;
+      background: white;
+      padding: 40px; }
+      .modal .popup .popup-content input {
+        width: 100%; }
+      .modal .popup .popup-content input:focus {
         border-color: #fcb131; }
-      .modal .modal-inner .modal-content .button-primary {
+      .modal .popup .popup-content a {
+        color: #fcb131;
+        text-decoration: none; }
+      .modal .popup .popup-content a:hover {
+        text-decoration: underline; }
+      .modal .popup .popup-content button {
         background-color: #fcb131;
         border-color: #fcb131; }
+      .modal .popup .popup-content a.close-link {
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin-top: 10px;
+        margin-right: 10px; }
+      .modal .popup .popup-content a#link-signin p, .modal .popup .popup-content a#link-register p {
+        margin-top: 10px;
+        margin-bottom: 0px; }
