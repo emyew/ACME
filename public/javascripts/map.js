@@ -1,4 +1,4 @@
-var map, infoWindow, currPos, currPosMarker, waypts, wayptsList, cols;
+var map, infoWindow, currPos, currPosMarker, waypts, wayptsList, cols, place;
 
 function initMap() {
     var directionsService = new google.maps.DirectionsService;
@@ -376,6 +376,14 @@ function initMap() {
         });
     }
 
+    var input = document.getElementById('newWaypoint');
+    var autocomplete = new google.maps.places.Autocomplete(input);
+    autocomplete.bindTo('bounds', map);
+    autocomplete.addListener('place_changed', function() {
+		place = autocomplete.getPlace();
+		var address = autocomplete.formatted_address;
+    });
+
     cols = document.querySelectorAll('.points');
     [].forEach.call(cols, function (col) {
         col.addEventListener('dragstart', handleDragStart, false);
@@ -455,10 +463,35 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 function addWaypoint(waypts) {
-    var newWaypoint = document.getElementById('newWaypoint').value;
+    /*var newWaypoint = document.getElementById('newWaypoint').value;
     if (newWaypoint != '') {
 	    waypts.push({
 	    	location: newWaypoint,
+	    	stopover: true
+	    });
+	    var li = document.createElement('li');
+	    li.appendChild(document.createTextNode(newWaypoint));
+	    li.className += "points";
+	    li.draggable = true;
+	    li.setAttribute('data-value', document.getElementById('newWaypoint').value);
+	    wayptsList.appendChild(li);
+	    document.getElementById('waypoints').appendChild(li);
+	    document.getElementById('newWaypoint').value = '';
+
+	    cols = document.querySelectorAll('.points');
+	    [].forEach.call(cols, function (col) {
+	        col.addEventListener('dragstart', handleDragStart, false);
+	        col.addEventListener('dragenter', handleDragEnter, false)
+	        col.addEventListener('dragover', handleDragOver, false);
+	        col.addEventListener('dragleave', handleDragLeave, false);
+	        col.addEventListener('drop', handleDrop, false);
+	        col.addEventListener('dragend', handleDragEnd, false);
+	    });
+	}*/
+	var newWaypoint = place.name;
+    if (newWaypoint != '') {
+	    waypts.push({
+	    	location: document.getElementById('newWaypoint').value,
 	    	stopover: true
 	    });
 	    var li = document.createElement('li');
@@ -616,9 +649,9 @@ function handleDrop(e) {
 function handleDragEnd(e) {
     // this/e.target is the source node.
 
-    /*[].forEach.call(cols, function (col) {
+    [].forEach.call(cols, function (col) {
         col.classList.remove('over');
-    });*/
+    });
 }
 
 /*var cols = document.querySelectorAll('.points');
