@@ -1,4 +1,4 @@
-var map, infoWindow, currPos, currPosMarker;
+var map, infoWindow, currPos, currPosMarker, waypts, wayptsList, cols;
 
 function initMap() {
     var directionsService = new google.maps.DirectionsService;
@@ -366,6 +366,25 @@ function initMap() {
 	    }]
     });
     infoWindow = new google.maps.InfoWindow;
+    waypts = [];
+    wayptsList = document.getElementById('waypoints');
+    var places = wayptsList.getElementsByTagName('li');
+    for (var i = 0; i < places.length; i++) {
+        waypts.push({
+            location: places[i].getAttribute('data-value'),
+            stopover: true
+        });
+    }
+
+    cols = document.querySelectorAll('.points');
+    [].forEach.call(cols, function (col) {
+        col.addEventListener('dragstart', handleDragStart, false);
+        col.addEventListener('dragenter', handleDragEnter, false)
+        col.addEventListener('dragover', handleDragOver, false);
+        col.addEventListener('dragleave', handleDragLeave, false);
+        col.addEventListener('drop', handleDrop, false);
+        col.addEventListener('dragend', handleDragEnd, false);
+    });
 
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
@@ -413,13 +432,17 @@ function initMap() {
     directionsDisplay.setMap(map);
     directionsDisplay.setPanel(document.getElementById('directions-panel'));
 
+    document.getElementById('addWaypointBtn').addEventListener('click', function() {
+        addWaypoint(waypts);
+    });
+
     document.getElementById('submit').addEventListener('click', function() {
         // hide current location's marker
         currPosMarker.setVisible(false);
         infoWindow.close();
         currPosMarker.open = true;
 
-        calculateAndDisplayRoute(directionsService, directionsDisplay, currPos);
+        calculateAndDisplayRoute(directionsService, directionsDisplay, currPos, waypts);
     });
 }
 
@@ -431,8 +454,36 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.open(map);
 }
 
-function calculateAndDisplayRoute(directionsService, directionsDisplay, pos) {
-    var waypts = [];
+function addWaypoint(waypts) {
+    var newWaypoint = document.getElementById('newWaypoint').value;
+    if (newWaypoint != '') {
+	    waypts.push({
+	    	location: newWaypoint,
+	    	stopover: true
+	    });
+	    var li = document.createElement('li');
+	    li.appendChild(document.createTextNode(newWaypoint));
+	    li.className += "points";
+	    li.draggable = true;
+	    li.setAttribute('data-value', document.getElementById('newWaypoint').value);
+	    wayptsList.appendChild(li);
+	    document.getElementById('waypoints').appendChild(li);
+	    document.getElementById('newWaypoint').value = '';
+
+	    cols = document.querySelectorAll('.points');
+	    [].forEach.call(cols, function (col) {
+	        col.addEventListener('dragstart', handleDragStart, false);
+	        col.addEventListener('dragenter', handleDragEnter, false)
+	        col.addEventListener('dragover', handleDragOver, false);
+	        col.addEventListener('dragleave', handleDragLeave, false);
+	        col.addEventListener('drop', handleDrop, false);
+	        col.addEventListener('dragend', handleDragEnd, false);
+	    });
+	}
+}
+
+function calculateAndDisplayRoute(directionsService, directionsDisplay, pos, waypts) {
+	/* var waypts = [];
     var checkboxArray = document.getElementById('waypoints');
     var places = checkboxArray.getElementsByTagName('li');
     for (var i = 0; i < places.length; i++) {
@@ -440,7 +491,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pos) {
             location: places[i].getAttribute('data-value'),
             stopover: true
         });
-    }
+    }*/
 
     /*for (var i = 0; i < checkboxArray.length; i++) {
     	//if (checkboxArray.options[i].selected) {
@@ -450,6 +501,10 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pos) {
             });
        // }
     }*/
+
+    for (var i = 0; i < waypts.length; i++) {
+    	waypts[i].stopover = true;
+    }
 
     waypts.slice(-1)[0].stopover = false;
 
@@ -484,15 +539,25 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pos) {
 }
 
 var dragSrcEl = null;
+var srcIndex = -1;
+var index = -1;
 
 function handleDragStart(e) {
     // Target (this) element is the source node.
     //this.style.opacity = '0.4';
 
     dragSrcEl = this;
+    for (var i = 0; i < waypts.length; i++) {
+    	if (waypts[i].location == this.getAttribute('data-value')) {
+    		srcIndex = i;
+    		break;
+    	}
+    }
 
     e.dataTransfer.effectAllowed = 'move';
     e.dataTransfer.setData('text/html', this.innerHTML);
+    console.log('-- D R A G G I N G --');
+    console.log(dragSrcEl.innerHTML);
     e.dataTransfer.setData('text/plain', this.getAttribute('data-value'));
 }
 
@@ -526,9 +591,23 @@ function handleDrop(e) {
     if (dragSrcEl != this) {
         // Set the source column's HTML to the HTML of the column we dropped on.
         dragSrcEl.innerHTML = this.innerHTML;
+        
+        for (var i = 0; i < waypts.length; i++) {
+        	if (waypts[i].location == this.getAttribute('data-value')) {
+        		index = i;
+        		break;
+        	}
+        }
+        waypts[srcIndex].location = this.getAttribute('data-value');
+        waypts[index].location = dragSrcEl.getAttribute('data-value');
+
         dragSrcEl.setAttribute('data-value', this.getAttribute('data-value'));
         this.innerHTML = e.dataTransfer.getData('text/html');
         this.setAttribute('data-value', e.dataTransfer.getData('text/plain'));
+
+        console.log('-- PRINTING HTML AFTER DROP --');
+        console.log(dragSrcEl.innerHTML); //what you drag to
+        console.log(this.innerHTML); // what youre dragging
     }
 
     return false;
@@ -537,12 +616,12 @@ function handleDrop(e) {
 function handleDragEnd(e) {
     // this/e.target is the source node.
 
-    [].forEach.call(cols, function (col) {
+    /*[].forEach.call(cols, function (col) {
         col.classList.remove('over');
-    });
+    });*/
 }
 
-var cols = document.querySelectorAll('#waypoints .points');
+/*var cols = document.querySelectorAll('.points');
 [].forEach.call(cols, function (col) {
     col.addEventListener('dragstart', handleDragStart, false);
     col.addEventListener('dragenter', handleDragEnter, false)
@@ -550,4 +629,4 @@ var cols = document.querySelectorAll('#waypoints .points');
     col.addEventListener('dragleave', handleDragLeave, false);
     col.addEventListener('drop', handleDrop, false);
     col.addEventListener('dragend', handleDragEnd, false);
-});
+});*/
