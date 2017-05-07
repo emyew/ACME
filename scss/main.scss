@@ -6,7 +6,6 @@
     transform: translateY(-50%);
 }
 
-
 $color-bg-main: #6aadc9;
 $color-bg-second: white;
 $color-accent: #ae6219;
@@ -19,35 +18,50 @@ body {
     background-color: white;
 }
 
+@keyframes dropdown {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    // -ms-transform: translate(0px,0px); /* IE 9 */
+    // -webkit-transform: translate(0px,0px); /* Chrome, Safari, Opera */
+    height: 250px;
+    opacity: 1;
+  }
+}
+
 .navbar {
-    z-index: 3;
+    z-index: 4;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     line-height: 50px;
+    height: 50px;
     background-color: $color-bg-second;
     .navbar-container {
-        display: flex;
-        align-items: center;
         width: 100%;
     }
-    .navbar-left {
-        order: 1;
+    .navbar-lists {
+      font-variant: small-caps;
     }
-    .navbar-logo {
-        order: 2;
-        flex: 1;
-        text-align: center;
+    .navbar-brand {
+      float: left;
+      font-weight: bold;
+    }
+    .navbar-left {
+      float: left;
     }
     .navbar-right {
-        order: 3;
+      float: right;
     }
     ul {
         list-style-type: none;
-        margin: 0px;
+        margin: 0;
         li {
             display: inline;
+            margin: 0;
         }
     }
     a {
@@ -56,10 +70,12 @@ body {
         color: $color-accent;
     }
     .navbar-menu {
-        order: 4;
-        padding: 0 20px;
+        float: right;
         display: none;
         cursor: pointer;
+        position: absolute;
+        top: 25%;
+        right: 20px;
         .icon-bar {
           width: 25px;
           height: 3px;
@@ -72,20 +88,35 @@ body {
     .signedin {
       display: none;
     }
-}
-
-// @media (max-width: 550px) {
-//     .navbar-left .navbar-links li {
-//         display: none;
-//     }
-// }
-
-@media (max-width: 750px) {
-    .navbar-right, .navbar-left {
-        display: none;
-    }
-    .navbar-menu {
-        display: inline !important;
+    @media (max-width: 850px) {
+        .navbar-menu {
+            display: inline-block !important;
+        }
+        .navbar-lists {
+          z-index: 3;
+          animation-name: dropdown;
+          animation-duration: .2s;
+          position: absolute;
+          top: 50px;
+          width: 100%;
+          overflow: hidden;
+        }
+        .navbar-left {
+          background-color: $color-bg-second;
+        }
+        .navbar-right {
+          background-color: $color-bg-second; //color different from left
+        }
+        .navbar-right, .navbar-left {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+        ul {
+          li {
+            display: block;
+          }
+        }
     }
 }
 
@@ -115,16 +146,40 @@ main {
         background-color: $color-accent2;
         border-color: $color-accent2;
     }
+    #desc {
+        padding-left: 10px;
+        padding-right: 10px;
+        text-align: left;
+    }
+    #instr {
+        font-size: 12px;
+    }
+    #list-container {
+        margin: auto;
+        width: 93%;
+    }
+    #waypoints {
+        text-align: left;
+        margin-bottom: 0px;
+    }
+    .points {
+        cursor: move !important;
+    }
+    .points:before {
+        content: '\2630';
+        padding-right: 5px;
+    }
     table {
       width: 100%;
     }
-    @media (max-width: 750px) {
+    @media (max-width: 850px) {
         width: 100%;
         height: 50%;
     }
 }
 
 #map-container {
+    z-index: 1;
     width: 70%;
     position: absolute;
     top: 0;
@@ -137,39 +192,10 @@ main {
         width: 100%;
         float: left;
     }
-    @media (max-width: 750px) {
+    @media (max-width: 850px) {
         width: 100%;
         height: 50%;
     }
-}
-
-#desc {
-    padding-left: 10px;
-    padding-right: 10px;
-    text-align: left;
-}
-
-#instr {
-    font-size: 12px;
-}
-
-#list-container {
-    margin: auto;
-    width: 93%;
-}
-
-#waypoints {
-    text-align: left;
-    margin-bottom: 0px;
-}
-
-.points {
-    cursor: move !important;
-}
-
-.points:before {
-    content: '\2630';
-    padding-right: 5px;
 }
 
 @keyframes popup {
