@@ -1,7 +1,8 @@
 # Milestone 8
 
 ### Emily
-
+![Milestone8-Emily](milestone8-imgs/milestone8-emily.png)
+This is a prototype for the Explore and Profile page. The layout is based on grids/cards that the users will be able to scroll through. On the Explore page, users will be able to search for specific keywords or tags. There will be a fixed amount of tags based on moods that users will be able to page through with the arrows and look at. Selecting tags will filter out trips. On the Profile page, users will have their own profile picture and description. They'll also have a two pages containing their saved trips and their own created trips. On either page, selecting a trip will lead them to the map view.
 
 ### Christy
 ![Milestone8-Christy](milestone8-imgs/milestone8-christy.jpg)
