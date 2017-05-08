@@ -4,6 +4,8 @@
 
 
 ### Christy
+![Milestone8-Christy](milestone8-imgs/milestone8-christy.jpg)
+This is a paper prototype of the Explore page and the Profile page. For the Explore page, users can search with the search bar and type in the title of the list/trip. They can also filter by mood (fixed number of moods). Each card is also color-coded with the mood of the trip. For the Profile page, users can upload an image for themselves and it will also display the lists they created/saved and their favorite lists.
 
 ### Mohsin
 ![Milestone8-Mohsin](milestone8-imgs/milestone8-mohsin.jpg)
