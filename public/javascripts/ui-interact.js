@@ -31,8 +31,10 @@ $(".navbar-menu").click(function () {
 $("#side-menu-toggle-wrapper").click(function () {
   if($("#side-menu").hasClass("show")) {
     $("#side-menu").animate({"margin-top": "200%"}, 300).removeClass("show");
+    $(".fa-caret-square-o-down").removeClass("fa-caret-square-o-down").addClass("fa-caret-square-o-up");
   } else {
     $("#side-menu").animate({"margin-top": 0}, 300).addClass("show");
+    $(".fa-caret-square-o-up").removeClass("fa-caret-square-o-up").addClass("fa-caret-square-o-down");
   }
 });
 
@@ -40,6 +42,7 @@ $("#side-menu-toggle-wrapper").click(function () {
 $(window).resize(function() {
   if($(window).width() > 750) {
     $("#side-menu").css({"margin-top": 0}).addClass("show");
+    $(".fa-caret-square-o-up").removeClass("fa-caret-square-o-up").addClass("fa-caret-square-o-down");
     $(".navbar-lists").css({height: 0}, 200).addClass("hide");
   }
 });
