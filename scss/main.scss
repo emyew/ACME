@@ -11,24 +11,12 @@ $color-bg-second: white;
 $color-accent: #ae6219;
 $color-accent2: #fcb131;
 $color-text: #243690;
+
 html,
 body {
     height: 100%;
     margin: 0;
     background-color: white;
-}
-
-@keyframes dropdown {
-  from {
-    height: 0;
-    opacity: 0;
-  }
-  to {
-    // -ms-transform: translate(0px,0px); /* IE 9 */
-    // -webkit-transform: translate(0px,0px); /* Chrome, Safari, Opera */
-    height: 250px;
-    opacity: 1;
-  }
 }
 
 .navbar {
@@ -88,18 +76,17 @@ body {
     .signedin {
       display: none;
     }
-    @media (max-width: 850px) {
+    @media (max-width: 750px) {
         .navbar-menu {
             display: inline-block !important;
         }
         .navbar-lists {
           z-index: 3;
-          animation-name: dropdown;
-          animation-duration: .2s;
           position: absolute;
           top: 50px;
           width: 100%;
           overflow: hidden;
+          height: 0;
         }
         .navbar-left {
           background-color: $color-bg-second;
@@ -110,7 +97,6 @@ body {
         .navbar-right, .navbar-left {
           width: 100%;
           float: left;
-          display: none;
         }
         ul {
           li {
@@ -128,53 +114,109 @@ main {
     bottom: 0;
 }
 
+#side-menu-toggle-wrapper {
+  display: none;
+  position: fixed;
+  z-index: 3;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  #side-menu-toggle {
+    border: none;
+    border-radius: 0;
+    background-color: $color-accent2;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 9pt;
+  }
+  @media (max-width: 750px) {
+      display: block;
+  }
+}
+
 #side-menu {
     width: 30%;
     position: absolute;
+    overflow: scroll;
+    top: 0;
     bottom: 0;
     left: 0;
-    height: 100%;
-    overflow: scroll;
     z-index: 2;
+    margin-top: 0;
     #side-menu-content {
-        padding: 50px 20px 20px 20px;
         position: relative;
+        padding: 30px;
         float: left;
-        text-align: center;
+        text-align: left;
     }
     #submit {
         background-color: $color-accent2;
         border-color: $color-accent2;
     }
+    .trip-title {
+      text-align: center;
+      font-weight: 700;
+    }
     #desc {
-        padding-left: 10px;
-        padding-right: 10px;
+        font-weight: 600;
         text-align: left;
+        margin-bottom: 0;
     }
     #instr {
         font-size: 12px;
     }
     #list-container {
         margin: auto;
-        width: 93%;
     }
     #waypoints {
         text-align: left;
-        margin-bottom: 0px;
+        margin-bottom: 15px;
     }
     .points {
+        background-color: $color-bg-second;
         cursor: move !important;
+        margin-bottom: 0;
+        min-height: 40px;
     }
     .points:before {
         content: '\2630';
-        padding-right: 5px;
+        padding-right: 10px;
+        font-size: 12pt;
+        color: $color-accent2;
+    }
+    #add-waypoints-container {
+      position: relative;
+      line-height: 24px;
+      width: 100%;
+      margin-bottom: 25px;
+      #new-waypoint {
+        padding-right: 58px;
+        margin: 0;
+        width: 100%;
+      }
+      #add-waypoint-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50px;
+        padding: 0 10px;
+        margin: 0;
+        border-radius: 0 4px 4px 0;
+        font-size: 8pt;
+        text-align: center;
+        line-height: 16px;
+      }
     }
     table {
       width: 100%;
     }
-    @media (max-width: 850px) {
+    @media (max-width: 750px) {
         width: 100%;
-        height: 50%;
+        bottom: 50px;
+        background-color: $color-bg-second;
+        margin-top: 200%;
     }
 }
 
@@ -185,16 +227,15 @@ main {
     top: 0;
     bottom: 0;
     right: 0;
-    height: 100%;
     overflow: hidden;
     #map {
         height: 100%;
         width: 100%;
         float: left;
     }
-    @media (max-width: 850px) {
+    @media (max-width: 750px) {
         width: 100%;
-        height: 50%;
+        bottom: 50px;
     }
 }
 
@@ -263,7 +304,7 @@ main {
         margin-top: 10px;
         margin-right: 10px;
       }
-      a#link-signin, a#link-register {
+      a.pop-signin, a.pop-register {
         p {
           margin-top: 10px;
           margin-bottom: 0px;

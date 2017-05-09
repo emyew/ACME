@@ -4,14 +4,6 @@ body {
   margin: 0;
   background-color: white; }
 
-@keyframes dropdown {
-  from {
-    height: 0;
-    opacity: 0; }
-  to {
-    height: 250px;
-    opacity: 1; } }
-
 .navbar {
   z-index: 4;
   position: fixed;
@@ -58,25 +50,23 @@ body {
       border-radius: 1.5px; }
   .navbar .signedin {
     display: none; }
-  @media (max-width: 850px) {
+  @media (max-width: 750px) {
     .navbar .navbar-menu {
       display: inline-block !important; }
     .navbar .navbar-lists {
       z-index: 3;
-      animation-name: dropdown;
-      animation-duration: .2s;
       position: absolute;
       top: 50px;
       width: 100%;
-      overflow: hidden; }
+      overflow: hidden;
+      height: 0; }
     .navbar .navbar-left {
       background-color: white; }
     .navbar .navbar-right {
       background-color: white; }
     .navbar .navbar-right, .navbar .navbar-left {
       width: 100%;
-      float: left;
-      display: none; }
+      float: left; }
     .navbar ul li {
       display: block; } }
 
@@ -87,45 +77,95 @@ main {
   right: 0;
   bottom: 0; }
 
+#side-menu-toggle-wrapper {
+  display: none;
+  position: fixed;
+  z-index: 3;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px; }
+  #side-menu-toggle-wrapper #side-menu-toggle {
+    border: none;
+    border-radius: 0;
+    background-color: #fcb131;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 9pt; }
+  @media (max-width: 750px) {
+    #side-menu-toggle-wrapper {
+      display: block; } }
+
 #side-menu {
   width: 30%;
   position: absolute;
+  overflow: scroll;
+  top: 0;
   bottom: 0;
   left: 0;
-  height: 100%;
-  overflow: scroll;
-  z-index: 2; }
+  z-index: 2;
+  margin-top: 0; }
   #side-menu #side-menu-content {
-    padding: 50px 20px 20px 20px;
     position: relative;
+    padding: 30px;
     float: left;
-    text-align: center; }
+    text-align: left; }
   #side-menu #submit {
     background-color: #fcb131;
     border-color: #fcb131; }
+  #side-menu .trip-title {
+    text-align: center;
+    font-weight: 700; }
   #side-menu #desc {
-    padding-left: 10px;
-    padding-right: 10px;
-    text-align: left; }
+    font-weight: 600;
+    text-align: left;
+    margin-bottom: 0; }
   #side-menu #instr {
     font-size: 12px; }
   #side-menu #list-container {
-    margin: auto;
-    width: 93%; }
+    margin: auto; }
   #side-menu #waypoints {
     text-align: left;
-    margin-bottom: 0px; }
+    margin-bottom: 15px; }
   #side-menu .points {
-    cursor: move !important; }
+    background-color: white;
+    cursor: move !important;
+    margin-bottom: 0;
+    min-height: 40px; }
   #side-menu .points:before {
     content: '\2630';
-    padding-right: 5px; }
+    padding-right: 10px;
+    font-size: 12pt;
+    color: #fcb131; }
+  #side-menu #add-waypoints-container {
+    position: relative;
+    line-height: 24px;
+    width: 100%;
+    margin-bottom: 25px; }
+    #side-menu #add-waypoints-container #new-waypoint {
+      padding-right: 58px;
+      margin: 0;
+      width: 100%; }
+    #side-menu #add-waypoints-container #add-waypoint-btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50px;
+      padding: 0 10px;
+      margin: 0;
+      border-radius: 0 4px 4px 0;
+      font-size: 8pt;
+      text-align: center;
+      line-height: 16px; }
   #side-menu table {
     width: 100%; }
-  @media (max-width: 850px) {
+  @media (max-width: 750px) {
     #side-menu {
       width: 100%;
-      height: 50%; } }
+      bottom: 50px;
+      background-color: white;
+      margin-top: 200%; } }
 
 #map-container {
   z-index: 1;
@@ -134,16 +174,15 @@ main {
   top: 0;
   bottom: 0;
   right: 0;
-  height: 100%;
   overflow: hidden; }
   #map-container #map {
     height: 100%;
     width: 100%;
     float: left; }
-  @media (max-width: 850px) {
+  @media (max-width: 750px) {
     #map-container {
       width: 100%;
-      height: 50%; } }
+      bottom: 50px; } }
 
 @keyframes popup {
   from {
@@ -209,6 +248,6 @@ main {
         top: 0;
         margin-top: 10px;
         margin-right: 10px; }
-      .modal .popup .popup-content a#link-signin p, .modal .popup .popup-content a#link-register p {
+      .modal .popup .popup-content a.pop-signin p, .modal .popup .popup-content a.pop-register p {
         margin-top: 10px;
         margin-bottom: 0px; }

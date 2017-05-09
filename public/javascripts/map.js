@@ -376,7 +376,7 @@ function initMap() {
         });
     }
 
-    var input = document.getElementById('newWaypoint');
+    var input = document.getElementById('new-waypoint');
     var autocomplete = new google.maps.places.Autocomplete(input);
     autocomplete.bindTo('bounds', map);
     autocomplete.addListener('place_changed', function() {
@@ -440,7 +440,7 @@ function initMap() {
     directionsDisplay.setMap(map);
     directionsDisplay.setPanel(document.getElementById('directions-panel'));
 
-    document.getElementById('addWaypointBtn').addEventListener('click', function() {
+    document.getElementById('add-waypoint-btn').addEventListener('click', function() {
         addWaypoint(waypts);
     });
 
@@ -491,17 +491,17 @@ function addWaypoint(waypts) {
 	var newWaypoint = place.name;
     if (newWaypoint != '') {
 	    waypts.push({
-	    	location: document.getElementById('newWaypoint').value,
+	    	location: document.getElementById('new-waypoint').value,
 	    	stopover: true
 	    });
 	    var li = document.createElement('li');
 	    li.appendChild(document.createTextNode(newWaypoint));
 	    li.className += "points";
 	    li.draggable = true;
-	    li.setAttribute('data-value', document.getElementById('newWaypoint').value);
+	    li.setAttribute('data-value', document.getElementById('new-waypoint').value);
 	    wayptsList.appendChild(li);
 	    document.getElementById('waypoints').appendChild(li);
-	    document.getElementById('newWaypoint').value = '';
+	    document.getElementById('new-waypoint').value = '';
 
 	    cols = document.querySelectorAll('.points');
 	    [].forEach.call(cols, function (col) {
@@ -624,7 +624,7 @@ function handleDrop(e) {
     if (dragSrcEl != this) {
         // Set the source column's HTML to the HTML of the column we dropped on.
         dragSrcEl.innerHTML = this.innerHTML;
-        
+
         for (var i = 0; i < waypts.length; i++) {
         	if (waypts[i].location == this.getAttribute('data-value')) {
         		index = i;
