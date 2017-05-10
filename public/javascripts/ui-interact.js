@@ -1,7 +1,14 @@
 // this file describes all ui interaction functionality
 
-
-
+//make list able to be reordered by dragging
+var elem = document.getElementById("waypoints");
+var editableList = Sortable.create(elem, {
+  filter: '.remove-point',
+  onFilter: function (evt) {
+    var el = editableList.closest(evt.item); // get dragged item
+    el && el.parentNode.removeChild(el);
+  }
+});
 
 //modal functionality (show signin modal, show register modal, close modal)
 $(".pop-signin").click(function () {
