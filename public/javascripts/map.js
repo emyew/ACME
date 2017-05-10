@@ -413,14 +413,13 @@ function initMap() {
                 map: map,
                 title: 'You are here.',
                 animation: google.maps.Animation.DROP,
-                visible: true,
-                icon: "http://maps.google.com/mapfiles/kml/paddle/blu-stars.png"
+                visible: true
             });
 
-            infoWindow.setContent('You are here.');
-            infoWindow.open(map, currPosMarker);
+            //infoWindow.setContent('You are here.');
+            //infoWindow.open(map, currPosMarker);
 
-            currPosMarker.addListener('click', function() {
+            /*currPosMarker.addListener('click', function() {
                 if (currPosMarker.open) {
                     infoWindow.open(map, currPosMarker);
                     currPosMarker.open = false;
@@ -428,7 +427,7 @@ function initMap() {
                     infoWindow.close();
                     currPosMarker.open = true;
                 }
-            });
+            });*/
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
         });
@@ -541,6 +540,14 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pos, way
 
     waypts.slice(-1)[0].stopover = false;
 
+    var markerArray = [];
+
+    for (i = 0; i < markerArray.length; i++) {
+    	markerArray[i].setMap(null);
+    }
+
+    markerArray = [];
+
     directionsService.route({
         origin: currPos,
         destination: waypts.slice(-1)[0].location,
@@ -565,11 +572,41 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pos, way
 		        summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
 		        summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
     		}*/
+    		/*var route = response.routes[0];
+    		for (var i = 0; i < route.legs.length; i++) {
+				var icon = "https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=" + i + "|FCB131|FFFFFF";
+				if (i == 0) {
+					icon = "https://chart.googleapis.com/chart?chst=d_map_xpin_icon&chld=pin_star|car-dealer|00FFFF|FF0000";
+				}
+				var marker = new google.maps.Marker({
+					position: route.legs[i].start_location, 
+					map: map,
+					icon: icon
+				});
+				attachText(marker, route.legs[i].start_address);
+				markerArray.push(marker);
+			}
+			var marker = new google.maps.Marker({
+				position: route.legs[i - 1].end_location, 
+				map: map,
+				icon: "https://chart.googleapis.com/chart?chst=d_map_pin_icon&chld=flag|ADDE63"
+			});
+			markerArray.push(marker);
+			attachText(marker, route.legs[i-1].end_address);
+
+			google.maps.event.trigger(markerArray[0], "click");*/
         } else {
             window.alert('Directions request failed due to ' + status);
         }
     });
 }
+
+/*function attachText(marker, text) {
+	google.maps.event.addListener(marker, 'click', function() {
+    	infoWindow.setContent(text);
+    	infoWindow.open(map, marker);
+    });
+}*/
 
 var dragSrcEl = null;
 var srcIndex = -1;
@@ -589,8 +626,6 @@ function handleDragStart(e) {
 
     e.dataTransfer.effectAllowed = 'move';
     e.dataTransfer.setData('text/html', this.innerHTML);
-    console.log('-- D R A G G I N G --');
-    console.log(dragSrcEl.innerHTML);
     e.dataTransfer.setData('text/plain', this.getAttribute('data-value'));
 }
 
@@ -637,10 +672,6 @@ function handleDrop(e) {
         dragSrcEl.setAttribute('data-value', this.getAttribute('data-value'));
         this.innerHTML = e.dataTransfer.getData('text/html');
         this.setAttribute('data-value', e.dataTransfer.getData('text/plain'));
-
-        console.log('-- PRINTING HTML AFTER DROP --');
-        console.log(dragSrcEl.innerHTML); //what you drag to
-        console.log(this.innerHTML); // what youre dragging
     }
 
     return false;
