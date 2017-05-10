@@ -264,11 +264,11 @@ main {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     max-width: 400px;
-    margin: auto; }
+    margin: auto;
+    border-radius: 5px; }
     .modal .popup .popup-content {
       animation-name: popup;
       animation-duration: .2s;
-      border-radius: 5px;
       position: relative;
       max-width: 100%;
       background: white;
@@ -301,3 +301,7 @@ main {
       .modal .popup .popup-content a.pop-signin p, .modal .popup .popup-content a.pop-register p {
         margin-top: 10px;
         margin-bottom: 0px; }
+  @media (max-width: 750px) {
+    .modal .popup {
+      max-height: 80%;
+      overflow: scroll; } }

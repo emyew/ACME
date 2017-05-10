@@ -333,10 +333,10 @@ main {
     @include vertical-align;
     max-width: 400px;
     margin: auto;
+    border-radius: 5px;
     .popup-content {
       animation-name: popup;
       animation-duration: .2s;
-      border-radius: 5px;
       position: relative;
       max-width: 100%;
       background: $color-bg-main;
@@ -379,6 +379,12 @@ main {
           margin-bottom: 0px;
         }
       }
+    }
+  }
+  @media (max-width: 750px) {
+    .popup {
+      max-height: 80%;
+      overflow: scroll;
     }
   }
 }
