@@ -1,5 +1,8 @@
 // this file describes all ui interaction functionality
 
+
+
+
 //modal functionality (show signin modal, show register modal, close modal)
 $(".pop-signin").click(function () {
   $(".register").hide();
@@ -45,4 +48,9 @@ $(window).resize(function() {
     $(".fa-caret-square-o-up").removeClass("fa-caret-square-o-up").addClass("fa-caret-square-o-down");
     $(".navbar-lists").css({height: 0}, 200).addClass("hide");
   }
+});
+
+$(window).bind("load", function() {
+  $(".loader").hide();
+  $("#map").animate({opacity:1}, 300);
 });
