@@ -498,6 +498,10 @@ function addWaypoint(waypts) {
 	    li.className += "points";
 	    li.draggable = true;
 	    li.setAttribute('data-value', document.getElementById('new-waypoint').value);
+	    var point_i = document.createElement('i');
+	    point_i.className += "fa fa-times fa-lg remove-point";
+	    point_i.setAttribute('aria-hidden', "true");
+	    li.appendChild(point_i);
 	    wayptsList.appendChild(li);
 	    document.getElementById('waypoints').appendChild(li);
 	    document.getElementById('new-waypoint').value = '';
