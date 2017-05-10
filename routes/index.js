@@ -4,7 +4,7 @@ var redis = require('../redis');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Express' });
+    res.render('index', { title: 'RoadRunner' });
 });
 
 // redis api for adding data
