@@ -137,10 +137,14 @@ main {
     text-align: left;
     margin-bottom: 15px; }
   #side-menu .points {
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     background-color: white;
     cursor: move !important;
     margin-bottom: 0;
-    min-height: 40px; }
+    min-height: 20px;
+    vertical-align: middle; }
   #side-menu .points:before {
     content: '\2630';
     padding-right: 10px;
@@ -150,7 +154,7 @@ main {
     position: relative;
     line-height: 24px;
     width: 100%;
-    margin-bottom: 25px; }
+    margin-bottom: 30px; }
     #side-menu #add-waypoints-container #new-waypoint {
       padding-right: 58px;
       margin: 0;
@@ -189,25 +193,12 @@ main {
   top: 0;
   bottom: 0;
   right: 0;
-  background-color: #FCFEF5;
   overflow: hidden; }
   #map-container #map {
     height: 100%;
     width: 100%;
     float: left;
     opacity: 0; }
-  #map-container .loader {
-    position: absolute;
-    width: 100%;
-    display: inline-block;
-    z-index: 2;
-    color: #84d8bd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%; }
-  #map-container i {
-    vertical-align: middle; }
   @media (max-width: 750px) {
     #map-container {
       width: 100%;
@@ -228,6 +219,21 @@ main {
     /* Chrome, Safari, Opera */
     transform: scale(1) translate(0px, 0px);
     opacity: 1; } }
+
+.loader {
+  position: fixed;
+  top: 50px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #FCFEF5;
+  z-index: 4;
+  color: #84d8bd;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .loader i {
+    vertical-align: middle; }
 
 .modal {
   display: none;

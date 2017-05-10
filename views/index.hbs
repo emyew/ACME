@@ -103,44 +103,45 @@
 </header>
 
 <main>
+  <div class="loader">
+    <i class="fa fa-compass fa-spin fa-3x fa-fw"></i>
+    <span class="sr-only">Loading...</span>
+  </div>
   <div id="side-menu-toggle-wrapper">
     <button id="side-menu-toggle" type="button" name="side-menu-toggle">
       <span class="trip-title">La Jolla Day Trip</span>
       <i class="fa fa-lg fa-caret-square-o-up" aria-hidden="true"></i>
     </button>
   </div>
-    <div id="map-container">
-        <div class="loader">
-          <i class="fa fa-compass fa-spin fa-3x fa-fw"></i>
-          <span class="sr-only">Loading...</span>
+  <div id="map-container">
+    <div id="map"></div>
+  </div>
+  <div id="side-menu">
+    <section id="side-menu-content">
+      <h5 class="trip-title">La Jolla Day Trip</h5>
+      <h6 id="desc">Destinations</h6>
+      <p>Click submit to see the suggested path starting from your current location. Drag & reorder places for different paths.</p>
+      <div id="list-container">
+        <ul id="waypoints" style="list-style-type: none;">
+          <li data-value="7702 Fay Ave, La Jolla, CA 92037" class="points" draggable="true">The Cottage</li>
+          <li data-value="8300 Camino Del Oro, La Jolla, CA 92037" class="points" draggable="true">La Jolla Shores</li>
+          <li data-value="1100 Coast Blvd, La Jolla, San Diego, CA 92037" class="points" draggable="true">La Jolla Cove</li>
+          <li data-value="3750 Sports Arena Blvd, San Diego, CA 92110" class="points" draggable="true">Phil's BBQ</li>
+        </ul>
+        <div id="add-waypoints-container">
+          <input type="text" id="new-waypoint" placeholder="Type Address" value="">
+          <input class="button-primary" id="add-waypoint-btn" type="submit" value="Add">
         </div>
-        <div id="map"></div>
-    </div>
-    <div id="side-menu">
-        <section id="side-menu-content">
-            <h5 class="trip-title">La Jolla Day Trip</h5>
-            <h6 id="desc">Destinations</h6>
-                <p>Click submit to see the suggested path starting from your current location. Drag & reorder places for different paths.</p>
-                <div id="list-container">
-                    <ul id="waypoints" style="list-style-type: none;">
-                        <li data-value="7702 Fay Ave, La Jolla, CA 92037" class="points" draggable="true">The Cottage</li>
-                        <li data-value="8300 Camino Del Oro, La Jolla, CA 92037" class="points" draggable="true">La Jolla Shores</li>
-                        <li data-value="1100 Coast Blvd, La Jolla, San Diego, CA 92037" class="points" draggable="true">La Jolla Cove</li>
-                        <li data-value="3750 Sports Arena Blvd, San Diego, CA 92110" class="points" draggable="true">Phil's BBQ</li>
-                    </ul>
-                    <div id="add-waypoints-container">
-                        <input type="text" id="new-waypoint" placeholder="Type Address" value="">
-                        <input class="button-primary" id="add-waypoint-btn" type="submit" value="Add">
-                    </div>
-                </div>
-                <input class="button-primary" type="submit" id="submit">
-                <div id="directions-panel"></div>
-        </section>
-    </div>
+      </div>
+      <input class="button-primary" type="submit" id="submit">
+      <div id="directions-panel"></div>
+    </section>
+  </div>
 </main>
 {{#extend "scripts"}}
 <script type="text/javascript" src="/javascripts/map.js"></script>
 <script type="text/javascript" src="/javascripts/ui-interact.js"></script>
+<script type="text/javascript" src="/javascripts/Sortable.min.js"></script>
 <script type="text/javascript" src="/javascripts/main.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7l3pxQ6dq-Kgg-aVUO6-A0zf2swG2Cec&callback=initMap&libraries=places">
 </script>

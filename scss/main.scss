@@ -7,6 +7,7 @@
 }
 
 $color-bg-main: white;
+$color-bg-second: #FCFEF5;
 $color-accent: #F7AF63;
 $color-accent-hover: #e58f34;
 $color-accent2: #84d8bd;
@@ -189,12 +190,17 @@ main {
     #waypoints {
         text-align: left;
         margin-bottom: 15px;
+        // background-color: black;
     }
     .points {
+        padding-left: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
         background-color: $color-bg-main;
         cursor: move !important;
         margin-bottom: 0;
-        min-height: 40px;
+        min-height: 20px;
+        vertical-align: middle;
     }
     .points:before {
         content: '\2630';
@@ -206,7 +212,7 @@ main {
       position: relative;
       line-height: 24px;
       width: 100%;
-      margin-bottom: 25px;
+      margin-bottom: 30px;
       #new-waypoint {
         padding-right: 58px;
         margin: 0;
@@ -252,27 +258,12 @@ main {
     top: 0;
     bottom: 0;
     right: 0;
-    background-color: #FCFEF5;
     overflow: hidden;
     #map {
         height: 100%;
         width: 100%;
         float: left;
         opacity: 0;
-    }
-    .loader {
-        position: absolute;
-        width: 100%;
-        display: inline-block;
-        z-index: 2;
-        color: $color-accent2;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-    }
-    i {
-      vertical-align: middle;
     }
     @media (max-width: 750px) {
         width: 100%;
@@ -294,6 +285,24 @@ main {
     opacity: 1;
   }
 }
+
+.loader {
+    position: fixed;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $color-bg-second;
+    z-index: 4;
+    color: $color-accent2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    i {
+      vertical-align: middle;
+    }
+}
+
 
 .modal {
   display: none;

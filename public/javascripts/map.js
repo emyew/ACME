@@ -385,14 +385,14 @@ function initMap() {
     });
 
     cols = document.querySelectorAll('.points');
-    [].forEach.call(cols, function (col) {
-        col.addEventListener('dragstart', handleDragStart, false);
-        col.addEventListener('dragenter', handleDragEnter, false)
-        col.addEventListener('dragover', handleDragOver, false);
-        col.addEventListener('dragleave', handleDragLeave, false);
-        col.addEventListener('drop', handleDrop, false);
-        col.addEventListener('dragend', handleDragEnd, false);
-    });
+    // [].forEach.call(cols, function (col) {
+    //     col.addEventListener('dragstart', handleDragStart, false);
+    //     col.addEventListener('dragenter', handleDragEnter, false)
+    //     col.addEventListener('dragover', handleDragOver, false);
+    //     col.addEventListener('dragleave', handleDragLeave, false);
+    //     col.addEventListener('drop', handleDrop, false);
+    //     col.addEventListener('dragend', handleDragEnd, false);
+    // });
 
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
@@ -503,19 +503,28 @@ function addWaypoint(waypts) {
 	    document.getElementById('new-waypoint').value = '';
 
 	    cols = document.querySelectorAll('.points');
-	    [].forEach.call(cols, function (col) {
-	        col.addEventListener('dragstart', handleDragStart, false);
-	        col.addEventListener('dragenter', handleDragEnter, false)
-	        col.addEventListener('dragover', handleDragOver, false);
-	        col.addEventListener('dragleave', handleDragLeave, false);
-	        col.addEventListener('drop', handleDrop, false);
-	        col.addEventListener('dragend', handleDragEnd, false);
-	    });
+	    // [].forEach.call(cols, function (col) {
+	    //     col.addEventListener('dragstart', handleDragStart, false);
+	    //     col.addEventListener('dragenter', handleDragEnter, false)
+	    //     col.addEventListener('dragover', handleDragOver, false);
+	    //     col.addEventListener('dragleave', handleDragLeave, false);
+	    //     col.addEventListener('drop', handleDrop, false);
+	    //     col.addEventListener('dragend', handleDragEnd, false);
+	    // });
 	}
 }
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay, pos, waypts) {
-	/* var waypts = [];
+  waypts = [];
+  wayptsList = document.getElementById('waypoints');
+  var places = wayptsList.getElementsByTagName('li');
+  for (var i = 0; i < places.length; i++) {
+      waypts.push({
+          location: places[i].getAttribute('data-value'),
+          stopover: true
+      });
+  }
+  /* var waypts = [];
     var checkboxArray = document.getElementById('waypoints');
     var places = checkboxArray.getElementsByTagName('li');
     for (var i = 0; i < places.length; i++) {
@@ -579,7 +588,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pos, way
 					icon = "https://chart.googleapis.com/chart?chst=d_map_xpin_icon&chld=pin_star|car-dealer|00FFFF|FF0000";
 				}
 				var marker = new google.maps.Marker({
-					position: route.legs[i].start_location, 
+					position: route.legs[i].start_location,
 					map: map,
 					icon: icon
 				});
@@ -587,7 +596,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pos, way
 				markerArray.push(marker);
 			}
 			var marker = new google.maps.Marker({
-				position: route.legs[i - 1].end_location, 
+				position: route.legs[i - 1].end_location,
 				map: map,
 				icon: "https://chart.googleapis.com/chart?chst=d_map_pin_icon&chld=flag|ADDE63"
 			});
@@ -608,82 +617,82 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pos, way
     });
 }*/
 
-var dragSrcEl = null;
-var srcIndex = -1;
-var index = -1;
-
-function handleDragStart(e) {
-    // Target (this) element is the source node.
-    //this.style.opacity = '0.4';
-
-    dragSrcEl = this;
-    for (var i = 0; i < waypts.length; i++) {
-    	if (waypts[i].location == this.getAttribute('data-value')) {
-    		srcIndex = i;
-    		break;
-    	}
-    }
-
-    e.dataTransfer.effectAllowed = 'move';
-    e.dataTransfer.setData('text/html', this.innerHTML);
-    e.dataTransfer.setData('text/plain', this.getAttribute('data-value'));
-}
-
-function handleDragOver(e) {
-    if (e.preventDefault) {
-        e.preventDefault(); // Necessary. Allows us to drop.
-    }
-
-    e.dataTransfer.dropEffect = 'move';  // See the section on the DataTransfer object.
-
-    return false;
-}
-
-function handleDragEnter(e) {
-    // this / e.target is the current hover target.
-    this.classList.add('over');
-}
-
-function handleDragLeave(e) {
-    this.classList.remove('over');  // this / e.target is previous target element.
-}
-
-function handleDrop(e) {
-    // this/e.target is current target element.
-
-    if (e.stopPropagation) {
-        e.stopPropagation(); // Stops some browsers from redirecting.
-    }
-
-    // Don't do anything if dropping the same column we're dragging.
-    if (dragSrcEl != this) {
-        // Set the source column's HTML to the HTML of the column we dropped on.
-        dragSrcEl.innerHTML = this.innerHTML;
-
-        for (var i = 0; i < waypts.length; i++) {
-        	if (waypts[i].location == this.getAttribute('data-value')) {
-        		index = i;
-        		break;
-        	}
-        }
-        waypts[srcIndex].location = this.getAttribute('data-value');
-        waypts[index].location = dragSrcEl.getAttribute('data-value');
-
-        dragSrcEl.setAttribute('data-value', this.getAttribute('data-value'));
-        this.innerHTML = e.dataTransfer.getData('text/html');
-        this.setAttribute('data-value', e.dataTransfer.getData('text/plain'));
-    }
-
-    return false;
-}
-
-function handleDragEnd(e) {
-    // this/e.target is the source node.
-
-    [].forEach.call(cols, function (col) {
-        col.classList.remove('over');
-    });
-}
+// var dragSrcEl = null;
+// var srcIndex = -1;
+// var index = -1;
+//
+// function handleDragStart(e) {
+//     // Target (this) element is the source node.
+//     //this.style.opacity = '0.4';
+//
+//     dragSrcEl = this;
+//     for (var i = 0; i < waypts.length; i++) {
+//     	if (waypts[i].location == this.getAttribute('data-value')) {
+//     		srcIndex = i;
+//     		break;
+//     	}
+//     }
+//
+//     e.dataTransfer.effectAllowed = 'move';
+//     e.dataTransfer.setData('text/html', this.innerHTML);
+//     e.dataTransfer.setData('text/plain', this.getAttribute('data-value'));
+// }
+//
+// function handleDragOver(e) {
+//     if (e.preventDefault) {
+//         e.preventDefault(); // Necessary. Allows us to drop.
+//     }
+//
+//     e.dataTransfer.dropEffect = 'move';  // See the section on the DataTransfer object.
+//
+//     return false;
+// }
+//
+// function handleDragEnter(e) {
+//     // this / e.target is the current hover target.
+//     this.classList.add('over');
+// }
+//
+// function handleDragLeave(e) {
+//     this.classList.remove('over');  // this / e.target is previous target element.
+// }
+//
+// function handleDrop(e) {
+//     // this/e.target is current target element.
+//
+//     if (e.stopPropagation) {
+//         e.stopPropagation(); // Stops some browsers from redirecting.
+//     }
+//
+//     // Don't do anything if dropping the same column we're dragging.
+//     if (dragSrcEl != this) {
+//         // Set the source column's HTML to the HTML of the column we dropped on.
+//         dragSrcEl.innerHTML = this.innerHTML;
+//
+//         for (var i = 0; i < waypts.length; i++) {
+//         	if (waypts[i].location == this.getAttribute('data-value')) {
+//         		index = i;
+//         		break;
+//         	}
+//         }
+//         waypts[srcIndex].location = this.getAttribute('data-value');
+//         waypts[index].location = dragSrcEl.getAttribute('data-value');
+//
+//         dragSrcEl.setAttribute('data-value', this.getAttribute('data-value'));
+//         this.innerHTML = e.dataTransfer.getData('text/html');
+//         this.setAttribute('data-value', e.dataTransfer.getData('text/plain'));
+//     }
+//
+//     return false;
+// }
+//
+// function handleDragEnd(e) {
+//     // this/e.target is the source node.
+//
+//     [].forEach.call(cols, function (col) {
+//         col.classList.remove('over');
+//     });
+// }
 
 /*var cols = document.querySelectorAll('.points');
 [].forEach.call(cols, function (col) {
