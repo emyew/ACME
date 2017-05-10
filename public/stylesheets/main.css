@@ -118,7 +118,9 @@ main {
     margin: auto; }
   #side-menu #submit {
     background-color: #F7AF63;
-    border-color: #F7AF63; }
+    border-color: #F7AF63;
+    display: block;
+    margin: auto; }
   #side-menu #submit:hover {
     background-color: #e58f34;
     border-color: #e58f34; }
@@ -150,8 +152,10 @@ main {
     font-size: 12pt;
     color: #0A7571; }
   #side-menu .remove-point {
-    color: red;
+    color: #d85454;
     float: right; }
+  #side-menu .remove-point:hover {
+    color: #f47575; }
   #side-menu #add-waypoints-container {
     position: relative;
     line-height: 24px;

@@ -167,6 +167,8 @@ main {
     #submit {
         background-color: $color-accent;
         border-color: $color-accent;
+        display: block;
+        margin: auto;
     }
     #submit:hover {
       background-color: $color-accent-hover;
@@ -207,8 +209,11 @@ main {
         color: $color-navbar-brand;
     }
     .remove-point {
-      color: red;
+      color: #d85454;
       float: right;
+    }
+    .remove-point:hover {
+      color: #f47575;
     }
     #add-waypoints-container {
       position: relative;
