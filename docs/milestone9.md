@@ -26,3 +26,4 @@ I worked on the functionality for adding additional waypoints for the fixed list
 I worked on displaying location names on the waypoint markers as well as in the directions display. I also worked on troubleshooting the search box being covered up in mobile view when clicked on.
 
 ### Arlen
+I made some small UI fixes on the frontend and began creating an HTTP api for the backend by making redis modular as well as startign to develop the routes in order to begin storing data with HTTP requests. Still in progress!
