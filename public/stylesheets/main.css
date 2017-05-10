@@ -69,6 +69,9 @@ body {
     .navbar .navbar-right, .navbar .navbar-left {
       width: 100%;
       float: left; }
+    .navbar a {
+      display: inline-block;
+      width: 100%; }
     .navbar ul li {
       display: block; } }
 
