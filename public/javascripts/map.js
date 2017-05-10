@@ -8,6 +8,7 @@ function initMap() {
             lat: 32.8801,
             lng: -117.2340
         },
+        mapTypeControl: false,
         zoom: 13,
         styles: [
 	    {
@@ -553,13 +554,13 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pos, way
 
     waypts.slice(-1)[0].stopover = false;
 
-    var markerArray = [];
+    /*var markerArray = [];
 
     for (i = 0; i < markerArray.length; i++) {
     	markerArray[i].setMap(null);
     }
 
-    markerArray = [];
+    markerArray = [];*/
 
     directionsService.route({
         origin: currPos,
