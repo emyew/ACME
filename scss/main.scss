@@ -167,6 +167,9 @@ main {
         padding: 30px;
         max-width: 500px;
         margin: auto;
+        #directions-panel {
+          width: 100%;
+        }
     }
     #submit {
         background-color: $color-accent;

@@ -119,6 +119,8 @@ main {
     padding: 30px;
     max-width: 500px;
     margin: auto; }
+    #side-menu #side-menu-content #directions-panel {
+      width: 100%; }
   #side-menu #submit {
     background-color: #F7AF63;
     border-color: #F7AF63;
