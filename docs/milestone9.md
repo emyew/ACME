@@ -23,5 +23,6 @@ I worked with Christy on refining the list reordering functionality and getting 
 I worked on the functionality for adding additional waypoints for the fixed list, so that users can add other locations to the list and be able to see a path including the newly added places. I also worked on adding the autocomplete when adding waypoints and worked with Emily to make the drag and reorder functionality work on mobile. I also changed the map viewing options, so there are no longer terrain and satellite options.
 
 ### Mohsin
+I worked on displaying location names on the waypoint markers as well as in the directions display. I also worked on troubleshooting the search box being covered up in mobile view when clicked on.
 
 ### Arlen

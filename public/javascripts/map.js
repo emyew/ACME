@@ -372,6 +372,7 @@ function initMap() {
     var places = wayptsList.getElementsByTagName('li');
     for (var i = 0; i < places.length; i++) {
         waypts.push({
+            placeId: places[i].getAttribute('name'),
             location: places[i].getAttribute('data-value'),
             stopover: true
         });
@@ -383,6 +384,7 @@ function initMap() {
     autocomplete.addListener('place_changed', function() {
 		place = autocomplete.getPlace();
 		var address = autocomplete.formatted_address;
+    var name = autocomplete.name;
     });
 
     cols = document.querySelectorAll('.points');
@@ -491,7 +493,7 @@ function addWaypoint(waypts) {
 	var newWaypoint = place.name;
     if (newWaypoint != '') {
 	    waypts.push({
-	    	location: document.getElementById('new-waypoint').value,
+        location: document.getElementById('new-waypoint').value,
 	    	stopover: true
 	    });
 	    var li = document.createElement('li');
