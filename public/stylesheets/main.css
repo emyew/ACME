@@ -90,14 +90,14 @@ main {
   #side-menu-toggle-wrapper #side-menu-toggle {
     border: none;
     border-radius: 0;
-    background-color: #F7AF63;
+    background-color: #e58f34;
     color: white;
     width: 100%;
     height: 50px;
     line-height: 50px;
     font-size: 9pt; }
   #side-menu-toggle-wrapper #side-menu-toggle:hover {
-    background-color: #e58f34; }
+    background-color: #F7AF63; }
   @media (max-width: 750px) {
     #side-menu-toggle-wrapper {
       display: block; } }
@@ -114,8 +114,8 @@ main {
   #side-menu #side-menu-content {
     position: relative;
     padding: 30px;
-    float: left;
-    text-align: left; }
+    max-width: 500px;
+    margin: auto; }
   #side-menu #submit {
     background-color: #F7AF63;
     border-color: #F7AF63; }
@@ -124,9 +124,9 @@ main {
     border-color: #e58f34; }
   #side-menu .trip-title {
     text-align: center;
-    font-weight: 700; }
+    font-weight: bold; }
   #side-menu #desc {
-    font-weight: 600;
+    font-weight: bold;
     text-align: left;
     margin-bottom: 0; }
   #side-menu #instr {
@@ -137,7 +137,6 @@ main {
     text-align: left;
     margin-bottom: 15px; }
   #side-menu .points {
-    padding-left: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
     background-color: white;
@@ -150,6 +149,9 @@ main {
     padding-right: 10px;
     font-size: 12pt;
     color: #0A7571; }
+  #side-menu .remove-point {
+    color: red;
+    float: right; }
   #side-menu #add-waypoints-container {
     position: relative;
     line-height: 24px;

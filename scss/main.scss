@@ -134,7 +134,7 @@ main {
   #side-menu-toggle {
     border: none;
     border-radius: 0;
-    background-color: $color-accent;
+    background-color: $color-accent-hover;
     color: $color-bg-main;
     width: 100%;
     height: 50px;
@@ -142,7 +142,7 @@ main {
     font-size: 9pt;
   }
   #side-menu-toggle:hover {
-    background-color: $color-accent-hover;
+    background-color: $color-accent;
   }
   @media (max-width: 750px) {
       display: block;
@@ -161,8 +161,8 @@ main {
     #side-menu-content {
         position: relative;
         padding: 30px;
-        float: left;
-        text-align: left;
+        max-width: 500px;
+        margin: auto;
     }
     #submit {
         background-color: $color-accent;
@@ -174,10 +174,10 @@ main {
     }
     .trip-title {
       text-align: center;
-      font-weight: 700;
+      font-weight: bold;
     }
     #desc {
-        font-weight: 600;
+        font-weight: bold;
         text-align: left;
         margin-bottom: 0;
     }
@@ -190,10 +190,8 @@ main {
     #waypoints {
         text-align: left;
         margin-bottom: 15px;
-        // background-color: black;
     }
     .points {
-        padding-left: 10px;
         padding-top: 5px;
         padding-bottom: 5px;
         background-color: $color-bg-main;
@@ -207,6 +205,10 @@ main {
         padding-right: 10px;
         font-size: 12pt;
         color: $color-navbar-brand;
+    }
+    .remove-point {
+      color: red;
+      float: right;
     }
     #add-waypoints-container {
       position: relative;
