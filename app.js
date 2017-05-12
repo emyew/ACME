@@ -7,9 +7,8 @@ var bodyParser = require('body-parser');
 var request = require('request');
 var hbs = require('hbs');
 var app = express();
-var rclient = require('./redis');
 
-// force redirect HTTPS
+// force redirect HTTPS ========================================================
 app.use(function(req, res, next) {
     var sslUrl;
     if (process.env.NODE_ENV === 'production' && req.headers['x-forwarded-proto'] !== 'https') {
@@ -19,19 +18,17 @@ app.use(function(req, res, next) {
     return next();
 });
 
-// view engine setup
+// view engine setup ===========================================================
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// HANDLEBARS BLOCK/EXTEND HELPERS
+// HANDLEBARS BLOCK/EXTEND HELPERS =============================================
 var blocks = {};
 hbs.registerHelper('extend', function(name, context) {
     var block = blocks[name];
@@ -52,6 +49,7 @@ app.use('/', require('./routes/index'));
 app.use('/test', require('./routes/test'));
 app.use('/explore', require('./routes/explore'));
 app.use('/list', require('./routes/list'));
+app.use('/r', require('./routes/redis'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
