@@ -332,9 +332,10 @@ main {
     position: relative;
     @include vertical-align;
     max-width: 400px;
-    margin: auto;
     border-radius: 5px;
+    margin: auto;
     .popup-content {
+      border-radius: 5px;
       animation-name: popup;
       animation-duration: .2s;
       position: relative;
