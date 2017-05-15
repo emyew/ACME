@@ -1,7 +1,7 @@
 # Elevator Pitch
 
 ### What are you trying to do? Articulate your objectives using absolutely no jargon.
-
+We hope to encourage people to go out and explore local places by going on trips. We want user's to explore more than one place and to think about more than just a single point A to point B.
 
 ### How is it done today, and what are the limits of current practice?
 TripAdvisor is the most similar to our app in terms of core functionality. Its main drawback is that there is no feature to connect multiple points of interest on the map and provide directions to each point, which is something our app provides. 
