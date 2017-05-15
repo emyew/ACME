@@ -277,7 +277,6 @@ main {
         height: 100%;
         width: 100%;
         float: left;
-        opacity: 0;
     }
     @media (max-width: 750px) {
         width: 100%;
@@ -316,7 +315,6 @@ main {
       vertical-align: middle;
     }
 }
-
 
 .modal {
   display: none;

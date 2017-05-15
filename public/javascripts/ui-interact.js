@@ -67,8 +67,7 @@ $(window).resize(function() {
 });
 
 $(window).bind("load", function() {
-  $(".loader").hide();
-  if(pathname == MAP) {
-    $("#map").animate({opacity:1}, 300);
-  }
+  $.when( $(".loader").animate({"opacity":0}, 300) ).then(function () {
+    $(".loader").hide();
+  });
 });

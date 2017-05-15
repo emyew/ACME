@@ -208,8 +208,7 @@ main {
   #map-container #map {
     height: 100%;
     width: 100%;
-    float: left;
-    opacity: 0; }
+    float: left; }
   @media (max-width: 750px) {
     #map-container {
       width: 100%;
