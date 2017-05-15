@@ -10,3 +10,4 @@ TripAdvisor is the most similar to our app in terms of core functionality. Its m
 Our approach will allow users to share and explore other users' lists, which makes it unique from current practices. Users can create their own lists of destinations, as well as search for other places they're interested in and discover lists for those places, all on one website. We think it will be successful because it utilizes a social aspect and people enjoy seeing what other people are interested in (which is why social media is such a huge thing).
 
 ### Who cares? If you’re successful, what difference will it make?
+Currently, planning fun day trips requires the use of multiple applications such as Google Maps, TripAdvisor, and Yelp. Our app incorporates features from all three sources to create an all-in-one experience that makes trip planning easy and fun!
