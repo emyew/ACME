@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var request = require('request');
 var hbs = require('hbs');
+var passport = require('./config/passport');
 var app = express();
 
 // force redirect HTTPS ========================================================
@@ -27,6 +28,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(passport.initialize());
 
 // HANDLEBARS BLOCK/EXTEND HELPERS =============================================
 var blocks = {};
@@ -46,10 +48,10 @@ hbs.registerHelper('block', function(name) {
 
 // ROUTES ======================================================================
 app.use('/', require('./routes/index'));
+app.use('/', require('./routes/redis'));
 app.use('/test', require('./routes/test'));
 app.use('/explore', require('./routes/explore'));
 app.use('/list', require('./routes/list'));
-app.use('/r', require('./routes/redis'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,7 +1,9 @@
-// ALL REDIS DATA ROUTES HERE
+// redis.js
+// contains data and user authentication api
 var express = require('express');
 var router = express.Router();
 var redis = require('../config/redis');
+var passport = require('../config/passport');
 
 // sample redis commands =======================================================
 redis.set("key", "value", function(err, data) {
@@ -23,17 +25,26 @@ redis.keys("*", function(err, data) {
 
 /* REDIS REST API */
 
+// test GET request
 router.get('/test', function(req, res) {
 	redis.get("key", function(err, data) {
 		res.send('Should return "value": ' + data);
 	});
 });
 
-// get user
+// lookup user
 router.get('/users', function(req, res) {
-    var id = req.query['id'];
-    res.send(id);
 })
 
+// register route
+router.post('/register', function(req, res) {
+})
+
+// LOGIN (see ../config/passport for auth handling)
+router.post('/login', passport.authenticate('local'),
+    function(req, res) {
+        console.log("login!", req.user);
+        res.send('success');
+    });
 
 module.exports = router;
