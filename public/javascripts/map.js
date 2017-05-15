@@ -384,7 +384,7 @@ function initMap() {
     autocomplete.addListener('place_changed', function() {
 		place = autocomplete.getPlace();
 		var address = autocomplete.formatted_address;
-    var name = autocomplete.name;
+    	var name = autocomplete.name;
     });
 
     cols = document.querySelectorAll('.points');
