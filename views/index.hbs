@@ -7,7 +7,7 @@
       <h3>Register</h3>
       <p>Register for a RoadRunner account below.</p>
       <div class="form-content">
-        <form id="register-form" action="index.html" method="post">
+        <form id="register-form" action="/register" method="post">
           <div class="form-group">
             <label for="register-name">Name</label>
             <div class="input-helpers">
@@ -32,14 +32,15 @@
           <div class="form-group">
             <label for="register-password">Confirm Password</label>
             <div class="input-helpers">
-              <input type="password" id="register-password" name="password" value>
+              <input type="password" id="register-password2" name="password2" value>
               <span class="field-error"></span>
             </div>
           </div>
+          <button class="submit button-primary" id="register-submit">Register</button>
         </form>
       </div>
       <a class="close-link" href="javascript:void(0)"><i class="fa fa-times fa-lg close-modal" aria-hidden="true"></i></a>
-      <button class="submit button-primary">Register</button>
+      <button class="submit button-primary" id="register-submit">Register</button>
       <a class="pop-signin" href="#"><p>Already have an account? Sign in here.</p></a>
     </div>
   </section>
@@ -50,7 +51,7 @@
       <h3>Sign In</h3>
       <p>Enter your email and password below to sign in.</p>
       <div class="form-content">
-        <form id="signin-form" action="index.html" method="post">
+        <form id="signin-form" action="/login" method="post">
           <div class="form-group">
             <label for="signin-name">Name</label>
             <div class="input-helpers">
@@ -65,6 +66,7 @@
               <span class="field-error"></span>
             </div>
           </div>
+          <input class="submit button-primary">Sign In</button>
         </form>
       </div>
       <a class="close-link" href="javascript:void(0)"><i class="fa fa-times fa-lg close-modal" aria-hidden="true"></i></a>

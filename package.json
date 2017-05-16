@@ -10,11 +10,14 @@
     "dev": "parallelshell \"npm run node-start\" \"npm run watch-css\""
   },
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "~1.17.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
     "express": "~4.15.2",
+    "express-session": "^1.15.2",
     "hbs": "*",
+    "mongoose": "^4.9.9",
     "morgan": "~1.8.1",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
