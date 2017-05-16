@@ -59,14 +59,21 @@ app.use('/test', require('./routes/test'));
 app.use('/explore', require('./routes/explore'));
 app.use('/list', require('./routes/list'));
 
+app.get('/success', function(req, res) {
+    res.send('action success');
+});
+app.get('/failure', function(req, res) {
+    res.send('action failure');
+});
+
 // register and login routes (to be moved)
 app.post('/register', passport.authenticate('local-register', {
-    successRedirect: '/test',
-    failureRedirect: '/'
+    successRedirect: '/success',
+    failureRedirect: '/failure'
 }));
-app.post('/login', passport.authenticate('local-login', {
-    successRedirect: '/test',
-    failureRedirect: '/'
+app.post('/signin', passport.authenticate('local-signin', {
+    successRedirect: '/success',
+    failureRedirect: '/failure'
 }));
 
 // catch 404 and forward to error handler

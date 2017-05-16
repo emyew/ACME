@@ -354,11 +354,13 @@ main {
         text-decoration: underline;
         color: $color-accent2-hover;
       }
-      button {
+      button, input.submit {
+        margin-top: 10px;
+        margin-bottom: 0px;
         background-color: $color-accent;
         border-color: $color-accent;
       }
-      button:hover {
+      button:hover, input.submit:hover {
         background-color: $color-accent-hover;
         border-color: $color-accent-hover;
       }
@@ -369,12 +371,11 @@ main {
         position: absolute;
         right: 0;
         top: 0;
-        margin-top: 10px;
-        margin-right: 10px;
+        margin-top: 20px;
+        margin-right: 20px;
       }
       a.pop-signin, a.pop-register {
         p {
-          margin-top: 10px;
           margin-bottom: 0px;
         }
       }
@@ -383,7 +384,7 @@ main {
   @media (max-width: 750px) {
     .popup {
       max-height: 80%;
-      overflow: scroll;
+      // overflow: scroll;
     }
   }
 }

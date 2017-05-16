@@ -1,6 +1,7 @@
 {{#extend "stylesheets"}}
-<link rel="shortcut icon" type="image/png" href="/favicons/favicon-map.png"/>
 {{/extend}}
+
+<!--
 <div class="register modal close-link">
   <section class="popup">
     <div class="popup-content">
@@ -36,7 +37,7 @@
               <span class="field-error"></span>
             </div>
           </div>
-          <button class="submit button-primary" id="register-submit">Register</button>
+          <input type="submit" class="submit button-primary">
         </form>
       </div>
       <a class="close-link" href="javascript:void(0)"><i class="fa fa-times fa-lg close-modal" aria-hidden="true"></i></a>
@@ -45,11 +46,12 @@
     </div>
   </section>
 </div>
+
 <div class="signin modal close-link">
   <section class="popup">
     <div class="popup-content">
       <h3>Sign In</h3>
-      <p>Enter your email and password below to sign in.</p>
+      <p>Enter your email and password below.</p>
       <div class="form-content">
         <form id="signin-form" action="/login" method="post">
           <div class="form-group">
@@ -66,7 +68,7 @@
               <span class="field-error"></span>
             </div>
           </div>
-          <input class="submit button-primary">Sign In</button>
+          <input type="submit" class="submit button-primary">
         </form>
       </div>
       <a class="close-link" href="javascript:void(0)"><i class="fa fa-times fa-lg close-modal" aria-hidden="true"></i></a>
@@ -104,13 +106,13 @@
             <span class="icon-bar"></span>
         </div>
     </div>
-</header>
+</header> -->
 
 <main>
-  <div class="loader">
+<!--   <div class="loader">
     <i class="fa fa-compass fa-spin fa-3x fa-fw"></i>
     <span class="sr-only">Loading...</span>
-  </div>
+  </div> -->
   <div id="side-menu-toggle-wrapper">
     <button id="side-menu-toggle" type="button" name="side-menu-toggle">
       <span class="trip-title">La Jolla Day Trip</span>
@@ -142,11 +144,12 @@
     </section>
   </div>
 </main>
+
 {{#extend "scripts"}}
 <script type="text/javascript" src="/javascripts/map.js"></script>
-<script type="text/javascript" src="/javascripts/Sortable.min.js"></script>
+<!-- <script type="text/javascript" src="/javascripts/Sortable.min.js"></script>
 <script type="text/javascript" src="/javascripts/ui-interact.js"></script>
-<script type="text/javascript" src="/javascripts/main.js"></script>
+<script type="text/javascript" src="/javascripts/main.js"></script> -->
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7l3pxQ6dq-Kgg-aVUO6-A0zf2swG2Cec&callback=initMap&libraries=places">
 </script>
 {{/extend}}

@@ -72,7 +72,7 @@ passport.use('local-register', new LocalStrategy({
 ));
 
 // login handler
-passport.use('local-login', new LocalStrategy({
+passport.use('local-signin', new LocalStrategy({
         usernameField: 'email',
         passwordField: 'password',
         passReqToCallback: true
@@ -84,14 +84,19 @@ passport.use('local-login', new LocalStrategy({
                 return done(err);
 
             // user not found
-            if (!user)
+            if (!user) {
+                console.log("USER LOGIN NO USER FOUND");
                 return done(null, false);
+            }
 
             // user password wrong
-            if (!user.validPassword(password))
+            if (!user.validPassword(password)) {
+                console.log("USER LOGIN PASSWORD INCORRECT");
                 return done(null, false);
+            }
 
             // user logged in!
+            console.log("USER LOGIN SUCCESSFUL");
             return done(null, user);
         });
     }

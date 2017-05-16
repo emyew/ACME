@@ -283,10 +283,12 @@ main {
       .modal .popup .popup-content a:hover {
         text-decoration: underline;
         color: #59BC9C; }
-      .modal .popup .popup-content button {
+      .modal .popup .popup-content button, .modal .popup .popup-content input.submit {
+        margin-top: 10px;
+        margin-bottom: 0px;
         background-color: #F7AF63;
         border-color: #F7AF63; }
-      .modal .popup .popup-content button:hover {
+      .modal .popup .popup-content button:hover, .modal .popup .popup-content input.submit:hover {
         background-color: #e58f34;
         border-color: #e58f34; }
       .modal .popup .popup-content a.close-link {
@@ -296,12 +298,10 @@ main {
         position: absolute;
         right: 0;
         top: 0;
-        margin-top: 10px;
-        margin-right: 10px; }
+        margin-top: 20px;
+        margin-right: 20px; }
       .modal .popup .popup-content a.pop-signin p, .modal .popup .popup-content a.pop-register p {
-        margin-top: 10px;
         margin-bottom: 0px; }
   @media (max-width: 750px) {
     .modal .popup {
-      max-height: 80%;
-      overflow: scroll; } }
+      max-height: 80%; } }
