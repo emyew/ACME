@@ -144,7 +144,8 @@ main {
     margin: auto; }
   #side-menu #tag-container {
     position: relative;
-    margin: auto; }
+    margin: auto;
+    margin-bottom: 15px; }
   #side-menu #waypoints {
     text-align: left;
     margin-bottom: 15px; }
