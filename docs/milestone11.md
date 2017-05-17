@@ -19,3 +19,4 @@ I worked on implementing the UI (the grid layout of cards, hover text effect and
 I worked on developing the create page. It currently has limited functionality since we are unsure if we plan to keep this as a separate page or somehow incorporate it as an edit feature in the My Lists page we will be implementing.  
 
 ### Arlen
+I worked on the backend authentication and connecting the front end register/login client to enable a user data store in MongoDB, using Passport.js. I also did more error validation and templating to enable the client to conditionally render based on user session.
