@@ -4,7 +4,7 @@ var MAP = "/";
 var EXPLORE = "/explore";
 var CREATE = "/create";
 
-//behavior exclusive to Map page
+//////////////////// MAP ////////////////////
 if (pathname == MAP) {
   //make list able to be reordered by dragging
   var elem = document.getElementById("waypoints");
@@ -51,37 +51,4 @@ $(window).resize(function() {
       $(".fa-caret-square-o-up").removeClass("fa-caret-square-o-up").addClass("fa-caret-square-o-down");
     }
   }
-});
-
-/*********** Navbar Functionality ************/
-//modal functionality (show signin modal, show register modal, close modal)
-$(".pop-signin").click(function () {
-  $(".register").hide();
-  $(".signin").show();
-});
-$(".pop-register").click(function () {
-  $(".signin").hide();
-  $(".register").show();
-});
-$(".close-link").click(function () {
-  $(".modal").hide();
-});
-//prevent clicks on modal window from triggering modal close
-$(".popup-content").click(function (e) {
-  e.stopPropagation();
-});
-//toggle navigation
-$(".navbar-menu").click(function () {
-  if($(".navbar-lists").hasClass("hide")) {
-    $(".navbar-lists").animate({height: "250px"}, 200).removeClass("hide");
-  } else {
-    $(".navbar-lists").animate({height: 0}, 200).addClass("hide");
-  }
-});
-
-/*********** Loader Functionality ************/
-$(window).bind("load", function() {
-  $.when( $(".loader").animate({"opacity":0}, 300) ).then(function () {
-    $(".loader").hide();
-  });
 });
