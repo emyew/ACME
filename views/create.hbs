@@ -1,8 +1,56 @@
 {{#extend "stylesheets"}}
 <link rel="shortcut icon" type="image/png" href="/favicons/favicon-create.png"/>
+<link rel="stylesheet" href="/stylesheets/selectize.default.css">
 {{/extend}}
 <main>
-
+  <div class="error-message modal close-link">
+    <section class="popup">
+      <div class="popup-content">
+        <h3>Whoa There!</h3>
+        <p>Adding this location to the road trip requires driving through a body of water!</p>
+        <a class="close-link" href="javascript:void(0)"><i class="fa fa-times fa-lg close-modal" aria-hidden="true"></i></a>
+      </div>
+    </section>
+  </div>
+  <div id="side-menu-toggle-wrapper">
+    <button id="side-menu-toggle" type="button" name="side-menu-toggle">
+      <span class="trip-title">Trip Name</span>
+      <i class="fa fa-lg fa-caret-square-o-up" aria-hidden="true"></i>
+    </button>
+  </div>
+  <div id="map-container">
+    <div id="map"></div>
+  </div>
+  <div id="side-menu">
+    <section id="side-menu-content">
+      <h5 class="trip-title">Trip Name</h5>
+      <h6 id="desc">Destinations:</h6>
+      <p>Use the search bar below to add locations to your list. Drag & reorder places for different paths. Click submit to see the suggested path starting from your current location.</p>
+      <div id="list-container">
+        <div id="add-waypoints-container">
+          <input type="text" id="new-waypoint" placeholder="Type Location Name or Address" value="">
+          <input class="button-primary" id="add-waypoint-btn" type="submit" value="Add">
+        </div>
+        <ul id="waypoints" style="list-style-type: none;">
+        <!--
+          <li name="The Cottage" data-value="7702 Fay Ave, La Jolla, CA 92037" class="points" draggable="true">The Cottage<i class="fa fa-times fa-lg remove-point" aria-hidden="true"></i></li>
+          <li name="La Jolla Shores" data-value="8300 Camino Del Oro, La Jolla, CA 92037" class="points" draggable="true">La Jolla Shores<i class="fa fa-times fa-lg remove-point" aria-hidden="true"></i></li>
+          <li name="La Jolla Cove" data-value="1100 Coast Blvd, La Jolla, San Diego, CA 92037" class="points" draggable="true">La Jolla Cove<i class="fa fa-times fa-lg remove-point" aria-hidden="true"></i></li>
+          <li name="Phil's BBQ" data-value="3750 Sports Arena Blvd, San Diego, CA 92110" class="points" draggable="true">Phil's BBQ<i class="fa fa-times fa-lg remove-point" aria-hidden="true"></i></li>
+        -->
+        </ul>
+      </div>
+      <div id="tag-container">
+        <label for="trip-tags">Tags:</label>
+        <input id="trip-tags" class="selectized" type="text" name="tags" value>
+      </div>
+      <input class="button-primary" type="submit" id="submit">
+      <div id="directions-panel"></div>
+    </section>
+  </div>
 </main>
 {{#extend "scripts"}}
+<script type="text/javascript" src="/javascripts/map.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7l3pxQ6dq-Kgg-aVUO6-A0zf2swG2Cec&callback=initMap&libraries=places">
+</script>
 {{/extend}}
