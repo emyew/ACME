@@ -78,16 +78,16 @@ app.get('/failure', function(req, res) {
 
 // register and signout routes
 app.post('/register', passport.authenticate('local-register', {
-    successRedirect: '/success',
-    failureRedirect: '/failure'
+    successRedirect: 'back',
+    failureRedirect: 'back'
 }));
 app.post('/signin', passport.authenticate('local-signin', {
-    successRedirect: '/success',
-    failureRedirect: '/failure'
+    successRedirect: 'back',
+    failureRedirect: 'back'
 }));
 app.get('/signout', function(req, res) {
     req.logout();
-    res.redirect('/');
+    res.redirect('back');
 });
 
 // catch 404 and forward to error handler
