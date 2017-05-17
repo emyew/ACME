@@ -48,11 +48,10 @@
                 <span class="field-error"></span>
               </div>
             </div>
-            <input type="submit" class="submit button-primary">
+            <input type="submit" id="register-submit" class="submit button-primary" value="Register">
           </form>
         </div>
         <a class="close-link" href="javascript:void(0)"><i class="fa fa-times fa-lg close-modal" aria-hidden="true"></i></a>
-        <!-- <button class="submit button-primary" id="register-submit">Register</button> -->
         <a class="pop-signin" href="#">
           <p>Already have an account? Sign in here.</p>
         </a>
@@ -80,11 +79,10 @@
                 <span class="field-error"></span>
               </div>
             </div>
-            <input type="submit" class="submit button-primary">
+            <input type="submit" id="signin-submit" class="submit button-primary" value="Sign In">
           </form>
         </div>
         <a class="close-link" href="javascript:void(0)"><i class="fa fa-times fa-lg close-modal" aria-hidden="true"></i></a>
-        <!-- <button class="submit button-primary">Sign In</button> -->
         <a class="pop-register" href="#">
           <p>Don't have an account? Register here.</p>
         </a>
@@ -102,7 +100,7 @@
           <ul class="navbar-links">
             <li><a href="/explore">Explore</a></li>
             <li><a href="#">Create</a></li>
-            <li><a href="#">My Lists</a></li>
+            <li><a class="signedin" href="#">My Lists</a></li>
           </ul>
         </div>
         <div class="navbar-right">
@@ -122,10 +120,10 @@
     </div>
   </header>
 
-  <div class="loader">
+  <!-- <div class="loader">
     <i class="fa fa-compass fa-spin fa-3x fa-fw"></i>
     <span class="sr-only">Loading...</span>
-  </div>
+  </div> -->
 
   <!-- INDIVIDUAL PAGE BODY HERE -->
   {{{body}}}
@@ -133,6 +131,7 @@
 
 <script src="/javascripts/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="/javascripts/Sortable.min.js"></script>
+<script type="text/javascript" src="/javascripts/selectize.min.js"></script>
 <script type="text/javascript" src="/javascripts/ui-interact.js"></script>
 <script type="text/javascript" src="/javascripts/global.js"></script>
 {{{block "scripts"}}}

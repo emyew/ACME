@@ -142,6 +142,9 @@ main {
     font-size: 12px; }
   #side-menu #list-container {
     margin: auto; }
+  #side-menu #tag-container {
+    position: relative;
+    margin: auto; }
   #side-menu #waypoints {
     text-align: left;
     margin-bottom: 15px; }

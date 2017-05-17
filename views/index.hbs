@@ -1,7 +1,17 @@
 {{#extend "stylesheets"}}
 <link rel="shortcut icon" type="image/png" href="/favicons/favicon-map.png"/>
+<link rel="stylesheet" href="/stylesheets/selectize.default.css">
 {{/extend}}
 <main>
+  <div class="error-message modal close-link">
+    <section class="popup">
+      <div class="popup-content">
+        <h3>Whoa There!</h3>
+        <p>Adding this location to the road trip requires driving through a body of water!</p>
+        <a class="close-link" href="javascript:void(0)"><i class="fa fa-times fa-lg close-modal" aria-hidden="true"></i></a>
+      </div>
+    </section>
+  </div>
   <div id="side-menu-toggle-wrapper">
     <button id="side-menu-toggle" type="button" name="side-menu-toggle">
       <span class="trip-title">La Jolla Day Trip</span>
@@ -27,6 +37,10 @@
           <input type="text" id="new-waypoint" placeholder="Type Address" value="">
           <input class="button-primary" id="add-waypoint-btn" type="submit" value="Add">
         </div>
+      </div>
+      <div id="tag-container">
+        <label for="trip-tags">Tags:</label>
+        <input id="trip-tags" class="selectized" type="text" name="tags" value>
       </div>
       <input class="button-primary" type="submit" id="submit">
       <div id="directions-panel"></div>

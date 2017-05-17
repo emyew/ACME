@@ -26,6 +26,19 @@ if (pathname == MAP) {
     }
   });
 
+  //tagging functionality
+  $('#trip-tags').selectize({
+      plugins: ['remove_button'],
+      delimiter: ',',
+      persist: false,
+      maxItems: 12,
+      create: function(input) {
+          return {
+              value: input,
+              text: input
+          }
+      }
+  });
 }
 
 //reset window if resized to undo toggled states and changes
