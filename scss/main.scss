@@ -403,6 +403,10 @@ main {
   #search, #search-btn {
     margin-bottom: 0;
   }
+
+  #search {
+    min-width: 80%;
+  }
 }
 /*.card {
   position: relative;
@@ -431,10 +435,16 @@ main {
     display: inline-block;
   }
 
-  @media (max-width: 750px) {
+  @media (max-width: 1024px) {
     -webkit-column-count: 2;
     -moz-column-count: 2;
     column-count: 2;
+  }
+
+  @media (max-width: 420px) {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
   }
 }
 .card {
@@ -443,6 +453,7 @@ main {
   img {
     width: 100%;
     display: block;
+    margin-bottom: 20px;
   }
 
   h5, p {
@@ -476,7 +487,7 @@ main {
     z-index: 100;
   }
 
-  @media (max-width: 750px) {
+  @media (max-width: 1024px) {
     .overlay {
       opacity: 1;
     }
