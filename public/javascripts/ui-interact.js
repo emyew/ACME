@@ -2,6 +2,7 @@
 var pathname = window.location.pathname;
 var MAP = "/";
 var EXPLORE = "/explore";
+var CREATE = "/create";
 
 //behavior exclusive to Map page
 if (pathname == MAP) {

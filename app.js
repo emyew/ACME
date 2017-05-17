@@ -66,6 +66,7 @@ app.use(function(req, res, next) {
 app.use('/', require('./routes/index'));
 app.use('/test', require('./routes/test'));
 app.use('/explore', require('./routes/explore'));
+app.use('/create', require('./routes/create'));
 app.use('/list', require('./routes/list'));
 
 app.get('/success', function(req, res) {
