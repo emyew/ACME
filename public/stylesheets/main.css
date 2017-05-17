@@ -313,12 +313,36 @@ main {
 
 /* ---------------- Explore Page ------------------ */
 #search-container {
+  position: relative;
   text-align: center;
-  margin-top: 25px; }
+  margin: auto;
+  margin-top: 25px;
+  max-width: 80%; }
   #search-container #search, #search-container #search-btn {
     margin-bottom: 0; }
+  #search-container #search-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0 4px 4px 0;
+    padding: 0 8px;
+    margin: 0;
+    width: 70px;
+    text-align: center; }
   #search-container #search {
-    min-width: 80%; }
+    width: 100%;
+    padding-right: 80px;
+    text-overflow: ellipsis; }
+  #search-container #search {
+    border-color: #F7AF63; }
+  #search-container #search:focus {
+    border-color: #e58f34; }
+  #search-container #search-btn {
+    border-color: #F7AF63;
+    background-color: #F7AF63; }
+  #search-container #search-btn:hover {
+    border-color: #e58f34;
+    background-color: #e58f34; }
 
 /*.card {
   position: relative;

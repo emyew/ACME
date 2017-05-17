@@ -397,15 +397,43 @@ main {
 
 /* ---------------- Explore Page ------------------ */
 #search-container {
+  position: relative;
   text-align: center;
+  margin: auto;
   margin-top: 25px;
+  max-width: 80%;
 
   #search, #search-btn {
     margin-bottom: 0;
   }
-
+  #search-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0 4px 4px 0;
+    padding: 0 8px;
+    margin: 0;
+    width: 70px;
+    text-align: center;
+  }
   #search {
-    min-width: 80%;
+    width: 100%;
+    padding-right: 80px;
+    text-overflow: ellipsis;
+  }
+  #search {
+    border-color: $color-accent;
+  }
+  #search:focus {
+    border-color: $color-accent-hover;
+  }
+  #search-btn {
+    border-color: $color-accent;
+    background-color: $color-accent;
+  }
+  #search-btn:hover {
+    border-color: $color-accent-hover;
+    background-color: $color-accent-hover;
   }
 }
 /*.card {
