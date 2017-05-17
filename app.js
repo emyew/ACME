@@ -54,6 +54,15 @@ hbs.registerHelper('block', function(name) {
 });
 
 // ROUTES ======================================================================
+
+// user login middleware - exposes user to handlebars
+app.use(function(req, res, next) {
+    res.locals.user = req.user;
+    console.log("CURRENT USER: ", req.user);
+    next();
+});
+
+// per file routes
 app.use('/', require('./routes/index'));
 app.use('/test', require('./routes/test'));
 app.use('/explore', require('./routes/explore'));
@@ -66,7 +75,7 @@ app.get('/failure', function(req, res) {
     res.send('action failure');
 });
 
-// register and login routes (to be moved)
+// register and signout routes
 app.post('/register', passport.authenticate('local-register', {
     successRedirect: '/success',
     failureRedirect: '/failure'
@@ -75,6 +84,10 @@ app.post('/signin', passport.authenticate('local-signin', {
     successRedirect: '/success',
     failureRedirect: '/failure'
 }));
+app.get('/signout', function(req, res) {
+    req.logout();
+    res.redirect('/');
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

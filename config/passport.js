@@ -71,7 +71,7 @@ passport.use('local-register', new LocalStrategy({
     }
 ));
 
-// login handler
+// signin handler
 passport.use('local-signin', new LocalStrategy({
         usernameField: 'email',
         passwordField: 'password',
