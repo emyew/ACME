@@ -333,6 +333,20 @@ main {
   background-color: rgba(0,0,0,0.65);
   z-index: 5;
   width: 100%;
+  .field-error {
+    color: $color-bg-main;
+    display: inline-block;
+    padding-top: 10px;
+    display: none;
+  }
+  .input-helpers {
+    margin-bottom: 15px;
+  }
+  .input-error {
+    padding: 10px;
+    background-color: #F74545;
+    border-radius: 4px;
+  }
   .popup {
     position: relative;
     @include vertical-align;
@@ -351,6 +365,7 @@ main {
       padding: 40px;
       input {
         width: 100%;
+        margin-bottom: 0;
       }
       input:focus {
         border-color: $color-accent2;

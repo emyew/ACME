@@ -261,6 +261,17 @@ main {
   background-color: rgba(0, 0, 0, 0.65);
   z-index: 5;
   width: 100%; }
+  .modal .field-error {
+    color: white;
+    display: inline-block;
+    padding-top: 10px;
+    display: none; }
+  .modal .input-helpers {
+    margin-bottom: 15px; }
+  .modal .input-error {
+    padding: 10px;
+    background-color: #F74545;
+    border-radius: 4px; }
   .modal .popup {
     position: relative;
     position: relative;
@@ -282,7 +293,8 @@ main {
       background: white;
       padding: 40px; }
       .modal .popup .popup-content input {
-        width: 100%; }
+        width: 100%;
+        margin-bottom: 0; }
       .modal .popup .popup-content input:focus {
         border-color: #84d8bd; }
       .modal .popup .popup-content a {
