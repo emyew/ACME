@@ -270,6 +270,8 @@ main {
     transform: translateY(-50%);
     max-width: 400px;
     border-radius: 5px;
+    overflow: scroll;
+    max-height: 87%;
     margin: auto; }
     .modal .popup .popup-content {
       border-radius: 5px;
@@ -308,9 +310,6 @@ main {
         margin-right: 20px; }
       .modal .popup .popup-content a.pop-signin p, .modal .popup .popup-content a.pop-register p {
         margin-bottom: 0px; }
-  @media (max-width: 750px) {
-    .modal .popup {
-      max-height: 80%; } }
 
 /* ---------------- Explore Page ------------------ */
 #search-container {

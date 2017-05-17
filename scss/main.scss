@@ -338,6 +338,8 @@ main {
     @include vertical-align;
     max-width: 400px;
     border-radius: 5px;
+    overflow: scroll;
+    max-height: 87%;
     margin: auto;
     .popup-content {
       border-radius: 5px;
@@ -386,12 +388,6 @@ main {
           margin-bottom: 0px;
         }
       }
-    }
-  }
-  @media (max-width: 750px) {
-    .popup {
-      max-height: 80%;
-      // overflow: scroll;
     }
   }
 }
