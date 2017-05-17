@@ -121,6 +121,7 @@ body {
 
 main {
   /*position: fixed;*/
+  position: absolute;
   top: 50px;
   left: 0;
   right: 0;
@@ -393,7 +394,7 @@ main {
 /* ---------------- Explore Page ------------------ */
 #search-container {
   text-align: center;
-  margin-top: 75px;
+  margin-top: 25px;
 
   #search, #search-btn {
     margin-bottom: 0;
