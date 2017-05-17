@@ -349,7 +349,7 @@ main {
       -webkit-column-count: 2;
       -moz-column-count: 2;
       column-count: 2; } }
-  @media (max-width: 420px) {
+  @media (max-width: 570px) {
     #card-container {
       -webkit-column-count: 1;
       -moz-column-count: 1;
