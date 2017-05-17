@@ -42,7 +42,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="register-password">Confirm Password</label>
+              <label for="register-password2">Confirm Password</label>
               <div class="input-helpers">
                 <input type="password" id="register-password2" name="password2" value>
                 <span class="field-error"></span>
@@ -59,7 +59,6 @@
       </div>
     </section>
   </div>
-
   <div class="signin modal close-link">
     <section class="popup">
       <div class="popup-content">
@@ -68,14 +67,14 @@
         <div class="form-content">
           <form id="signin-form" action="/signin" method="post">
             <div class="form-group">
-              <label for="signin-name">Email</label>
+              <label for="signin-email">Email</label>
               <div class="input-helpers">
                 <input type="email" id="signin-email" name="email" value>
                 <span class="field-error"></span>
               </div>
             </div>
             <div class="form-group">
-              <label for="signin-email">Password</label>
+              <label for="signin-password">Password</label>
               <div class="input-helpers">
                 <input type="password" id="signin-password" name="password" value>
                 <span class="field-error"></span>
@@ -101,15 +100,15 @@
       <nav class="navbar-lists hide">
         <div class="navbar-left">
           <ul class="navbar-links">
-            <li><a href="#">Explore</a></li>
+            <li><a href="/explore">Explore</a></li>
             <li><a href="#">Create</a></li>
             <li><a href="#">My Lists</a></li>
           </ul>
         </div>
         <div class="navbar-right">
           <ul class="navbar-links">
-            <li><a class="pop-register" href="#">Register</a></li>
-            <li><a class="pop-signin" href="#">Sign In</a></li>
+            <li><a class="pop-register notsignedin" href="#">Register</a></li>
+            <li><a class="pop-signin notsignedin" href="#">Sign In</a></li>
             <li><a class="signedin" href="#">Favorites</a></li>
             <li><a class="signedin" href="#">Profile</a></li>
           </ul>

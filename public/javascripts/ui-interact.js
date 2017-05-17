@@ -28,6 +28,17 @@ if (pathname == MAP) {
 
 }
 
+//reset window if resized to undo toggled states and changes
+$(window).resize(function() {
+  if($(window).width() > 750) {
+    $(".navbar-lists").css({height: 0}, 200).addClass("hide");
+    if(pathname == MAP) {
+      $("#side-menu").css({"margin-top": 0}).addClass("show");
+      $(".fa-caret-square-o-up").removeClass("fa-caret-square-o-up").addClass("fa-caret-square-o-down");
+    }
+  }
+});
+
 /*********** Navbar Functionality ************/
 //modal functionality (show signin modal, show register modal, close modal)
 $(".pop-signin").click(function () {
@@ -54,18 +65,7 @@ $(".navbar-menu").click(function () {
   }
 });
 
-
-//reset window if resized to undo toggled states and changes
-$(window).resize(function() {
-  if($(window).width() > 750) {
-    $(".navbar-lists").css({height: 0}, 200).addClass("hide");
-    if(pathname == MAP) {
-      $("#side-menu").css({"margin-top": 0}).addClass("show");
-      $(".fa-caret-square-o-up").removeClass("fa-caret-square-o-up").addClass("fa-caret-square-o-down");
-    }
-  }
-});
-
+/*********** Loader Functionality ************/
 $(window).bind("load", function() {
   $.when( $(".loader").animate({"opacity":0}, 300) ).then(function () {
     $(".loader").hide();

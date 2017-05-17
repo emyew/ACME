@@ -1,118 +1,7 @@
 {{#extend "stylesheets"}}
+<link rel="shortcut icon" type="image/png" href="/favicons/favicon-map.png"/>
 {{/extend}}
-
-<!--
-<div class="register modal close-link">
-  <section class="popup">
-    <div class="popup-content">
-      <h3>Register</h3>
-      <p>Register for a RoadRunner account below.</p>
-      <div class="form-content">
-        <form id="register-form" action="/register" method="post">
-          <div class="form-group">
-            <label for="register-name">Name</label>
-            <div class="input-helpers">
-              <input type="text" id="register-name" name="name" value>
-              <span class="field-error"></span>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="register-email">Email</label>
-            <div class="input-helpers">
-              <input type="email" id="register-email" name="email" value>
-              <span class="field-error"></span>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="register-password">Password</label>
-            <div class="input-helpers">
-              <input type="password" id="register-password" name="password" value>
-              <span class="field-error"></span>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="register-password">Confirm Password</label>
-            <div class="input-helpers">
-              <input type="password" id="register-password2" name="password2" value>
-              <span class="field-error"></span>
-            </div>
-          </div>
-          <input type="submit" class="submit button-primary">
-        </form>
-      </div>
-      <a class="close-link" href="javascript:void(0)"><i class="fa fa-times fa-lg close-modal" aria-hidden="true"></i></a>
-      <button class="submit button-primary" id="register-submit">Register</button>
-      <a class="pop-signin" href="#"><p>Already have an account? Sign in here.</p></a>
-    </div>
-  </section>
-</div>
-
-<div class="signin modal close-link">
-  <section class="popup">
-    <div class="popup-content">
-      <h3>Sign In</h3>
-      <p>Enter your email and password below.</p>
-      <div class="form-content">
-        <form id="signin-form" action="/login" method="post">
-          <div class="form-group">
-            <label for="signin-name">Name</label>
-            <div class="input-helpers">
-              <input type="text" id="signin-name" name="name" value>
-              <span class="field-error"></span>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="signin-email">Email</label>
-            <div class="input-helpers">
-              <input type="email" id="signin-email" name="email" value>
-              <span class="field-error"></span>
-            </div>
-          </div>
-          <input type="submit" class="submit button-primary">
-        </form>
-      </div>
-      <a class="close-link" href="javascript:void(0)"><i class="fa fa-times fa-lg close-modal" aria-hidden="true"></i></a>
-      <button class="submit button-primary">Sign In</button>
-      <a class="pop-register" href="#"><p>Don't have an account? Register here.</p></a>
-    </div>
-  </section>
-</div>
-
-<header class="navbar">
-    <div class="navbar-container">
-        <div class="navbar-brand">
-            <a href="/"><i class="fa fa-car" aria-hidden="true"></i> ROADRUNNER</a>
-        </div>
-        <nav class="navbar-lists hide">
-          <div class="navbar-left">
-              <ul class="navbar-links">
-                  <li><a href="#">Explore</a></li>
-                  <li><a href="#">Create</a></li>
-                  <li><a href="#">My Lists</a></li>
-              </ul>
-          </div>
-          <div class="navbar-right">
-            <ul class="navbar-links">
-              <li><a class="pop-register" href="#">Register</a></li>
-              <li><a class="pop-signin" href="#">Sign In</a></li>
-              <li><a class="signedin" href="#">Favorites</a></li>
-              <li><a class="signedin" href="#">Profile</a></li>
-            </ul>
-          </div>
-        </nav>
-        <div class="navbar-menu">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </div>
-    </div>
-</header> -->
-
 <main>
-<!--   <div class="loader">
-    <i class="fa fa-compass fa-spin fa-3x fa-fw"></i>
-    <span class="sr-only">Loading...</span>
-  </div> -->
   <div id="side-menu-toggle-wrapper">
     <button id="side-menu-toggle" type="button" name="side-menu-toggle">
       <span class="trip-title">La Jolla Day Trip</span>
@@ -147,9 +36,6 @@
 
 {{#extend "scripts"}}
 <script type="text/javascript" src="/javascripts/map.js"></script>
-<!-- <script type="text/javascript" src="/javascripts/Sortable.min.js"></script>
-<script type="text/javascript" src="/javascripts/ui-interact.js"></script>
-<script type="text/javascript" src="/javascripts/main.js"></script> -->
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7l3pxQ6dq-Kgg-aVUO6-A0zf2swG2Cec&callback=initMap&libraries=places">
 </script>
 {{/extend}}
