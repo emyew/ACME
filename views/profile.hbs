@@ -1,7 +1,80 @@
 {{#extend "stylesheets"}}
 {{/extend}}
 
+<main>
+	<div id="profile-side-menu">
+		<section id="profile-side-content">
+			<div id="profile-info-container">
+				<div id="profile-pic-container">
+					<img src="/imgs/profile-img-temp.png" alt="Profile Picture" id="profile-pic">
+				</div>
+				<h5 id="user-name">Name</h5>
+				<p id="user-bio">Vice fanny pack chicharrones 90's put a bird on it. Intelligentsia irony quinoa bitters pok pok, hexagon hashtag succulents.</p>
+			</div>
+			<div id="profile-tabs-container">
+				<div id="my-lists-tab" class="profile-tabs">
+					<h5>My Lists</h5>
+				</div>
+				<div id="favs-tab" class="profile-tabs">
+					<h5>Favorites</h5>
+				</div>
+				<div id="edit-profile-tab" class="profile-tabs">
+					<h5>Edit Profile</h5>
+				</div>
+			</div>
+		</section>
+	</div>
+	<div id="my-lists-container">
+		<ul id="my-lists-cards">
+			<li>
+				<a href="/">
+					<div class="card">
+						<img src="/imgs/temp.png">
+						<div class="overlay">
+							<div class="hover-text">
+								<h5>Trip Name</h5>
+								<p>mood + tags</p>
+							</div>
+						</div>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="/">
+					<div class="card">
+						<img src="/imgs/temp.png">
+						<div class="overlay">
+							<div class="hover-text">
+								<h5>Trip Name</h5>
+								<p>mood + tags</p>
+							</div>
+						</div>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="/">
+					<div class="card">
+						<img src="/imgs/temp.png">
+						<div class="overlay">
+							<div class="hover-text">
+								<h5>Trip Name</h5>
+								<p>mood + tags</p>
+							</div>
+						</div>
+					</div>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div id="favs-container">
+	</div>
+	<div id="edit-profile-container">
+		<input type="text" id="edit-user-name" placeholder="Name" value="">
+		<textarea name="edit-user-bio" id="edit-user-bio" placeholder="Bio" value="" cols="50" rows="50">
+		<input class="button-primary" type="submit" id="submit-profile">
+	</div>
+</main>
+
 {{#extend "scripts"}}
 {{/extend}}
-
-Hello this is a placeholder for a specific list view
