@@ -5,7 +5,7 @@ var EXPLORE = "/explore";
 var CREATE = "/create";
 
 //////////////////// MAP ////////////////////
-if (pathname == MAP) {
+if (pathname == MAP || pathname == CREATE) {
   //make list able to be reordered by dragging
   var elem = document.getElementById("waypoints");
   var editableList = Sortable.create(elem, {
