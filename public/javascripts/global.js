@@ -1,9 +1,9 @@
 console.log("This is a JS file global across all pages.");
 
-// confirm password handler
+/*********** Registration Modal Handlers ************/
+// confirm password chcek handler
 var pw = $("#register-password");
 var confirmpw = $("#register-confirm");
-
 function confirmPassword() {
   if (pw.val() != confirmpw.val()) {
     confirmpw[0].setCustomValidity("Passwords don't match!");
@@ -13,6 +13,19 @@ function confirmPassword() {
 }
 pw.on("change", confirmPassword);
 confirmpw.on("keyup", confirmPassword);
+
+// registration email check handler
+var email = $("#register-email");
+function checkTakenEmail() {
+  $.get('/query', { email: email.val() }).done(function(valid) {
+    if (!valid) {
+      email[0].setCustomValidity("Email already taken!");
+    } else {
+      email[0].setCustomValidity("");
+    }
+  });
+}
+email.on("change", checkTakenEmail);
 
 /*********** Navbar Functionality ************/
 //modal functionality (show signin modal, show register modal, close modal)

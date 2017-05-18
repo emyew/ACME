@@ -57,4 +57,16 @@ router.get('/myLists', function(req, res) {
   }
 });
 
+// query email address if taken
+router.get('/query', function(req, res) {
+    console.log(req.query.email);
+    User.findOne({ 'email': req.query.email }, function(err, user) {
+        if (user) {
+            res.send(false);
+        } else {
+            res.send(true);
+        }
+    });
+});
+
 module.exports = router;
