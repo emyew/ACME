@@ -601,16 +601,22 @@ main {
   #my-lists-cards {
     padding: 0 30px;
     margin: 30px 0px;
-    display: flex;
+    /*display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-around;*/
 
     li {
       display: block;
+
+      img {
+        display: block;
+        width: 100%;
+        margin-bottom: 0;
+      }
     }
 
-    .card {
+    /*.card {
       position: relative;
 
       img {
@@ -657,7 +663,23 @@ main {
     }
     .card:hover .overlay {
       opacity: 1;
-    }
+    }*/
+  }
+}
+@media screen and (min-width: 600px) {
+  #my-lists-cards {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  #my-lists-cards li {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  #my-lists-cards li {
+    width: calc(100% / 3);
   }
 }
 #edit-profile-container {
