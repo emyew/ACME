@@ -408,7 +408,7 @@ function initMap() {
             // infoWindow.setPosition(pos);
             //infoWindow.setContent('Location found.');
             // infoWindow.open(map);
-            
+
             map.setCenter(pos);
             currPos = pos;
 
@@ -448,7 +448,6 @@ function initMap() {
     });
 
     document.getElementById('submit').addEventListener('click', function() {
-        // hide current location's marker
         currPosMarker.setVisible(false);
         infoWindow.close();
         currPosMarker.open = true;
