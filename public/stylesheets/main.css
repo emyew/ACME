@@ -429,3 +429,5 @@ main {
   opacity: 1; }
 
 /* ---------------- Create Page ------------------ */
+#trip-desc {
+  resize: none; }
