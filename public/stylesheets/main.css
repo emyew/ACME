@@ -66,7 +66,8 @@ body {
       background-color: #9CDDC8; }
     .navbar .navbar-right {
       background-color: #9CDDC8; }
-    .navbar .navbar-right, .navbar .navbar-left {
+    .navbar .navbar-right,
+    .navbar .navbar-left {
       width: 100%;
       float: left; }
     .navbar a {
@@ -303,12 +304,14 @@ main {
       .modal .popup .popup-content a:hover {
         text-decoration: underline;
         color: #59BC9C; }
-      .modal .popup .popup-content button, .modal .popup .popup-content input.submit {
+      .modal .popup .popup-content button,
+      .modal .popup .popup-content input.submit {
         margin-top: 10px;
         margin-bottom: 0px;
         background-color: #F7AF63;
         border-color: #F7AF63; }
-      .modal .popup .popup-content button:hover, .modal .popup .popup-content input.submit:hover {
+      .modal .popup .popup-content button:hover,
+      .modal .popup .popup-content input.submit:hover {
         background-color: #e58f34;
         border-color: #e58f34; }
       .modal .popup .popup-content a.close-link {
@@ -320,7 +323,8 @@ main {
         top: 0;
         margin-top: 20px;
         margin-right: 20px; }
-      .modal .popup .popup-content a.pop-signin p, .modal .popup .popup-content a.pop-register p {
+      .modal .popup .popup-content a.pop-signin p,
+      .modal .popup .popup-content a.pop-register p {
         margin-bottom: 0px; }
 
 /* ---------------- Explore Page ------------------ */
@@ -330,7 +334,8 @@ main {
   margin: auto;
   margin-top: 25px;
   max-width: 80%; }
-  #search-container #search, #search-container #search-btn {
+  #search-container #search,
+  #search-container #search-btn {
     margin-bottom: 0; }
   #search-container #search-btn {
     position: absolute;
@@ -397,7 +402,8 @@ main {
     width: 100%;
     display: block;
     margin-bottom: 20px; }
-  .card h5, .card p {
+  .card h5,
+  .card p {
     margin-bottom: 0; }
   .card .overlay {
     position: absolute;
@@ -459,7 +465,8 @@ main {
         padding-left: 30px; }
     #profile-side-menu #profile-side-content #my-lists-tab {
       background-color: #84d8bd; }
-    #profile-side-menu #profile-side-content #favs-tab, #profile-side-menu #profile-side-content #edit-profile-tab {
+    #profile-side-menu #profile-side-content #favs-tab,
+    #profile-side-menu #profile-side-content #edit-profile-tab {
       background-color: #dae2e0; }
 
 #my-lists-container {
