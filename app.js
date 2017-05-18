@@ -55,6 +55,13 @@ hbs.registerHelper('block', function(name) {
 
 // ROUTES ======================================================================
 
+// for route authentication - disallow any routes that dont have user logged in
+function isAuthenticated(req, res, next) {
+    if (req.user)
+        return next();
+    res.redirect('/');
+}
+
 // user login middleware - exposes user to handlebars
 app.use(function(req, res, next) {
     res.locals.user = req.user;
@@ -64,10 +71,11 @@ app.use(function(req, res, next) {
 
 // per file routes
 app.use('/', require('./routes/index'));
+app.use('/', require('./routes/db'));
 app.use('/test', require('./routes/test'));
 app.use('/explore', require('./routes/explore'));
-app.use('/create', require('./routes/create'));
-app.use('/profile', require('./routes/profile'));
+app.use('/create', isAuthenticated, require('./routes/create'));
+app.use('/profile', isAuthenticated, require('./routes/profile'));
 
 app.get('/success', function(req, res) {
     res.send('action success');
