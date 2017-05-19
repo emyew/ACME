@@ -411,16 +411,15 @@ main {
     background-color: $color-accent2-hover;
     border-color: $color-accent2-hover;
   }
-}
-table {
-  width: 100%;
-}
-@media (max-width: 750px) {
-  width: 100%;
-  bottom: 50px;
-  background-color: $color-bg-main;
-  margin-top: 200%;
-}
+  table {
+    width: 100%;
+  }
+  @media (max-width: 750px) {
+    width: 100%;
+    bottom: 50px;
+    background-color: $color-bg-main;
+    margin-top: 200%;
+  }
 }
 
 #map-container {
