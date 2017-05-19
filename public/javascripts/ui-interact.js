@@ -46,7 +46,7 @@ if (pathname == MAP || pathname == CREATE) {
 
 //reset window if resized to undo toggled states and changes
 $(window).resize(function() {
-  if($(window).width() > 750) {
+  if($(window).width() > 900) {
     $(".navbar-lists").css({height: 0}, 200).addClass("hide");
     if(pathname == MAP) {
       $("#side-menu").css({"margin-top": 0}).addClass("show");

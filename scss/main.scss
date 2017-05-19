@@ -85,7 +85,7 @@ body {
   .signedin {
     display: none;
   }
-  @media (max-width: 750px) {
+  @media (max-width: 900px) {
     .navbar-menu {
       display: inline-block !important;
     }
@@ -111,38 +111,6 @@ body {
     a {
       display: inline-block;
       width: 100%;
-    }
-    @media (max-width: 900px) {
-      .navbar-menu {
-        display: inline-block !important;
-      }
-      .navbar-lists {
-        z-index: 3;
-        position: absolute;
-        top: 50px;
-        width: 100%;
-        overflow: hidden;
-        height: 0;
-      }
-      .navbar-left {
-        background-color: $color-navbar2;
-      }
-      .navbar-right {
-        background-color: $color-navbar2; //color different from left
-      }
-      .navbar-right, .navbar-left {
-        width: 100%;
-        float: left;
-      }
-      a {
-        display: inline-block;
-        width: 100%;
-      }
-      ul {
-        li {
-          display: block;
-        }
-      }
     }
   }
 }
@@ -178,7 +146,7 @@ main {
   #side-menu-toggle:hover {
     background-color: $color-accent;
   }
-  @media (max-width: 750px) {
+  @media (max-width: 900px) {
     display: block;
   }
 }
@@ -229,7 +197,6 @@ main {
   #fav-list:hover, #create-list:hover {
     background-color: $color-accent2-hover;
     border-color: $color-accent2-hover;
-
   }
   #list-container {
     margin: auto;
@@ -252,6 +219,7 @@ main {
   input[type="button"] {
     margin: auto;
     display: block;
+    margin-bottom: 10px;
   }
   input[type="text"], textarea {
     display: block;
@@ -259,7 +227,6 @@ main {
   }
   input[type="text"]:focus, textarea:focus {
     border-color: $color-accent2;
-
   }
   .sortable-waypoints {
     list-style-type: none;
@@ -323,98 +290,10 @@ main {
       border-color: $color-accent2-hover;
     }
   }
-}
-#submit {
-  background-color: $color-accent;
-  border-color: $color-accent;
-  display: block;
-  margin: auto;
-}
-#submit:hover {
-  background-color: $color-accent-hover;
-  border-color: $color-accent-hover;
-}
-.trip-title {
-  text-align: center;
-  font-weight: bold;
-}
-#desc {
-  font-weight: bold;
-  text-align: left;
-  margin-bottom: 0;
-}
-#instr {
-  font-size: 12px;
-}
-#list-container {
-  margin: auto;
-}
-#tag-container {
-  position: relative;
-  margin: auto;
-  margin-bottom: 15px;
-}
-#waypoints {
-  text-align: left;
-  margin-bottom: 15px;
-}
-.points {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  background-color: $color-bg-main;
-  cursor: move !important;
-  margin-bottom: 0;
-  min-height: 20px;
-  vertical-align: middle;
-}
-.points:before {
-  content: '\2630';
-  padding-right: 10px;
-  font-size: 12pt;
-  color: $color-navbar-brand;
-}
-.remove-point {
-  color: #d85454;
-  float: right;
-}
-.remove-point:hover {
-  color: #f47575;
-}
-#add-waypoints-container {
-  position: relative;
-  line-height: 24px;
-  width: 100%;
-  margin-bottom: 30px;
-  #new-waypoint {
-    padding-right: 58px;
-    margin: 0;
-    width: 100%;
-  }
-  #new-waypoint:focus {
-    border-color: $color-accent2;
-  }
-  #add-waypoint-btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 50px;
-    padding: 0 10px;
-    margin: 0;
-    border-radius: 0 4px 4px 0;
-    font-size: 8pt;
-    text-align: center;
-    line-height: 16px;
-    background-color: $color-accent2;
-    border-color: $color-accent2;
-  }
-  #add-waypoint-btn:hover {
-    background-color: $color-accent2-hover;
-    border-color: $color-accent2-hover;
-  }
   table {
     width: 100%;
   }
-  @media (max-width: 750px) {
+  @media (max-width: 900px) {
     width: 100%;
     bottom: 50px;
     background-color: $color-bg-main;
@@ -435,7 +314,7 @@ main {
     width: 100%;
     float: left;
   }
-  @media (max-width: 750px) {
+  @media (max-width: 900px) {
     width: 100%;
     bottom: 50px;
   }
@@ -630,8 +509,9 @@ margin-bottom: 0;
   -webkit-column-gap: 35px;
   -moz-column-gap: 35px;
   column-gap: 35px;
-  padding: 0 30px;
-  margin: 30px 0;
+  margin: auto;
+  margin-top: 30px;
+  width: 80%;
   li {
     display: inline-block;
   }

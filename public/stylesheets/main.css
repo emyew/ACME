@@ -52,7 +52,7 @@ body {
       border-radius: 1.5px; }
   .navbar .signedin {
     display: none; }
-  @media (max-width: 750px) {
+  @media (max-width: 900px) {
     .navbar .navbar-menu {
       display: inline-block !important; }
     .navbar .navbar-lists {
@@ -73,29 +73,6 @@ body {
     .navbar a {
       display: inline-block;
       width: 100%; } }
-
-@media (max-width: 750px) and (max-width: 900px) {
-  .navbar .navbar-menu {
-    display: inline-block !important; }
-  .navbar .navbar-lists {
-    z-index: 3;
-    position: absolute;
-    top: 50px;
-    width: 100%;
-    overflow: hidden;
-    height: 0; }
-  .navbar .navbar-left {
-    background-color: #9CDDC8; }
-  .navbar .navbar-right {
-    background-color: #9CDDC8; }
-  .navbar .navbar-right, .navbar .navbar-left {
-    width: 100%;
-    float: left; }
-  .navbar a {
-    display: inline-block;
-    width: 100%; }
-  .navbar ul li {
-    display: block; } }
 
 main {
   /*position: fixed;*/
@@ -125,7 +102,7 @@ main {
     font-size: 9pt; }
   #side-menu-toggle-wrapper #side-menu-toggle:hover {
     background-color: #F7AF63; }
-  @media (max-width: 750px) {
+  @media (max-width: 900px) {
     #side-menu-toggle-wrapper {
       display: block; } }
 
@@ -182,7 +159,8 @@ main {
     flex-direction: row; }
   #side-menu input[type="button"] {
     margin: auto;
-    display: block; }
+    display: block;
+    margin-bottom: 10px; }
   #side-menu input[type="text"], #side-menu textarea {
     display: block;
     width: 100%; }
@@ -239,94 +217,10 @@ main {
     #side-menu #add-waypoints-container #add-waypoint-btn:hover {
       background-color: #59BC9C;
       border-color: #59BC9C; }
-
-#submit {
-  background-color: #F7AF63;
-  border-color: #F7AF63;
-  display: block;
-  margin: auto; }
-
-#submit:hover {
-  background-color: #e58f34;
-  border-color: #e58f34; }
-
-.trip-title {
-  text-align: center;
-  font-weight: bold; }
-
-#desc {
-  font-weight: bold;
-  text-align: left;
-  margin-bottom: 0; }
-
-#instr {
-  font-size: 12px; }
-
-#list-container {
-  margin: auto; }
-
-#tag-container {
-  position: relative;
-  margin: auto;
-  margin-bottom: 15px; }
-
-#waypoints {
-  text-align: left;
-  margin-bottom: 15px; }
-
-.points {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  background-color: white;
-  cursor: move !important;
-  margin-bottom: 0;
-  min-height: 20px;
-  vertical-align: middle; }
-
-.points:before {
-  content: '\2630';
-  padding-right: 10px;
-  font-size: 12pt;
-  color: #0A7571; }
-
-.remove-point {
-  color: #d85454;
-  float: right; }
-
-.remove-point:hover {
-  color: #f47575; }
-
-#add-waypoints-container {
-  position: relative;
-  line-height: 24px;
-  width: 100%;
-  margin-bottom: 30px; }
-  #add-waypoints-container #new-waypoint {
-    padding-right: 58px;
-    margin: 0;
+  #side-menu table {
     width: 100%; }
-  #add-waypoints-container #new-waypoint:focus {
-    border-color: #84d8bd; }
-  #add-waypoints-container #add-waypoint-btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 50px;
-    padding: 0 10px;
-    margin: 0;
-    border-radius: 0 4px 4px 0;
-    font-size: 8pt;
-    text-align: center;
-    line-height: 16px;
-    background-color: #84d8bd;
-    border-color: #84d8bd; }
-  #add-waypoints-container #add-waypoint-btn:hover {
-    background-color: #59BC9C;
-    border-color: #59BC9C; }
-  #add-waypoints-container table {
-    width: 100%; }
-  @media (max-width: 750px) {
-    #add-waypoints-container {
+  @media (max-width: 900px) {
+    #side-menu {
       width: 100%;
       bottom: 50px;
       background-color: white;
@@ -344,7 +238,7 @@ main {
     height: 100%;
     width: 100%;
     float: left; }
-  @media (max-width: 750px) {
+  @media (max-width: 900px) {
     #map-container {
       width: 100%;
       bottom: 50px; } }
@@ -509,8 +403,9 @@ margin-bottom: 0;
   -webkit-column-gap: 35px;
   -moz-column-gap: 35px;
   column-gap: 35px;
-  padding: 0 30px;
-  margin: 30px 0; }
+  margin: auto;
+  margin-top: 30px;
+  width: 80%; }
   #card-container li {
     display: inline-block; }
   @media (max-width: 1024px) {
