@@ -52,7 +52,7 @@ body {
       border-radius: 1.5px; }
   .navbar .signedin {
     display: none; }
-  @media (max-width: 750px) {
+  @media (max-width: 900px) {
     .navbar .navbar-menu {
       display: inline-block !important; }
     .navbar .navbar-lists {
@@ -108,7 +108,7 @@ main {
       display: block; } }
 
 #side-menu {
-  width: 30%;
+  width: 35%;
   position: absolute;
   overflow: scroll;
   top: 0;
@@ -123,14 +123,6 @@ main {
     margin: auto; }
     #side-menu #side-menu-content #directions-panel {
       width: 100%; }
-  #side-menu #submit {
-    background-color: #F7AF63;
-    border-color: #F7AF63;
-    display: block;
-    margin: auto; }
-  #side-menu #submit:hover {
-    background-color: #e58f34;
-    border-color: #e58f34; }
   #side-menu .trip-title {
     text-align: center;
     font-weight: bold; }
@@ -140,6 +132,18 @@ main {
     margin-bottom: 0; }
   #side-menu #instr {
     font-size: 12px; }
+  #side-menu #edit-list {
+    background-color: #F7AF63;
+    border-color: #F7AF63; }
+  #side-menu #edit-list:hover {
+    background-color: #e58f34;
+    border-color: #e58f34; }
+  #side-menu #fav-list, #side-menu #create-list {
+    background-color: #84d8bd;
+    border-color: #84d8bd; }
+  #side-menu #fav-list:hover, #side-menu #create-list:hover {
+    background-color: #59BC9C;
+    border-color: #59BC9C; }
   #side-menu #list-container {
     margin: auto; }
   #side-menu #tag-container {
@@ -149,21 +153,42 @@ main {
   #side-menu #waypoints {
     text-align: left;
     margin-bottom: 15px; }
+  #side-menu #side-menu-btns {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row; }
+  #side-menu input[type="button"] {
+    margin: auto;
+    display: block; }
+  #side-menu input[type="text"], #side-menu textarea {
+    display: block;
+    width: 100%; }
+  #side-menu input[type="text"]:focus, #side-menu textarea:focus {
+    border-color: #84d8bd; }
+  #side-menu .sortable-waypoints {
+    list-style-type: none; }
+    #side-menu .sortable-waypoints .points {
+      cursor: move !important; }
+    #side-menu .sortable-waypoints .points:before {
+      content: '\2630'; }
   #side-menu .points {
+    position: relative;
     padding-top: 5px;
     padding-bottom: 5px;
     background-color: white;
-    cursor: move !important;
     margin-bottom: 0;
     min-height: 20px;
     vertical-align: middle; }
   #side-menu .points:before {
-    content: '\2630';
     padding-right: 10px;
     font-size: 12pt;
     color: #0A7571; }
   #side-menu .remove-point {
     color: #d85454;
+    position: absolute;
+    right: 0px;
+    top: 10px;
     float: right; }
   #side-menu .remove-point:hover {
     color: #f47575; }
@@ -176,8 +201,6 @@ main {
       padding-right: 58px;
       margin: 0;
       width: 100%; }
-    #side-menu #add-waypoints-container #new-waypoint:focus {
-      border-color: #84d8bd; }
     #side-menu #add-waypoints-container #add-waypoint-btn {
       position: absolute;
       top: 0;
@@ -205,7 +228,7 @@ main {
 
 #map-container {
   z-index: 1;
-  width: 70%;
+  width: 65%;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -427,6 +450,52 @@ main {
 
 .card:hover .overlay {
   opacity: 1; }
+
+@keyframes colorchange {
+  0% {
+    color: #4ECDC4; }
+  25% {
+    color: #C7F464; }
+  50% {
+    color: #FF6B6B; }
+  75% {
+    color: #C44D58; }
+  100% {
+    color: #4ECDC4; } }
+
+#lost404 {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  margin: auto;
+  text-align: center;
+  height: 100%; }
+  #lost404 h1 {
+    font-size: 36vw;
+    position: fixed;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    margin: auto;
+    z-index: 1;
+    opacity: .50; }
+  #lost404 .lostcar {
+    animation: colorchange 5s infinite linear;
+    font-size: 6vw;
+    position: fixed;
+    height: 100%;
+    display: block;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    margin: auto;
+    margin-top: 10%; }
 
 /* ---------------- Create Page ------------------ */
 #trip-desc {

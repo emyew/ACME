@@ -86,7 +86,7 @@ body {
     .signedin {
       display: none;
     }
-    @media (max-width: 750px) {
+    @media (max-width: 900px) {
         .navbar-menu {
             display: inline-block !important;
         }
@@ -157,7 +157,7 @@ main {
 }
 
 #side-menu {
-    width: 30%;
+    width: 35%;
     position: absolute;
     overflow: scroll;
     top: 0;
@@ -174,16 +174,6 @@ main {
           width: 100%;
         }
     }
-    #submit {
-        background-color: $color-accent;
-        border-color: $color-accent;
-        display: block;
-        margin: auto;
-    }
-    #submit:hover {
-      background-color: $color-accent-hover;
-      border-color: $color-accent-hover;
-    }
     .trip-title {
       text-align: center;
       font-weight: bold;
@@ -195,6 +185,24 @@ main {
     }
     #instr {
         font-size: 12px;
+    }
+    #edit-list {
+        background-color: $color-accent;
+        border-color: $color-accent;
+    }
+    #edit-list:hover {
+      background-color: $color-accent-hover;
+      border-color: $color-accent-hover;
+    }
+    #fav-list, #create-list {
+      background-color: $color-accent2;
+      border-color: $color-accent2;
+
+    }
+    #fav-list:hover, #create-list:hover {
+      background-color: $color-accent2-hover;
+      border-color: $color-accent2-hover;
+
     }
     #list-container {
         margin: auto;
@@ -208,23 +216,52 @@ main {
         text-align: left;
         margin-bottom: 15px;
     }
+    #side-menu-btns {
+      margin-top: 25px;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+    input[type="button"] {
+      margin: auto;
+      display: block;
+    }
+    input[type="text"], textarea {
+      display: block;
+      width: 100%;
+    }
+    input[type="text"]:focus, textarea:focus {
+      border-color: $color-accent2;
+
+    }
+    .sortable-waypoints {
+      list-style-type: none;
+      .points {
+        cursor: move !important;
+      }
+      .points:before {
+        content: '\2630';
+      }
+    }
     .points {
+        position: relative;
         padding-top: 5px;
         padding-bottom: 5px;
         background-color: $color-bg-main;
-        cursor: move !important;
         margin-bottom: 0;
         min-height: 20px;
         vertical-align: middle;
     }
     .points:before {
-        content: '\2630';
         padding-right: 10px;
         font-size: 12pt;
         color: $color-navbar-brand;
     }
     .remove-point {
       color: #d85454;
+      position: absolute;
+      right: 0px;
+      top: 10px;
       float: right;
     }
     .remove-point:hover {
@@ -239,9 +276,6 @@ main {
         padding-right: 58px;
         margin: 0;
         width: 100%;
-      }
-      #new-waypoint:focus {
-        border-color: $color-accent2;
       }
       #add-waypoint-btn {
         position: absolute;
@@ -275,7 +309,7 @@ main {
 
 #map-container {
     z-index: 1;
-    width: 70%;
+    width: 65%;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -535,6 +569,57 @@ main {
 }
 .card:hover .overlay {
   opacity: 1;
+}
+
+@keyframes colorchange {
+  0% {
+    color: #4ECDC4;
+  }
+  25% {
+    color: #C7F464;
+  }
+  50% {
+    color: #FF6B6B;
+  }
+  75% {
+    color: #C44D58;
+  }
+  100% {
+    color: #4ECDC4;
+  }
+}
+
+#lost404 {
+  @include vertical-align;
+  margin: auto;
+  text-align: center;
+  height: 100%;
+  h1 {
+    font-size: 36vw;
+    position: fixed;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    margin: auto;
+    z-index: 1;
+    opacity: .50;
+  }
+  .lostcar {
+    animation: colorchange 5s infinite linear;
+    font-size: 6vw;
+    position: fixed;
+    height: 100%;
+    display: block;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    margin: auto;
+    margin-top: 10%;
+  }
 }
 
 /* ---------------- Create Page ------------------ */
