@@ -113,36 +113,36 @@ body {
       width: 100%;
     }
     @media (max-width: 900px) {
-        .navbar-menu {
-            display: inline-block !important;
+      .navbar-menu {
+        display: inline-block !important;
+      }
+      .navbar-lists {
+        z-index: 3;
+        position: absolute;
+        top: 50px;
+        width: 100%;
+        overflow: hidden;
+        height: 0;
+      }
+      .navbar-left {
+        background-color: $color-navbar2;
+      }
+      .navbar-right {
+        background-color: $color-navbar2; //color different from left
+      }
+      .navbar-right, .navbar-left {
+        width: 100%;
+        float: left;
+      }
+      a {
+        display: inline-block;
+        width: 100%;
+      }
+      ul {
+        li {
+          display: block;
         }
-        .navbar-lists {
-          z-index: 3;
-          position: absolute;
-          top: 50px;
-          width: 100%;
-          overflow: hidden;
-          height: 0;
-        }
-        .navbar-left {
-          background-color: $color-navbar2;
-        }
-        .navbar-right {
-          background-color: $color-navbar2; //color different from left
-        }
-        .navbar-right, .navbar-left {
-          width: 100%;
-          float: left;
-        }
-        a {
-          display: inline-block;
-          width: 100%;
-        }
-        ul {
-          li {
-            display: block;
-          }
-        }
+      }
     }
   }
 }
@@ -184,155 +184,22 @@ main {
 }
 
 #side-menu {
-    width: 35%;
-    position: absolute;
-    overflow: scroll;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 2;
-    margin-top: 0;
-    #side-menu-content {
-        position: relative;
-        padding: 30px;
-        max-width: 500px;
-        margin: auto;
-        #directions-panel {
-          width: 100%;
-        }
-    }
-    .trip-title {
-      text-align: center;
-      font-weight: bold;
-    }
-    #desc {
-        font-weight: bold;
-        text-align: left;
-        margin-bottom: 0;
-    }
-    #instr {
-        font-size: 12px;
-    }
-    #edit-list {
-        background-color: $color-accent;
-        border-color: $color-accent;
-    }
-    #edit-list:hover {
-      background-color: $color-accent-hover;
-      border-color: $color-accent-hover;
-    }
-    #fav-list, #create-list {
-      background-color: $color-accent2;
-      border-color: $color-accent2;
-
-    }
-    #fav-list:hover, #create-list:hover {
-      background-color: $color-accent2-hover;
-      border-color: $color-accent2-hover;
-
-    }
-    #list-container {
-        margin: auto;
-    }
-    #tag-container {
-      position: relative;
-      margin: auto;
-      margin-bottom: 15px;
-    }
-    #waypoints {
-        text-align: left;
-        margin-bottom: 15px;
-    }
-    #side-menu-btns {
-      margin-top: 25px;
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: row;
-    }
-    input[type="button"] {
-      margin: auto;
-      display: block;
-    }
-    input[type="text"], textarea {
-      display: block;
-      width: 100%;
-    }
-    input[type="text"]:focus, textarea:focus {
-      border-color: $color-accent2;
-
-    }
-    .sortable-waypoints {
-      list-style-type: none;
-      .points {
-        cursor: move !important;
-      }
-      .points:before {
-        content: '\2630';
-      }
-    }
-    .points {
-        position: relative;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        background-color: $color-bg-main;
-        margin-bottom: 0;
-        min-height: 20px;
-        vertical-align: middle;
-    }
-    .points:before {
-        padding-right: 10px;
-        font-size: 12pt;
-        color: $color-navbar-brand;
-    }
-    .remove-point {
-      color: #d85454;
-      position: absolute;
-      right: 0px;
-      top: 10px;
-      float: right;
-    }
-    .remove-point:hover {
-      color: #f47575;
-    }
-    #add-waypoints-container {
-      position: relative;
-      line-height: 24px;
-      width: 100%;
-      margin-bottom: 30px;
-      #new-waypoint {
-        padding-right: 58px;
-        margin: 0;
-        width: 100%;
-      }
-      #add-waypoint-btn {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 50px;
-        padding: 0 10px;
-        margin: 0;
-        border-radius: 0 4px 4px 0;
-        font-size: 8pt;
-        text-align: center;
-        line-height: 16px;
-        background-color: $color-accent2;
-        border-color: $color-accent2;
-      }
-      #add-waypoint-btn:hover {
-        background-color: $color-accent2-hover;
-        border-color: $color-accent2-hover;
-      }
-    }
-  }
-  #submit {
-    background-color: $color-accent;
-    border-color: $color-accent;
-    display: block;
+  width: 35%;
+  position: absolute;
+  overflow: scroll;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  margin-top: 0;
+  #side-menu-content {
+    position: relative;
+    padding: 30px;
+    max-width: 500px;
     margin: auto;
-  }
-  #submit:hover {
-    background-color: $color-accent-hover;
-    border-color: $color-accent-hover;
+    #directions-panel {
+      width: 100%;
+    }
   }
   .trip-title {
     text-align: center;
@@ -346,6 +213,24 @@ main {
   #instr {
     font-size: 12px;
   }
+  #edit-list {
+    background-color: $color-accent;
+    border-color: $color-accent;
+  }
+  #edit-list:hover {
+    background-color: $color-accent-hover;
+    border-color: $color-accent-hover;
+  }
+  #fav-list, #create-list {
+    background-color: $color-accent2;
+    border-color: $color-accent2;
+
+  }
+  #fav-list:hover, #create-list:hover {
+    background-color: $color-accent2-hover;
+    border-color: $color-accent2-hover;
+
+  }
   #list-container {
     margin: auto;
   }
@@ -358,23 +243,52 @@ main {
     text-align: left;
     margin-bottom: 15px;
   }
+  #side-menu-btns {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  input[type="button"] {
+    margin: auto;
+    display: block;
+  }
+  input[type="text"], textarea {
+    display: block;
+    width: 100%;
+  }
+  input[type="text"]:focus, textarea:focus {
+    border-color: $color-accent2;
+
+  }
+  .sortable-waypoints {
+    list-style-type: none;
+    .points {
+      cursor: move !important;
+    }
+    .points:before {
+      content: '\2630';
+    }
+  }
   .points {
+    position: relative;
     padding-top: 5px;
     padding-bottom: 5px;
     background-color: $color-bg-main;
-    cursor: move !important;
     margin-bottom: 0;
     min-height: 20px;
     vertical-align: middle;
   }
   .points:before {
-    content: '\2630';
     padding-right: 10px;
     font-size: 12pt;
     color: $color-navbar-brand;
   }
   .remove-point {
     color: #d85454;
+    position: absolute;
+    right: 0px;
+    top: 10px;
     float: right;
   }
   .remove-point:hover {
@@ -389,9 +303,6 @@ main {
       padding-right: 58px;
       margin: 0;
       width: 100%;
-    }
-    #new-waypoint:focus {
-      border-color: $color-accent2;
     }
     #add-waypoint-btn {
       position: absolute;
@@ -412,38 +323,109 @@ main {
       border-color: $color-accent2-hover;
     }
   }
-  table {
+}
+#submit {
+  background-color: $color-accent;
+  border-color: $color-accent;
+  display: block;
+  margin: auto;
+}
+#submit:hover {
+  background-color: $color-accent-hover;
+  border-color: $color-accent-hover;
+}
+.trip-title {
+  text-align: center;
+  font-weight: bold;
+}
+#desc {
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 0;
+}
+#instr {
+  font-size: 12px;
+}
+#list-container {
+  margin: auto;
+}
+#tag-container {
+  position: relative;
+  margin: auto;
+  margin-bottom: 15px;
+}
+#waypoints {
+  text-align: left;
+  margin-bottom: 15px;
+}
+.points {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: $color-bg-main;
+  cursor: move !important;
+  margin-bottom: 0;
+  min-height: 20px;
+  vertical-align: middle;
+}
+.points:before {
+  content: '\2630';
+  padding-right: 10px;
+  font-size: 12pt;
+  color: $color-navbar-brand;
+}
+.remove-point {
+  color: #d85454;
+  float: right;
+}
+.remove-point:hover {
+  color: #f47575;
+}
+#add-waypoints-container {
+  position: relative;
+  line-height: 24px;
+  width: 100%;
+  margin-bottom: 30px;
+  #new-waypoint {
+    padding-right: 58px;
+    margin: 0;
     width: 100%;
   }
-  @media (max-width: 750px) {
-    width: 100%;
-    bottom: 50px;
-    background-color: $color-bg-main;
-    margin-top: 200%;
+  #new-waypoint:focus {
+    border-color: $color-accent2;
   }
+  #add-waypoint-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    padding: 0 10px;
+    margin: 0;
+    border-radius: 0 4px 4px 0;
+    font-size: 8pt;
+    text-align: center;
+    line-height: 16px;
+    background-color: $color-accent2;
+    border-color: $color-accent2;
+  }
+  #add-waypoint-btn:hover {
+    background-color: $color-accent2-hover;
+    border-color: $color-accent2-hover;
+  }
+}
+table {
+  width: 100%;
+}
+@media (max-width: 750px) {
+  width: 100%;
+  bottom: 50px;
+  background-color: $color-bg-main;
+  margin-top: 200%;
+}
 }
 
 #map-container {
-<<<<<<< HEAD
-    z-index: 1;
-    width: 65%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    overflow: hidden;
-    #map {
-        height: 100%;
-        width: 100%;
-        float: left;
-    }
-    @media (max-width: 750px) {
-        width: 100%;
-        bottom: 50px;
-    }
-=======
   z-index: 1;
-  width: 70%;
+  width: 65%;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -458,7 +440,6 @@ main {
     width: 100%;
     bottom: 50px;
   }
->>>>>>> origin/master
 }
 
 @keyframes popup {
@@ -630,17 +611,17 @@ main {
 
 
 /*.card {
-  position: relative;
+position: relative;
 
-  img {
-    width: 100%;
-    margin-bottom: 15px;
-    display: block;
-  }
+img {
+width: 100%;
+margin-bottom: 15px;
+display: block;
+}
 
-  h5, p {
-    margin-bottom: 0;
-  }
+h5, p {
+margin-bottom: 0;
+}
 }*/
 
 #card-container {
@@ -713,7 +694,6 @@ main {
   opacity: 1;
 }
 
-<<<<<<< HEAD
 @keyframes colorchange {
   0% {
     color: #4ECDC4;
@@ -764,8 +744,6 @@ main {
     margin-top: 10%;
   }
 }
-=======
->>>>>>> origin/master
 
 /* ---------------- Create Page ------------------ */
 
@@ -840,54 +818,54 @@ main {
       }
     }
     /*.card {
-      position: relative;
+    position: relative;
 
-      img {
-        width: 400px;
-        display: block;
-        margin-bottom: 20px;
-      }
-
-      h5, p {
-        margin-bottom: 0;
-      }
-
-      .overlay {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 100%;
-        width: 100%;
-        opacity: 0;
-        transition: .5s ease;
-        background: rgba(0, 0, 0, .5);
-        cursor: pointer;
-      }
-
-      .hover-text {
-        text-align: center;
-        color: white;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        width: 100%;
-        padding: 0px 15px;
-      }
-
-      @media (max-width: 1024px) {
-        .overlay {
-          opacity: 1;
-        }
-      }
-    }
-    .card:hover .overlay {
-      opacity: 1;
-    }*/
+    img {
+    width: 400px;
+    display: block;
+    margin-bottom: 20px;
   }
+
+  h5, p {
+  margin-bottom: 0;
+}
+
+.overlay {
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+height: 100%;
+width: 100%;
+opacity: 0;
+transition: .5s ease;
+background: rgba(0, 0, 0, .5);
+cursor: pointer;
+}
+
+.hover-text {
+text-align: center;
+color: white;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+-ms-transform: translate(-50%, -50%);
+width: 100%;
+padding: 0px 15px;
+}
+
+@media (max-width: 1024px) {
+.overlay {
+opacity: 1;
+}
+}
+}
+.card:hover .overlay {
+opacity: 1;
+}*/
+}
 }
 
 @media screen and (min-width: 600px) {
