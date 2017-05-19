@@ -30,19 +30,36 @@ if (pathname == MAP || pathname == CREATE) {
   });
 
   //tagging functionality
-  $('#trip-tags').selectize({
+  if (pathname == MAP) {
+    $('#trip-tags').selectize({
+      delimiter: ',',
+      persist: false,
+      maxItems: 12,
+      create: function(input) {
+        return {
+          value: input,
+          text: input
+        }
+      }
+    });
+    document.getElementById('trip-tags-selectized').readOnly = true;
+  }
+  else {
+    $('#trip-tags').selectize({
       plugins: ['remove_button'],
       delimiter: ',',
       persist: false,
       maxItems: 12,
       create: function(input) {
-          return {
-              value: input,
-              text: input
-          }
+        return {
+          value: input,
+          text: input
+        }
       }
-  });
+    });
+  }
 }
+
 
 //reset window if resized to undo toggled states and changes
 $(window).resize(function() {

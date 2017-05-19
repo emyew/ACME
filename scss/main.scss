@@ -18,6 +18,7 @@ $color-navbar-link: #f9fff7;
 $color-navbar-brand: #0A7571;
 $color-text-em: #633D2E;
 $color-inactive-tab: #dae2e0;
+$color-inactive-tags: #edf4f2;
 html,
 body {
   height: 100%;
@@ -205,6 +206,10 @@ main {
     position: relative;
     margin: auto;
     margin-bottom: 15px;
+
+  }
+  .readonly .selectize-input {
+    border-color: $color-inactive-tags;
   }
   #waypoints {
     text-align: left;

@@ -149,6 +149,8 @@ main {
     position: relative;
     margin: auto;
     margin-bottom: 15px; }
+  #side-menu .readonly .selectize-input {
+    border-color: #edf4f2; }
   #side-menu #waypoints {
     text-align: left;
     margin-bottom: 15px; }
