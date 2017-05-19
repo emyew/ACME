@@ -447,13 +447,29 @@ function initMap() {
         addWaypoint(waypts);
     });
 
-    document.getElementById('submit').addEventListener('click', function() {
+    // document.getElementById('submit').addEventListener('click', function() {
+    //     currPosMarker.setVisible(false);
+    //     infoWindow.close();
+    //     currPosMarker.open = true;
+    //
+    //     calculateAndDisplayRoute(directionsService, directionsDisplay, currPos, waypts);
+    // });
+
+    //automatically detect changes in waypoints list and update map.
+    var map_waypoints = $("#waypoints").html();
+    setInterval(detectListChange, 3000);
+
+    function detectListChange() {
+      if (map_waypoints != $("#waypoints").html()) {
+        map_waypoints = $("#waypoints").html();
         currPosMarker.setVisible(false);
         infoWindow.close();
         currPosMarker.open = true;
 
         calculateAndDisplayRoute(directionsService, directionsDisplay, currPos, waypts);
-    });
+      }
+    }
+
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
