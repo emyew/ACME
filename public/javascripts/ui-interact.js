@@ -7,14 +7,16 @@ var CREATE = "/create";
 //////////////////// MAP ////////////////////
 if (pathname == MAP || pathname == CREATE) {
   //make list able to be reordered by dragging
-  var elem = document.getElementById("waypoints");
-  var editableList = Sortable.create(elem, {
-    filter: '.remove-point',
-    onFilter: function (evt) {
-      var el = editableList.closest(evt.item); // get dragged item
-      el && el.parentNode.removeChild(el);
-    }
-  });
+  if ($("#waypoints").hasClass("sortable-waypoints")) {
+    var elem = document.getElementById("waypoints");
+    var editableList = Sortable.create(elem, {
+      filter: '.remove-point',
+      onFilter: function (evt) {
+        var el = editableList.closest(evt.item); // get dragged item
+        el && el.parentNode.removeChild(el);
+      }
+    });
+  }
 
   //toggle sidemenu
   $("#side-menu-toggle-wrapper").click(function () {
