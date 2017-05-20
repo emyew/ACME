@@ -60,7 +60,6 @@ if (pathname == MAP || pathname == CREATE) {
   }
 }
 
-
 //reset window if resized to undo toggled states and changes
 $(window).resize(function() {
   if($(window).width() > 900) {
