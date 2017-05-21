@@ -1,8 +1,14 @@
-var map, infoWindow, currPos, currPosMarker, waypts, wayptsList, cols, place;
+var map, infoWindow, currPos, currPosMarker, waypts, wayptsList, cols, place, geocoder, markers, namesArray;
+var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var labelIndex = 0;
 
 function initMap() {
   var directionsService = new google.maps.DirectionsService;
-  var directionsDisplay = new google.maps.DirectionsRenderer;
+  var directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
+  geocoder = new google.maps.Geocoder();
+  markers = [];
+  namesArray = [];
+
   map = new google.maps.Map(document.getElementById('map'), {
     center: {
       lat: 32.8801,
@@ -249,16 +255,19 @@ function initMap() {
     }]
   });
   infoWindow = new google.maps.InfoWindow;
+
   waypts = [];
-  wayptsList = document.getElementById('waypoints');
-  var places = wayptsList.getElementsByTagName('li');
-  for (var i = 0; i < places.length; i++) {
-    waypts.push({
-      placeId: places[i].getAttribute('name'),
-      location: places[i].getAttribute('data-value'),
-      stopover: true
-    });
-  }
+  initWaypoints(waypts);
+  // waypts = [];
+  // wayptsList = document.getElementById('waypoints');
+  // var places = wayptsList.getElementsByTagName('li');
+  // for (var i = 0; i < places.length; i++) {
+  //   waypts.push({
+  //     placeId: places[i].getAttribute('name'),
+  //     location: places[i].getAttribute('data-value'),
+  //     stopover: true
+  //   });
+  // }
 
   var input = document.getElementById('new-waypoint');
   var autocomplete = new google.maps.places.Autocomplete(input);
@@ -270,53 +279,31 @@ function initMap() {
   });
 
   cols = document.querySelectorAll('.points');
-  // [].forEach.call(cols, function (col) {
-  //     col.addEventListener('dragstart', handleDragStart, false);
-  //     col.addEventListener('dragenter', handleDragEnter, false)
-  //     col.addEventListener('dragover', handleDragOver, false);
-  //     col.addEventListener('dragleave', handleDragLeave, false);
-  //     col.addEventListener('drop', handleDrop, false);
-  //     col.addEventListener('dragend', handleDragEnd, false);
-  // });
 
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
+    mapWaypoints(directionsService, directionsDisplay, waypts);
 
-      // infoWindow.setPosition(pos);
-      //infoWindow.setContent('Location found.');
-      // infoWindow.open(map);
+    // navigator.geolocation.getCurrentPosition(function(position) {
+    //   var pos = {
+    //     lat: position.coords.latitude,
+    //     lng: position.coords.longitude
+    //   };
 
-      map.setCenter(pos);
-      currPos = pos;
+    //   map.setCenter(pos);
+    //   currPos = pos;
 
-      currPosMarker = new google.maps.Marker({
-        position: currPos,
-        map: map,
-        title: 'You are here.',
-        animation: google.maps.Animation.DROP,
-        visible: true
-      });
+    //   currPosMarker = new google.maps.Marker({
+    //     position: currPos,
+    //     map: map,
+    //     title: 'You are here.',
+    //     animation: google.maps.Animation.DROP,
+    //     visible: true
+    //   });
 
-      //infoWindow.setContent('You are here.');
-      //infoWindow.open(map, currPosMarker);
-
-      /*currPosMarker.addListener('click', function() {
-          if (currPosMarker.open) {
-              infoWindow.open(map, currPosMarker);
-              currPosMarker.open = false;
-          } else {
-              infoWindow.close();
-              currPosMarker.open = true;
-          }
-      });*/
-    }, function() {
-      handleLocationError(true, infoWindow, map.getCenter());
-    });
+    // }, function() {
+    //   handleLocationError(true, infoWindow, map.getCenter());
+    // });
   } else {
     // Browser doesn't support Geolocation
     handleLocationError(false, infoWindow, map.getCenter());
@@ -344,14 +331,29 @@ function initMap() {
     function detectListChange() {
       if (map_waypoints != $("#waypoints").html()) {
         map_waypoints = $("#waypoints").html();
-        currPosMarker.setVisible(false);
-        infoWindow.close();
-        currPosMarker.open = true;
+        // currPosMarker.setVisible(false);
+        // infoWindow.close();
+        // currPosMarker.open = true;
 
-        calculateAndDisplayRoute(directionsService, directionsDisplay, currPos, waypts);
+        //calculateAndDisplayRoute(directionsService, directionsDisplay, currPos, waypts);
+        mapWaypoints(directionsService, directionsDisplay, waypts);
       }
     }
 
+}
+
+function initWaypoints(waypts) {
+  waypts = [];
+  wayptsList = document.getElementById('waypoints');
+  var places = wayptsList.getElementsByTagName('li');
+  for (var i = 0; i < places.length; i++) {
+    waypts.push({
+      placeId: places[i].getAttribute('name'),
+      location: places[i].getAttribute('data-value'),
+      stopover: true
+    });
+    namesArray.push(places[i].getAttribute('name'));
+  }
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -363,33 +365,10 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 function addWaypoint(waypts) {
-  /*var newWaypoint = document.getElementById('newWaypoint').value;
-    if (newWaypoint != '') {
-        waypts.push({
-            location: newWaypoint,
-            stopover: true
-        });
-        var li = document.createElement('li');
-        li.appendChild(document.createTextNode(newWaypoint));
-        li.className += "points";
-        li.draggable = true;
-        li.setAttribute('data-value', document.getElementById('newWaypoint').value);
-        wayptsList.appendChild(li);
-        document.getElementById('waypoints').appendChild(li);
-        document.getElementById('newWaypoint').value = '';
-
-        cols = document.querySelectorAll('.points');
-        [].forEach.call(cols, function (col) {
-            col.addEventListener('dragstart', handleDragStart, false);
-            col.addEventListener('dragenter', handleDragEnter, false)
-            col.addEventListener('dragover', handleDragOver, false);
-            col.addEventListener('dragleave', handleDragLeave, false);
-            col.addEventListener('drop', handleDrop, false);
-            col.addEventListener('dragend', handleDragEnd, false);
-        });
-    }*/
+  deleteMarkers();
   var newWaypoint = place.name;
   if (newWaypoint != '') {
+    namesArray.push(newWaypoint);
     waypts.push({
       location: document.getElementById('new-waypoint').value,
       stopover: true
@@ -399,6 +378,7 @@ function addWaypoint(waypts) {
     li.className += "points";
     li.draggable = true;
     li.setAttribute('data-value', document.getElementById('new-waypoint').value);
+    li.setAttribute('name', newWaypoint);
     var point_i = document.createElement('i');
     point_i.className += "fa fa-times fa-lg remove-point";
     point_i.setAttribute('aria-hidden', "true");
@@ -408,14 +388,133 @@ function addWaypoint(waypts) {
     document.getElementById('new-waypoint').value = '';
 
     cols = document.querySelectorAll('.points');
-    // [].forEach.call(cols, function (col) {
-    //     col.addEventListener('dragstart', handleDragStart, false);
-    //     col.addEventListener('dragenter', handleDragEnter, false)
-    //     col.addEventListener('dragover', handleDragOver, false);
-    //     col.addEventListener('dragleave', handleDragLeave, false);
-    //     col.addEventListener('drop', handleDrop, false);
-    //     col.addEventListener('dragend', handleDragEnd, false);
-    // });
+  }
+}
+
+function addMarker(location) {
+  var marker = new google.maps.Marker({
+    position: location,
+    map: map,
+    label: labels[labelIndex++ % labels.length]
+  });
+  markers.push(marker);
+}
+
+// Sets the map on all markers in the array.
+function setMapOnAll(map) {
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(map);
+  }
+}
+
+// Removes the markers from the map, but keeps them in the array.
+function clearMarkers() {
+  setMapOnAll(null);
+}
+
+// Shows any markers currently in the array.
+function showMarkers() {
+  setMapOnAll(map);
+}
+
+// Deletes all markers in the array by removing references to them.
+function deleteMarkers() {
+  clearMarkers();
+  markers = [];
+  labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  labelIndex = 0;
+}
+
+function attachText(marker, text) {
+  google.maps.event.addListener(marker, 'click', function() {
+      infoWindow.setContent(text);
+      infoWindow.open(map, marker);
+  });
+}
+
+function mapWaypoints(directionsService, directionsDisplay, waypts) {
+  console.log("calling mapwaypoints");
+  waypts = [];
+  wayptsList = document.getElementById('waypoints');
+  var places = wayptsList.getElementsByTagName('li');
+  namesArray = [];
+  for (var i = 0; i < places.length; i++) {
+    waypts.push({
+      location: places[i].getAttribute('data-value'),
+      stopover: true
+    });
+    namesArray.push(places[i].getAttribute('name'));
+  }
+
+  if (waypts.length == 0) {
+    deleteMarkers();
+  } else if (waypts.length == 1) {
+    deleteMarkers();
+    var onePointLocation = waypts[0].location;
+    geocoder.geocode( { 'address': onePointLocation}, function(results, status) {
+      if (status == 'OK') {
+        map.setCenter(results[0].geometry.location);
+        var onePointMarker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location,
+            label: labels[labelIndex++ % labels.length]
+        });
+        var html = "<b>" + namesArray[0] + "</b> <br/>" + results[0].formatted_address;
+        attachText(onePointMarker, html);
+        markers.push(onePointMarker);
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
+  } else {
+    deleteMarkers();
+    for (var i = 0; i < waypts.length; i++) {
+      waypts[i].stopover = true;
+    }
+    waypts[0].stopover = false;
+    waypts.slice(-1)[0].stopover = false;
+
+    directionsService.route({
+      origin: waypts[0].location,
+      destination: waypts.slice(-1)[0].location,
+      waypoints: waypts,
+      optimizeWaypoints: true,
+      travelMode: 'DRIVING'
+    }, function(response, status) {
+      if (status === 'OK') {
+        directionsDisplay.setDirections(response);
+        var route = response.routes[0];
+        for (var i = 0; i < route.legs.length; i++) {
+            //var icon = "https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=" + i + "|FCB131|FFFFFF";
+            /*if (i == 0) {
+                icon = "https://chart.googleapis.com/chart?chst=d_map_xpin_icon&chld=pin_star|car-dealer|00FFFF|FF0000";
+            }*/
+            var marker = new google.maps.Marker({
+                position: route.legs[i].start_location,
+                map: map,
+                label: labels[labelIndex++ % labels.length]
+            });
+            //attachText(marker, route.legs[i].start_address);
+            var html = "<b>" + namesArray[i] + "</b> <br/>" + route.legs[i].start_address;
+            attachText(marker, html);
+            markers.push(marker);
+        }
+        var marker = new google.maps.Marker({
+            position: route.legs[i - 1].end_location,
+            map: map,
+            label: labels[labelIndex++ % labels.length]
+            //icon: "https://chart.googleapis.com/chart?chst=d_map_pin_icon&chld=flag|ADDE63"
+        });
+        markers.push(marker);
+        var html = "<b>" + namesArray[i] + "</b> <br/>" + route.legs[i - 1].end_address;
+        attachText(marker, html);
+        //attachText(marker, route.legs[i-1].end_address);
+
+        //google.maps.event.trigger(markers[0], "click");
+      } else {
+        window.alert('Directions request failed due to ' + status);
+      }
+    });
   }
 }
 
@@ -429,6 +528,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pos, way
       stopover: true
     });
   }
+
   /* var waypts = [];
     var checkboxArray = document.getElementById('waypoints');
     var places = checkboxArray.getElementsByTagName('li');
@@ -514,13 +614,6 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pos, way
     }
   });
 }
-
-/*function attachText(marker, text) {
-    google.maps.event.addListener(marker, 'click', function() {
-        infoWindow.setContent(text);
-        infoWindow.open(map, marker);
-    });
-}*/
 
 // var dragSrcEl = null;
 // var srcIndex = -1;
