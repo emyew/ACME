@@ -214,9 +214,10 @@ main {
   #waypoints {
     text-align: left;
     margin-bottom: 15px;
+    list-style-type: upper-alpha;
   }
   #side-menu-btns {
-    margin-top: 25px;
+    margin: 20px 0;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -234,9 +235,10 @@ main {
     border-color: $color-accent2;
   }
   .sortable-waypoints {
-    list-style-type: none;
+    list-style-type: none !important;
     .points {
       cursor: move !important;
+      padding-right: 15px;
     }
     .points:before {
       content: '\2630';
@@ -492,21 +494,6 @@ main {
   }
 }
 
-
-/*.card {
-position: relative;
-
-img {
-width: 100%;
-margin-bottom: 15px;
-display: block;
-}
-
-h5, p {
-margin-bottom: 0;
-}
-}*/
-
 #card-container {
   -webkit-column-count: 3;
   -moz-column-count: 3;
@@ -578,6 +565,8 @@ margin-bottom: 0;
   opacity: 1;
 }
 
+/* ---------------- 404 Page ------------------ */
+
 @keyframes colorchange {
   0% {
     color: #4ECDC4;
@@ -638,119 +627,146 @@ margin-bottom: 0;
 
 /* ---------------- Profile Page ----------------- */
 
-#profile-side-menu {
-  width: 30%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  #profile-side-content {
+#profile-content {
+  width: 80%;
+  margin: auto;
+  #profile-info-container {
+    margin-top: 30px;
     position: relative;
-    margin: auto;
-    padding: 30px;
-    #profile-pic-container {
-      text-align: center;
-      #profile-pic {
-        width: 70%;
-      }
-    }
-    h5 {
-      margin-bottom: 0;
-      padding-top: 5px;
-      padding-bottom: 5px;
-    }
-    .profile-tabs {
-      margin-left: -30px;
-      width: 1000px;
-      cursor: pointer;
-      h5 {
-        padding-left: 30px;
-      }
-    }
-    #my-lists-tab {
-      background-color: $color-accent2;
-    }
-    #favs-tab,
-    #edit-profile-tab {
-      background-color: $color-inactive-tab;
-    }
-  }
-}
-
-#my-lists-container {
-  width: 70%;
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  overflow: scroll;
-  background-color: $color-bg-second;
-  #my-lists-cards {
-    padding: 0 30px;
-    margin: 30px 0px;
-    /*display: flex;
+    width: 100%;
+    display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-around;*/
-    li {
+    #profile-pic-container {
+      background-color: grey;
       display: block;
-      img {
-        display: block;
-        width: 100%;
+      position: relative;
+      border-radius: 50%;
+      max-width: 150px;
+      max-height: 150px;
+      overflow: hidden;
+      margin: auto;
+      margin-bottom: 15px;
+    }
+    #profile-pic {
+      max-width: 150px;
+      opacity: 0.8;
+    }
+    #user-info {
+      display: block;
+      max-width: 75%;
+      padding: 0 30px;
+      margin: auto;
+      #user-name {
+        text-transform: uppercase;
+        font-weight: bold;
         margin-bottom: 0;
+        font-size: 20px;
+      }
+      #user-bio {
+        font-size: 14px;
+        margin: auto;
       }
     }
-    /*.card {
-    position: relative;
-
-    img {
-    width: 400px;
-    display: block;
-    margin-bottom: 20px;
+  }
+  #profile-tabs-container {
+    width: 100%;
+    ul {
+      list-style-type: none;
+      .profile-tabs {
+        text-align: center;
+        display: inline-block;
+        margin: auto;
+        width: 33%;
+      }
+    }
   }
 
-  h5, p {
-  margin-bottom: 0;
 }
 
-.overlay {
-position: absolute;
-top: 0;
-bottom: 0;
-left: 0;
-right: 0;
-height: 100%;
-width: 100%;
-opacity: 0;
-transition: .5s ease;
-background: rgba(0, 0, 0, .5);
-cursor: pointer;
-}
+// #profile-side-menu {
+//   width: 25%;
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   left: 0;
+//   #profile-side-content {
+//     position: relative;
+//     margin: auto;
+//     padding: 30px;
+//     #profile-info-container {
+//       text-align: center;
+//       padding-bottom: 30px;
+//       #profile-pic-container {
+//         background-color: grey;
+//         display: block;
+//         position: relative;
+//         border-radius: 50%;
+//         max-width: 150px;
+//         max-height: 150px;
+//         overflow: hidden;
+//         margin: auto;
+//         margin-bottom: 15px;
+//       }
+//       #profile-pic {
+//         max-width: 150px;
+//         margin: auto;
+//         opacity: 0.8;
+//       }
+//       #user-name {
+//         text-transform: uppercase;
+//         font-weight: bold;
+//         margin-bottom: 0;
+//         padding-top: 5px;
+//         padding-bottom: 5px;
+//         font-size: 20px;
+//       }
+//       #user-bio {
+//         font-size: 13px;
+//         max-width: 80%;
+//         margin: auto;
+//       }
+//     }
+//     .profile-tabs {
+//       margin-left: -30px;
+//       width: 1000px;
+//       cursor: pointer;
+//       h5 {
+//         padding-left: 30px;
+//       }
+//     }
+//     #my-lists-tab {
+//       background-color: $color-accent2;
+//     }
+//     #favs-tab,
+//     #edit-profile-tab {
+//       background-color: $color-inactive-tab;
+//     }
+//   }
+// }
 
-.hover-text {
-text-align: center;
-color: white;
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
--ms-transform: translate(-50%, -50%);
-width: 100%;
-padding: 0px 15px;
-}
-
-@media (max-width: 1024px) {
-.overlay {
-opacity: 1;
-}
-}
-}
-.card:hover .overlay {
-opacity: 1;
-}*/
-}
-}
+// #my-lists-container {
+//   width: 75%;
+//   position: absolute;
+//   z-index: 2;
+//   top: 0;
+//   bottom: 0;
+//   right: 0;
+//   overflow: scroll;
+//   background-color: $color-bg-second;
+//   #my-lists-cards {
+//     padding: 0 30px;
+//     margin: 30px 0px;
+//     li {
+//       display: block;
+//       img {
+//         display: block;
+//         width: 100%;
+//         margin-bottom: 0;
+//       }
+//     }
+// }
+// }
 
 @media screen and (min-width: 600px) {
   #my-lists-cards {
