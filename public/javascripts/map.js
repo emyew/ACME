@@ -428,12 +428,19 @@ function deleteMarkers() {
 function attachText(marker, text) {
   google.maps.event.addListener(marker, 'click', function() {
       infoWindow.setContent(text);
-      infoWindow.open(map, marker);
+      if (infoWindow.getMap() == null) {
+        infoWindow.open(map, marker);
+      } else {
+        if (marker == infoWindow.anchor) {
+          infoWindow.close();
+        } else {
+          infoWindow.open(map, marker);
+        }
+      }
   });
 }
 
 function mapWaypoints(directionsService, directionsDisplay, waypts) {
-  console.log("calling mapwaypoints");
   waypts = [];
   wayptsList = document.getElementById('waypoints');
   var places = wayptsList.getElementsByTagName('li');
