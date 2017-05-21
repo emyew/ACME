@@ -64,7 +64,7 @@ if (pathname == MAP || pathname == CREATE) {
 $(window).resize(function() {
   if($(window).width() > 900) {
     $(".navbar-lists").css({height: 0}, 200).addClass("hide");
-    if(pathname == MAP) {
+    if(pathname == MAP || pathname == CREATE) {
       $("#side-menu").css({"margin-top": 0}).addClass("show");
       $(".fa-caret-square-o-up").removeClass("fa-caret-square-o-up").addClass("fa-caret-square-o-down");
     }
