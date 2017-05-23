@@ -8,14 +8,14 @@ var List = require('../config/model_list');
 
 // create new list, assuming that data is perfectly formed
 router.post('/newList', function(req, res) {
-  console.log("GET /newList request: ", req.body);
+  console.log("POST /newList request: ", req.body);
   // check for valid input
-  if (req.user && req.body.title && req.body.locations) {
+  if (req.user && req.body.title && (req.body.locations.length > 0)) {
     // locate user to populate to associated lists
     User.findById(req.user._id, function(err, user) {
       if (err) res.status(500).send(err);
       if (user) {
-        console.log("GET /newList FOUND:" + user);
+        console.log("POST /newList FOUND:" + user);
         // save list
         var newList = new List();
         newList.author = req.user._id;
@@ -33,19 +33,17 @@ router.post('/newList', function(req, res) {
               if (err) {
                 res.status(500).send(err);
               } else {
-                res.send(newList);
+                res.redirect('/');
               }
             });
           }
         });
       } else {
-        res.status(404);
-        res.send("No user found");
+        res.status(404).send("No user found");
       }
     });
   } else {
-    res.status(404);
-    res.send("Invalid input!");
+    res.status(404).send("Invalid input!");
   }
 });
 
@@ -54,19 +52,15 @@ router.get('/myLists', function(req, res) {
   if (req.user) {
     // lookup user and populate list ref with the actual lists
     User.findById(req.user._id).populate('lists').exec(function(err, user) {
-      if (err) {
-        res.status(500);
-        res.send("GET /myLists error: ", err);
-      }
+      if (err) res.status(500).send(err);
       if (!user) {
-        res.status(404);
-        res.send("User not found!");
+        res.status(404).send("User not found!");
       } else {
-        res.send(user.lists);
+        res.status(200).send(user.lists);
       }
     });
   } else {
-    res.status(404);
+    res.status(404).send("No user found");
   }
 });
 
