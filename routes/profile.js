@@ -4,7 +4,17 @@ var User = require('../config/model_user');
 
 /* GET specific list page. */
 router.get('/', function(req, res, next) {
-  res.render('profile', { title: 'My Profile' });
+  // check if user is logged in
+  User.findById(req.user.id).populate('lists').exec(function(err, user) {
+    if (err) res.status(404).send(err);
+    if (!user) {
+      res.status(404).redirect('../404');
+    } else {
+      // join title and user payload
+      user.title = user.name;
+      res.render('profile', user);
+    }
+  });
 });
 
 // render other profile (not current user)

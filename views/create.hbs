@@ -50,7 +50,45 @@
 
 {{#extend "scripts"}}
 <script type="text/javascript" src="/javascripts/map.js"></script>
-<script type="text/javascript" src="/javascripts/create.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7l3pxQ6dq-Kgg-aVUO6-A0zf2swG2Cec&callback=initMap&libraries=places">
+</script>
+<script type="text/javascript">
+  // create list and send to database
+  $("#create-list").click(function() {
+    // gather data
+    var title = $("#trip-name").val();
+    var desc = $("#trip-desc").val();
+    var locations = [];
+    $("#waypoints").children().each(function() {
+      locations.push({
+        name: $(this).attr("name"),
+        address: $(this).attr("data-value")
+      });
+    });
+    var tags = $("#trip-tags").val().split(",");
+
+    // create payload
+    var postObj = {
+      title: title,
+      description: desc,
+      locations: locations,
+      tags: tags
+    };
+
+    // send post req
+    $.ajax('/newList', {
+      data: JSON.stringify(postObj),
+      contentType: 'application/json',
+      type: 'POST'
+    }).done(function(res) {
+      // TODO SHOW SUCCESS FEEDBACK
+      window.location.replace(res);
+    }).fail(function() {
+      // TODO SHOW FAILURE FEEDBACK
+      console.log("fail!");
+    }).always(function(res) {
+      console.log(res.responseText);
+    });
+  });
 </script>
 {{/extend}}

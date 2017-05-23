@@ -9,7 +9,7 @@
 				<img src="/imgs/profile-img-temp.png" alt="Profile Picture" id="profile-pic">
 			</div>
 			<div id="user-info">
-				<h5 id="user-name">Name</h5>
+				<h5 id="user-name">{{user.name}}</h5>
 				<p id="user-bio">Vice fanny pack chicharrones 90's put a bird on it. Intelligentsia irony quinoa bitters pok pok, hexagon hashtag succulents. Vice fanny pack chicharrones 90's put a bird on it.</p>
 			</div>
 		</div>
@@ -22,45 +22,19 @@
 		</div>
 		<div id="my-lists-container">
 			<ul id="my-lists-cards">
+				{{#each lists}}
 				<li>
-					<a href="/">
+					<a href="{{this.url}}">
 						<div class="card">
-							<img src="/imgs/temp.png">
+							<img src="imgs/temp.png">
 							<div class="overlay">
-								<div class="hover-text">
-									<h5>Trip Name</h5>
-									<p>mood + tags</p>
-								</div>
+							<div class="hover-text">
+								<h5>{{this.title}}</h5>
 							</div>
 						</div>
 					</a>
 				</li>
-				<li>
-					<a href="/">
-						<div class="card">
-							<img src="/imgs/temp.png">
-							<div class="overlay">
-								<div class="hover-text">
-									<h5>Trip Name</h5>
-									<p>mood + tags</p>
-								</div>
-							</div>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="/">
-						<div class="card">
-							<img src="/imgs/temp.png">
-							<div class="overlay">
-								<div class="hover-text">
-									<h5>Trip Name</h5>
-									<p>mood + tags</p>
-								</div>
-							</div>
-						</div>
-					</a>
-				</li>
+				{{/each}}
 			</ul>
 		</div>
 		<div id="favs-container">

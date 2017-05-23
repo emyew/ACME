@@ -3,8 +3,7 @@ var router = express.Router();
 var User = require('../config/model_user');
 var List = require('../config/model_list');
 
-// note: no authentication middleware built (yet!). possibly do later once data
-// is sorted out.
+// TODO: no authentication middleware built (yet!). possibly do later once data is sorted out.
 
 // create new list, assuming that data is perfectly formed
 router.post('/newList', function(req, res) {
@@ -23,7 +22,7 @@ router.post('/newList', function(req, res) {
         newList.description = req.body.description;
         newList.locations = req.body.locations;
         newList.tags = req.body.tags;
-        newList.url = generateURL();
+        newList.url = "/list/" + generateURL();
         newList.save(function(err) {
           if (err) {
             res.status(500).send(err);
@@ -34,7 +33,7 @@ router.post('/newList', function(req, res) {
               if (err) {
                 res.status(500).send(err);
               } else {
-                res.status(200).send("/list/" + newList.url);
+                res.status(200).send(newList.url);
               }
             });
           }
@@ -48,7 +47,8 @@ router.post('/newList', function(req, res) {
   }
 });
 
-// generate unique id TODO: avoid collisions
+// generate unique id
+// TODO: avoid collisions
 function generateURL() {
   var url = "";
   var possible = "abcdefghijklmnopqrstuvwxyz1234567890";

@@ -79,7 +79,6 @@ app.use('/list', require('./routes/list'));
 // app.use('/profile', require('./routes/profile'));
 app.use('/create', isAuthenticated, require('./routes/create'));
 app.use('/profile', isAuthenticated, require('./routes/profile'));
-
 app.get('/success', function(req, res) {
   res.send('action success');
 });
