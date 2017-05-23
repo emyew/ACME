@@ -2,11 +2,10 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('./model_user');
 
-// TESTING USER CREATION
+// TESTING USER CREATION (SERVER ONLY)
 User.findOne({ 'email': "test email" }, function(err, user) {
   if (err)
-    console.log("error");
-
+    console.log("test user creation error: ", err);
   if (user) {
     console.log("test user already exists");
   } else {
@@ -16,8 +15,10 @@ User.findOne({ 'email': "test email" }, function(err, user) {
     testUser.password = testUser.generateHash("test password");
     testUser.email = "test email";
     testUser.save(function(err) {
-      if (err) throw err;
-      console.log("saved test user");
+      if (err)
+        console.log("test user save error: ", err)
+      else
+        console.log("test user saved");
     });
   }
 });
@@ -44,11 +45,7 @@ passport.use('local-register', new LocalStrategy({
     process.nextTick(function() {
       // find user in database
       User.findOne({ 'email': email }, function(err, user) {
-        console.log("FIND CALLED", user);
-
-        // error
-        if (err)
-          return done(err);
+        if (err) return done(err);
 
         // check if user exists - if not, create
         if (user) {
@@ -62,7 +59,7 @@ passport.use('local-register', new LocalStrategy({
 
           // save user to db
           newUser.save(function(err) {
-            if (err) throw err;
+            if (err) console.log("register user error: ", err);
             return done(null, newUser);
           });
         }
@@ -79,9 +76,7 @@ passport.use('local-signin', new LocalStrategy({
   },
   function(req, email, password, done) {
     User.findOne({ 'email': email }, function(err, user) {
-      // error
-      if (err)
-        return done(err);
+      if (err) return done(err);
 
       // user not found
       if (!user) {

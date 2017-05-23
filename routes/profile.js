@@ -12,7 +12,7 @@ router.get('/:id', function(req, res, next) {
   // lookup other user
   User.findById(req.params.id, function(err, user) {
     if (err)
-      res.status(500).send(err);
+      res.status(500);
 
     if (user) {
       res.render('profile', {
@@ -20,7 +20,7 @@ router.get('/:id', function(req, res, next) {
         user: user
       });
     } else {
-      res.status(500).send("No user found!");
+      res.status(500);
     }
   });
 });
