@@ -684,7 +684,6 @@ main {
     flex-wrap: row;
     flex-direction: row;
     text-decoration: none;
-    color: black;
     ul {
       list-style: none;
       justify-content: space-around;
@@ -714,6 +713,9 @@ main {
         background-color: $color-profile-tab;
         border-bottom: solid $color-profile-bottom-sel;
         border-radius: 20px 20px 0 0;
+      }
+      a {
+        color: black;
       }
     }
   }
