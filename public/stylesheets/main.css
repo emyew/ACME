@@ -240,9 +240,9 @@ main {
   overflow: hidden;
   /*
   #location-search-box {
-    width: 200px;
     position: relative;
-  } */ }
+  }
+  */ }
   #map-container #map {
     height: 100%;
     width: 100%;
