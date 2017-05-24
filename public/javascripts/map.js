@@ -255,11 +255,11 @@ function initMap() {
     }]
   });
   infoWindow = new google.maps.InfoWindow;
-
+/*
   // Create the search box and link it to the UI element.
-  var input = document.getElementById('location-search-box');
-  var searchBox = new google.maps.places.SearchBox(input);
-  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+  var searchInput = document.getElementById('location-search-box');
+  var searchBox = new google.maps.places.SearchBox(searchInput);
+  map.controls[google.maps.ControlPosition.TOP_LEFT].push(searchInput);
 
   // Bias the SearchBox results towards current map's viewport.
   map.addListener('bounds_changed', function() {
@@ -314,7 +314,7 @@ function initMap() {
     });
     map.fitBounds(bounds);
     });
-
+*/
   waypts = [];
   initWaypoints(waypts);
   // waypts = [];
