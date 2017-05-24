@@ -738,13 +738,13 @@ main {
     flex-direction: row;
   }
   #my-lists-cards li {
-    width: calc(47%);
+    width: calc(45%);
   }
 }
 
 @media screen and (min-width: 1000px) {
   #my-lists-cards li {
-    width: calc(31%);
+    width: calc(30%);
   }
 }
 
