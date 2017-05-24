@@ -546,12 +546,14 @@ main {
     display: flex;
     flex-wrap: row;
     flex-direction: row;
-    text-decoration: none; }
+    text-decoration: none;
+    color: black; }
     #profile-content #profile-tabs-container ul {
       list-style: none;
       justify-content: space-around;
       width: 100%;
-      display: block; }
+      display: block;
+      margin-bottom: 10px; }
       #profile-content #profile-tabs-container ul .profile-tabs {
         cursor: pointer;
         float: left;
@@ -582,6 +584,8 @@ main {
       padding: 0 1rem; }
     #profile-content #profile-items #my-lists-cards li {
       margin: 1rem; }
+    #profile-content #profile-items #my-lists-cards li img {
+      margin-bottom: 0; }
 
 @media screen and (min-width: 600px) {
   #my-lists-cards {

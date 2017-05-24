@@ -684,11 +684,13 @@ main {
     flex-wrap: row;
     flex-direction: row;
     text-decoration: none;
+    color: black;
     ul {
       list-style: none;
       justify-content: space-around;
       width: 100%;
       display: block;
+      margin-bottom: 10px;
       .profile-tabs {
         cursor: pointer;
         float: left;
@@ -727,6 +729,9 @@ main {
     }
     #my-lists-cards li {
       margin: 1rem;
+    }
+    #my-lists-cards li img {
+      margin-bottom: 0;
     }
   }
 }
