@@ -589,11 +589,11 @@ main {
     flex-wrap: wrap;
     flex-direction: row; }
   #my-lists-cards li {
-    width: calc(50%); } }
+    width: calc(47%); } }
 
 @media screen and (min-width: 1000px) {
   #my-lists-cards li {
-    width: calc(33.3333%); } }
+    width: calc(31%); } }
 
 #edit-profile-container {
   display: none; }
