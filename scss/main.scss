@@ -683,6 +683,7 @@ main {
     display: flex;
     flex-wrap: row;
     flex-direction: row;
+    text-decoration: none;
     ul {
       list-style: none;
       justify-content: space-around;
@@ -737,13 +738,13 @@ main {
     flex-direction: row;
   }
   #my-lists-cards li {
-    width: calc(50%-2rem);
+    width: calc(50%);
   }
 }
 
 @media screen and (min-width: 1000px) {
   #my-lists-cards li {
-    width: calc(33.3333%-2rem);
+    width: calc(33.3333%);
   }
 }
 

@@ -545,7 +545,8 @@ main {
     margin-top: 25px;
     display: flex;
     flex-wrap: row;
-    flex-direction: row; }
+    flex-direction: row;
+    text-decoration: none; }
     #profile-content #profile-tabs-container ul {
       list-style: none;
       justify-content: space-around;
@@ -588,11 +589,11 @@ main {
     flex-wrap: wrap;
     flex-direction: row; }
   #my-lists-cards li {
-    width: calc(50%-2rem); } }
+    width: calc(50%); } }
 
 @media screen and (min-width: 1000px) {
   #my-lists-cards li {
-    width: calc(33.3333%-2rem); } }
+    width: calc(33.3333%); } }
 
 #edit-profile-container {
   display: none; }
