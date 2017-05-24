@@ -1,58 +1,31 @@
 {{#extend "stylesheets"}}
 <link rel="shortcut icon" type="image/png" href="/favicons/favicon-map.png"/>
-<link rel="stylesheet" href="/stylesheets/selectize.default.css">
+<style>
+  #landing-hero {
+    background-color: #84d8bd;
+    height: 100vh;
+  }
+  #landing-info {
+    height: 1000px;
+  }
+  #landing-footer {
+    background-color: grey;
+    height: 300px;
+  }
+</style>
 {{/extend}}
+
 <main>
-  <div class="error-message modal close-link">
-    <section class="popup">
-      <div class="popup-content">
-        <h3>Whoa There!</h3>
-        <p>Adding this location to the road trip requires driving through a body of water!</p>
-        <a class="close-link" href="javascript:void(0)"><i class="fa fa-times fa-lg close-modal" aria-hidden="true"></i></a>
-      </div>
-    </section>
+  <div id="landing-hero">
+    cool landing page
   </div>
-  <div id="side-menu-toggle-wrapper">
-    <button id="side-menu-toggle" type="button" name="side-menu-toggle">
-      <span class="trip-title">La Jolla Day Trip</span>
-      <i class="fa fa-lg fa-caret-square-o-up" aria-hidden="true"></i>
-    </button>
+  <div id="landing-info">
+    more cool information about our app
   </div>
-  <div id="map-container">
-    <div id="map"></div>
-  </div>
-  <div id="side-menu">
-    <section id="side-menu-content">
-      <h5 class="trip-title">La Jolla Day Trip</h5>
-      <h6 id="desc">Destinations</h6>
-      <p>Click submit to see the suggested path starting from your current location. Drag & reorder places for different paths.</p>
-      <div id="list-container">
-        <ol id="waypoints">
-          <li name="The Cottage" data-value="7702 Fay Ave, La Jolla, CA 92037" class="points">The Cottage</li>
-          <li name="La Jolla Shores" data-value="8300 Camino Del Oro, La Jolla, CA 92037" class="points">La Jolla Shores</li>
-          <li name="La Jolla Cove" data-value="1100 Coast Blvd, La Jolla, San Diego, CA 92037" class="points">La Jolla Cove</li>
-          <li name="Phil's BBQ" data-value="3750 Sports Arena Blvd, San Diego, CA 92110" class="points">Phil's BBQ</li>
-        </ol>
-      </div>
-      <div id="tag-container" class="readonly">
-        <label for="trip-tags">Tags:</label>
-        <input id="trip-tags" class="selectized" type="text" name="tags" value readonly>
-      </div>
-      <div id="side-menu-btns">
-        {{#if user}}
-        <input class="button-primary" type="button" id="fav-list" value="Favorite">
-        <input class="button-primary" type="button" id="edit-list" value="Edit">
-        {{else}}
-        <input class="button-primary pop-register" type="button" id="edit-list" value="Edit">
-        {{/if}}
-      </div>
-      <div id="directions-panel"></div>
-    </section>
+  <div id="landing-footer">
+    footer and stuff
   </div>
 </main>
 
 {{#extend "scripts"}}
-<script type="text/javascript" src="/javascripts/map.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7l3pxQ6dq-Kgg-aVUO6-A0zf2swG2Cec&callback=initMap&libraries=places">
-</script>
 {{/extend}}

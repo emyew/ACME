@@ -9,7 +9,8 @@ var listSchema = Schema({
   dateUpdated: Date,
   author: { type: Schema.Types.ObjectId, ref: 'User' },
   locations: [{ name: String, address: String }],
-  tags: []
+  tags: [],
+  favoriteCount: 0
 });
 
 // pre save middleware
