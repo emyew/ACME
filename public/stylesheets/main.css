@@ -308,7 +308,8 @@ main {
     transform: translateY(-50%);
     max-width: 400px;
     border-radius: 5px;
-    overflow: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
     max-height: 87%;
     margin: auto; }
     .modal .popup .popup-content {
