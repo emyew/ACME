@@ -1,6 +1,7 @@
 # Milestone 13
 ## Screenshots
-![Milestone13-Screenshot1](milestone11-imgs/milestone13-1.png)
+![Milestone13-Screenshot1](milestone13-imgs/milestone13-1.png)
+We worked on the create new list functionality. We also modified the path so that it no longer starts at your current location because we felt like if users were using this to create a trip, they might not be starting from their current location. Therefore, we decided to start from the first location of the list. Also, we changed the infoWindow content so instead of just showing the address, it now displays both the name of the location and the actual address, so that users don't have to remember which address corresponds to which location.
 
 ### Emily
 
