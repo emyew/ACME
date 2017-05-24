@@ -15,37 +15,39 @@
 		</div>
 		<div id="profile-tabs-container">
 			<ul>
-				<li id="my-lists-tab" class="profile-tabs">My Lists</li>
-				<li id="favs-tab" class="profile-tabs">Favorites</li>
-				<li id="edit-profile-tab" class="profile-tabs">Edit Profile</li>
+				<li id="my-lists-tab" class="profile-tabs selected-tab"><a href="#">My Lists</a></li>
+				<li id="favs-tab" class="profile-tabs"><a href="#">Favorites</a></li>
+				<li id="edit-profile-tab" class="profile-tabs"><a href="#">Edit Profile</a></li>
 			</ul>
 		</div>
-		<div id="my-lists-container">
-			<ul id="my-lists-cards">
-				{{#each lists}}
-				<li>
-					<a href="{{this.url}}">
-						<div class="card">
-							<img src="imgs/temp.png">
-							<div class="overlay">
-							<div class="hover-text">
-								<h5>{{this.title}}</h5>
-							</div>
-						</div>
-					</a>
-				</li>
-				{{/each}}
-			</ul>
+		<section id="profile-items">
+			<div id="my-lists-container">
+				<ul id="my-lists-cards">
+					{{#each lists}}
+					<li>
+						<a href="{{this.url}}">
+							<div class="card">
+								<img src="imgs/temp.png">
+								<div class="overlay">
+									<div class="hover-text">
+										<h5>{{this.title}}</h5>
+									</div>
+								</div>
+							</a>
+						</li>
+						{{/each}}
+					</ul>
+				</div>
+				<div id="favs-container">
+				</div>
+				<div id="edit-profile-container">
+					<input type="text" id="edit-user-name" placeholder="Name" value="">
+					<textarea name="edit-user-bio" id="edit-user-bio" placeholder="Bio" value="" cols="50" rows="50"></textarea>
+					<input class="button-primary" type="submit" id="submit-profile">
+				</div>
+			</section>
 		</div>
-		<div id="favs-container">
-		</div>
-		<div id="edit-profile-container">
-			<input type="text" id="edit-user-name" placeholder="Name" value="">
-			<textarea name="edit-user-bio" id="edit-user-bio" placeholder="Bio" value="" cols="50" rows="50"></textarea>
-			<input class="button-primary" type="submit" id="submit-profile">
-		</div>
-	</div>
-</main>
+	</main>
 
-{{#extend "scripts"}}
-{{/extend}}
+	{{#extend "scripts"}}
+	{{/extend}}

@@ -16,9 +16,13 @@ $color-navbar: #84d8bd;
 $color-navbar2: #9CDDC8;
 $color-navbar-link: #f9fff7;
 $color-navbar-brand: #0A7571;
-$color-text-em: #633D2E;
+$color-text-em: #a0705d;
 $color-inactive-tab: #dae2e0;
 $color-inactive-tags: #edf4f2;
+$color-profile-tab: #edf4f2;
+$color-profile-bottom: #C2E3CD;
+$color-profile-bottom-sel: #9CDDC8;
+
 html,
 body {
   height: 100%;
@@ -672,17 +676,52 @@ main {
   }
   #profile-tabs-container {
     width: 100%;
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: row;
+    flex-direction: row;
     ul {
-      list-style-type: none;
+      list-style: none;
+      justify-content: space-around;
+      width: 100%;
+      display: block;
       .profile-tabs {
+        cursor: pointer;
+        float: left;
         text-align: center;
         display: inline-block;
         margin: auto;
         width: 33%;
+        margin-right: 0.5%;
+        padding: 8px 0;
+        border-bottom: solid $color-profile-bottom;
+      }
+      .profile-tabs:hover {
+        background-color: $color-inactive-tab;
+        border-bottom: solid $color-profile-bottom-sel;
+        border-radius: 20px 20px 0 0;
+      }
+      .profile-tabs:last-child {
+        margin-right: 0;
+      }
+      .selected-tab {
+        background-color: $color-profile-tab;
+        border-bottom: solid $color-profile-bottom-sel;
+        border-radius: 20px 20px 0 0;
       }
     }
   }
-
+  #profile-items {
+    position: relative;
+    width: 100%;
+    ul {
+      list-style: none;
+    }
+    #my-lists-container {
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+  }
 }
 
 // #profile-side-menu {

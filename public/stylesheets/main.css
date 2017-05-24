@@ -538,14 +538,44 @@ main {
         font-size: 14px;
         margin: auto; }
   #profile-content #profile-tabs-container {
-    width: 100%; }
+    width: 100%;
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: row;
+    flex-direction: row; }
     #profile-content #profile-tabs-container ul {
-      list-style-type: none; }
+      list-style: none;
+      justify-content: space-around;
+      width: 100%;
+      display: block; }
       #profile-content #profile-tabs-container ul .profile-tabs {
+        cursor: pointer;
+        float: left;
         text-align: center;
         display: inline-block;
         margin: auto;
-        width: 33%; }
+        width: 33%;
+        margin-right: 0.5%;
+        padding: 8px 0;
+        border-bottom: solid #C2E3CD; }
+      #profile-content #profile-tabs-container ul .profile-tabs:hover {
+        background-color: #dae2e0;
+        border-bottom: solid #9CDDC8;
+        border-radius: 20px 20px 0 0; }
+      #profile-content #profile-tabs-container ul .profile-tabs:last-child {
+        margin-right: 0; }
+      #profile-content #profile-tabs-container ul .selected-tab {
+        background-color: #edf4f2;
+        border-bottom: solid #9CDDC8;
+        border-radius: 20px 20px 0 0; }
+  #profile-content #profile-items {
+    position: relative;
+    width: 100%; }
+    #profile-content #profile-items ul {
+      list-style: none; }
+    #profile-content #profile-items #my-lists-container {
+      margin: 0 auto;
+      padding: 0 1rem; }
 
 @media screen and (min-width: 600px) {
   #my-lists-cards {
