@@ -10,6 +10,6 @@ We worked on the create new list functionality. We also modified the path so tha
 I worked on modifying how the path displays for a trip's locations. The path no longer starts at your current location, but instead starts at the first destination. I also worked on changing the infoWindow content for each marker, so now each of them has the name of the destination as well as the actual address (so it's easier for users to distinguish which marker is which location).
 
 ### Mohsin
-
+I worked on changing the search functionality for the create page. Currently, users type in the name or address of the location they want in the search bar on the side menu to add it. After doing some basic user testing, I found that this was a little confusing for some users since some places have multiple addresses with the same name. I worked on moving the search bar over to the map so that users are able to see all the relevant nearby locations on the map and choose which one they would like to add. I also fixed some bugs with the modals.  
 
 ### Arlen
