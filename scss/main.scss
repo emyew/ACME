@@ -277,6 +277,11 @@ main {
     line-height: 24px;
     width: 100%;
     margin-bottom: 30px;
+    .waypoints-error {
+      margin: 15px auto;
+      color: #d85454;
+      font-style: italic;
+    }
     #new-waypoint {
       padding-right: 58px;
       margin: 0;
