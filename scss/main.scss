@@ -404,10 +404,11 @@ main {
   }
   .popup {
     @include vertical-align;
-    max-width: 400px;
+    max-width: 320px;
     max-height: 80%;
     border-radius: 5px;
     overflow: scroll;
+    overflow-x: hidden;
     margin: auto;
     .popup-content {
       border-radius: 5px;
