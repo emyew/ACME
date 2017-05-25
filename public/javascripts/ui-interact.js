@@ -1,6 +1,6 @@
 // this file describes all ui interaction functionality
 var pathname = window.location.pathname;
-var MAP = "/";
+var MAP = "/list";
 var EXPLORE = "/explore";
 var CREATE = "/create";
 

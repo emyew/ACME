@@ -33,18 +33,64 @@
 										<h5>{{this.title}}</h5>
 									</div>
 								</div>
-							</a>
-						</li>
-						{{/each}}
-					</ul>
-				</div>
-				<div id="favs-container">
-				</div>
-				<div id="edit-profile-container">
-					<input type="text" id="edit-user-name" placeholder="Name" value="">
-					<textarea name="edit-user-bio" id="edit-user-bio" placeholder="Bio" value="" cols="50" rows="50"></textarea>
-					<input class="button-primary" type="submit" id="submit-profile">
-				</div>
+							</div>
+						</a>
+					</li>
+					{{/each}}
+				</ul>
+			</div>
+			<div id="favs-container">
+				<ul id="favorites-cards">
+				</ul>
+			</div>
+			<div id="edit-profile-container">
+				<form id="edit-bio-form" action="index.html" method="post">
+					<h3>Edit Bio</h3>
+					<div class="form-group">
+						<label for="edit-profile-name">Name</label>
+						<div class="input-helpers">
+							<input type="text" id="profile-name" name="edit-profile-name" value>
+							<span class="field-error"></span>
+						</div>
+						<label for="edit-user-bio">Bio</label>
+						<textarea name="edit-user-bio" id="edit-user-bio" value=""></textarea>
+					</div>
+					<input type="button" id="submit-bio" class="button-primary" value="Edit Bio">
+				</form>
+				<hr class="profile-form-separator">
+				<form id="edit-profile-form" action="index.html" method="post">
+					<h3>Edit User Information</h3>
+					<div class="form-group">
+						<label for="edit-profile-name">Name</label>
+						<div class="input-helpers">
+							<input type="text" id="profile-name" name="edit-profile-name" value>
+							<span class="field-error"></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="edit-profile-email">Email</label>
+						<div class="input-helpers">
+							<input type="email" id="profile-email" name="edit-profile-email" value>
+							<span class="field-error"></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="edit-profile-password">New Password</label>
+						<div class="input-helpers">
+							<input type="password" id="profile-password" name="edit-profile-password" value>
+							<span class="field-error"></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="edit-profile-password2">Confirm Password</label>
+						<div class="input-helpers">
+							<input type="password" id="profile-confirm" name="edit-profile-password2" value>
+							<span class="field-error"></span>
+						</div>
+					</div>
+					<input type="submit" id="submit-profile" class="submit button-primary" value="Edit Profile">
+				</form>
+
 			</div>
 		</section>
 	</main>

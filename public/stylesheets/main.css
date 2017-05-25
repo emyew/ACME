@@ -580,25 +580,52 @@ main {
     width: 100%; }
     #profile-content #profile-items ul {
       list-style: none; }
-    #profile-content #profile-items #my-lists-container {
+    #profile-content #profile-items #my-lists-container, #profile-content #profile-items #favs-container {
       margin: 0 auto;
       padding: 0 1rem; }
-    #profile-content #profile-items #my-lists-cards li {
+    #profile-content #profile-items #my-lists-cards li, #profile-content #profile-items #favorites-cards li {
       margin: 1rem; }
-    #profile-content #profile-items #my-lists-cards li img {
+    #profile-content #profile-items #my-lists-cards li img, #profile-content #profile-items #favorites-cards li img {
       margin-bottom: 0; }
-
-@media screen and (min-width: 600px) {
-  #my-lists-cards {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row; }
-  #my-lists-cards li {
-    width: calc(45%); } }
-
-@media screen and (min-width: 1000px) {
-  #my-lists-cards li {
-    width: calc(30%); } }
+    @media screen and (min-width: 600px) {
+      #profile-content #profile-items #my-lists-cards, #profile-content #profile-items #favorites-cards {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row; }
+      #profile-content #profile-items #my-lists-cards li, #profile-content #profile-items #favorites-cards li {
+        width: calc(45%); } }
+    @media screen and (min-width: 1000px) {
+      #profile-content #profile-items #my-lists-cards li, #profile-content #profile-items #favorites-cards li {
+        width: calc(30%); } }
 
 #edit-profile-container {
+  margin: auto;
+  max-width: 500px;
+  position: relative; }
+  #edit-profile-container h3 {
+    text-align: center;
+    font-size: 25px; }
+  #edit-profile-container form {
+    width: 100%;
+    margin: 30px auto; }
+  #edit-profile-container input[type="button"], #edit-profile-container input[type="submit"] {
+    margin: 20px auto;
+    display: block;
+    background-color: #F7AF63;
+    border-color: #F7AF63; }
+  #edit-profile-container input[type="button"]:hover, #edit-profile-container input[type="submit"]:hover {
+    background-color: #e58f34; }
+  #edit-profile-container input[type="text"], #edit-profile-container input[type="email"],
+  #edit-profile-container input[type="password"], #edit-profile-container textarea {
+    display: block;
+    width: 100%;
+    resize: none; }
+  #edit-profile-container input[type="text"]:focus, #edit-profile-container input[type="email"]:focus,
+  #edit-profile-container input[type="password"]:focus, #edit-profile-container textarea:focus {
+    border-color: #84d8bd; }
+  #edit-profile-container hr.profile-form-separator {
+    margin: 0;
+    border-top: 5px double #84d8bd; }
+
+#edit-profile-container, #favs-container {
   display: none; }
