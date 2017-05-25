@@ -66,6 +66,12 @@ if (MAP.test(pathname) || pathname == CREATE) {
     });
   }
 }
+else if (pathname == EXPLORE) {
+  var jets = new Jets({
+    searchTag: '#search',
+    contentTag: '#card-container'
+  });
+}
 
 //reset window if resized to undo toggled states and changes
 $(window).resize(function() {
