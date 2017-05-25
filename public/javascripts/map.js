@@ -1,6 +1,6 @@
 var map, infoWindow, currPos, currPosMarker, waypts, wayptsList, cols, place, geocoder, markers, namesArray;
-var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var labelIndex = 0;
+// var isDuplicate = false;
 
 function initMap() {
   var directionsService = new google.maps.DirectionsService;
@@ -427,43 +427,59 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 function addWaypoint(waypts) {
-  //deleteMarkers();
+  waypts = [];
+  wayptsList = document.getElementById('waypoints');
+  var places = wayptsList.getElementsByTagName('li');
+  namesArray = [];
+  for (var i = 0; i < places.length; i++) {
+    waypts.push({
+      location: places[i].getAttribute('data-value'),
+      stopover: true
+    });
+    namesArray.push(places[i].getAttribute('name'));
+  }
+
   var newWaypoint = place.name;
   document.getElementById('waypoints-error').innerHTML = '';
   if (newWaypoint != '') {
-    var isDuplicate = false;
-    waypts.filter(function(loc) {
-      isDuplicate = loc.location == document.getElementById('new-waypoint').value;
-    });
-    if (!isDuplicate) {
-      namesArray.push(newWaypoint);
-      waypts.push({
-        location: document.getElementById('new-waypoint').value,
-        stopover: true
-      });
-      var li = document.createElement('li');
-      li.appendChild(document.createTextNode(newWaypoint));
-      li.className += "points";
-      li.draggable = true;
-      li.setAttribute('data-value', document.getElementById('new-waypoint').value);
-      li.setAttribute('name', newWaypoint);
-      var point_i = document.createElement('i');
-      point_i.className += "fa fa-times fa-lg remove-point";
-      point_i.setAttribute('aria-hidden', "true");
-      li.appendChild(point_i);
-      wayptsList.appendChild(li);
-      document.getElementById('waypoints').appendChild(li);
-      // document.getElementById('new-waypoint').value = '';
-      // cols = document.querySelectorAll('.points');
-    } else {
-      document.getElementById('waypoints-error').innerHTML = 'Destination already exists in the list';
-      console.log('duplicate');
+    // isDuplicate = false;
+    // waypts.filter(function(loc) {
+    //   isDuplicate = loc.location == document.getElementById('new-waypoint').value;
+    // });
+
+    // check if user is trying to add a duplicate destination
+    var x;
+    for (x = 0; x < waypts.length; x++) {
+      if (document.getElementById('new-waypoint').value == waypts[x].location) {
+        document.getElementById('waypoints-error').innerHTML = 'Destination already exists in the list';
+        document.getElementById('new-waypoint').value = '';
+        cols = document.querySelectorAll('.points');
+        place.name = '';
+        return;
+      }
     }
+
+    // if not, add the new destination to the list
+    namesArray.push(newWaypoint);
+    waypts.push({
+      location: document.getElementById('new-waypoint').value,
+      stopover: true
+    });
+    var li = document.createElement('li');
+    li.appendChild(document.createTextNode(newWaypoint));
+    li.className += "points";
+    li.draggable = true;
+    li.setAttribute('data-value', document.getElementById('new-waypoint').value);
+    li.setAttribute('name', newWaypoint);
+    var point_i = document.createElement('i');
+    point_i.className += "fa fa-times fa-lg remove-point";
+    point_i.setAttribute('aria-hidden', "true");
+    li.appendChild(point_i);
+    wayptsList.appendChild(li);
+    document.getElementById('waypoints').appendChild(li);
     document.getElementById('new-waypoint').value = '';
     cols = document.querySelectorAll('.points');
     place.name = '';
-  } else {
-    // do nothing -- can't add if nothing in the field
   }
 }
 
@@ -529,7 +545,6 @@ function mapWaypoints(directionsService, directionsDisplay, waypts) {
     namesArray.push(places[i].getAttribute('name'));
   }
 
-  console.log('waypts length is ' + waypts.length);
   if (window.location.pathname == '/create') {
     document.getElementById('waypoints-error').innerHTML = '';
   }
