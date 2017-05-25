@@ -341,34 +341,39 @@ function initMap() {
 
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
-    mapWaypoints(directionsService, directionsDisplay, waypts);
+    if (document.getElementById('curr-location').checked) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
 
-    // navigator.geolocation.getCurrentPosition(function(position) {
-    //   var pos = {
-    //     lat: position.coords.latitude,
-    //     lng: position.coords.longitude
-    //   };
+        map.setCenter(pos);
+        currPos = pos;
 
-    //   map.setCenter(pos);
-    //   currPos = pos;
+        currPosMarker = new google.maps.Marker({
+          position: currPos,
+          map: map,
+          title: 'You are here.',
+          animation: google.maps.Animation.DROP,
+          visible: true
+        });
 
-    //   currPosMarker = new google.maps.Marker({
-    //     position: currPos,
-    //     map: map,
-    //     title: 'You are here.',
-    //     animation: google.maps.Animation.DROP,
-    //     visible: true
-    //   });
+        mapWaypoints(directionsService, directionsDisplay, waypts);
 
-    // }, function() {
-    //   handleLocationError(true, infoWindow, map.getCenter());
-    // });
+      }, function() {
+        handleLocationError(true, infoWindow, map.getCenter());
+      });
+    } else {
+      mapWaypoints(directionsService, directionsDisplay, waypts);
+    }
   } else {
     // Browser doesn't support Geolocation
     handleLocationError(false, infoWindow, map.getCenter());
   }
 
   directionsDisplay.setMap(map);
+  document.getElementById('directions-panel').innerHTML = '';
   directionsDisplay.setPanel(document.getElementById('directions-panel'));
 
   document.getElementById('add-waypoint-btn').addEventListener('click', function() {
@@ -398,7 +403,6 @@ function initMap() {
         mapWaypoints(directionsService, directionsDisplay, waypts);
       }
     }
-
 }
 
 function initWaypoints(waypts) {
@@ -540,11 +544,18 @@ function mapWaypoints(directionsService, directionsDisplay, waypts) {
     for (var i = 0; i < waypts.length; i++) {
       waypts[i].stopover = true;
     }
-    waypts[0].stopover = false;
     waypts.slice(-1)[0].stopover = false;
 
+    var startingPoint = null;
+    if (!(document.getElementById('curr-location').checked)) {
+      waypts[0].stopover = false;
+      startingPoint = waypts[0].location;
+    } else {
+      startingPoint = currPos;
+    }
+
     directionsService.route({
-      origin: waypts[0].location,
+      origin: startingPoint,
       destination: waypts.slice(-1)[0].location,
       waypoints: waypts,
       optimizeWaypoints: true,
@@ -553,33 +564,51 @@ function mapWaypoints(directionsService, directionsDisplay, waypts) {
       if (status === 'OK') {
         directionsDisplay.setDirections(response);
         var route = response.routes[0];
-        for (var i = 0; i < route.legs.length; i++) {
+        if (document.getElementById('curr-location').checked) {
+          for (var i = 1; i < route.legs.length; i++) {
+            var marker = new google.maps.Marker({
+              position: route.legs[i].start_location,
+              map: map,
+              label: labels[labelIndex++ % labels.length]
+            });
+            var html = "<b>" + namesArray[i - 1] + "</b> <br/>" + route.legs[i].start_address;
+            attachText(marker, html);
+            markers.push(marker);
+          }
+          var marker = new google.maps.Marker({
+            position: route.legs[i - 1].end_location,
+            map: map,
+            label: labels[labelIndex++ % labels.length]
+          });
+          markers.push(marker);
+          var html = "<b>" + namesArray[i - 1] + "</b> <br/>" + route.legs[i - 1].end_address;
+          attachText(marker, html);
+        } else {
+          for (var i = 0; i < route.legs.length; i++) {
             //var icon = "https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=" + i + "|FCB131|FFFFFF";
             /*if (i == 0) {
                 icon = "https://chart.googleapis.com/chart?chst=d_map_xpin_icon&chld=pin_star|car-dealer|00FFFF|FF0000";
             }*/
             var marker = new google.maps.Marker({
-                position: route.legs[i].start_location,
-                map: map,
-                label: labels[labelIndex++ % labels.length]
+              position: route.legs[i].start_location,
+              map: map,
+              label: labels[labelIndex++ % labels.length]
             });
             //attachText(marker, route.legs[i].start_address);
             var html = "<b>" + namesArray[i] + "</b> <br/>" + route.legs[i].start_address;
             attachText(marker, html);
             markers.push(marker);
-        }
-        var marker = new google.maps.Marker({
+          }
+          var marker = new google.maps.Marker({
             position: route.legs[i - 1].end_location,
             map: map,
             label: labels[labelIndex++ % labels.length]
             //icon: "https://chart.googleapis.com/chart?chst=d_map_pin_icon&chld=flag|ADDE63"
-        });
-        markers.push(marker);
-        var html = "<b>" + namesArray[i] + "</b> <br/>" + route.legs[i - 1].end_address;
-        attachText(marker, html);
-        //attachText(marker, route.legs[i-1].end_address);
-
-        //google.maps.event.trigger(markers[0], "click");
+          });
+          markers.push(marker);
+          var html = "<b>" + namesArray[i] + "</b> <br/>" + route.legs[i - 1].end_address;
+          attachText(marker, html);
+        }
       } else {
         window.alert('Directions request failed due to ' + status);
       }
