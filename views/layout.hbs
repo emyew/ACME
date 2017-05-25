@@ -102,8 +102,8 @@
             <li><a href="/explore">Explore</a></li>
             <!-- IF USER SIGNED IN -->
             {{#if user}}
-              <li><a href="/create">Create</a></li>
-              <li><a href="profile?page=mylists">My Lists</a></li>
+            <li><a href="/create">Create</a></li>
+            <li><a href="/about">About</a></li>
             {{/if}}
           </ul>
         </div>
@@ -111,15 +111,24 @@
           <ul class="navbar-links">
             <!-- IF USER SIGNED IN -->
             {{#if user}}
-              <li><a href="/profile?page=fav">Favorites</a></li>
-              <li><a href="/profile">Profile</a></li>
-              <li><a href="/signout">Sign Out</a></li>
+            <li><a href="profile?page=mylists">My Lists</a></li>
+            <li><a href="/profile?page=fav">Favorites</a></li>
+            <li><a id="options-toggle" href="#">{{user.email}}</a></li>
             {{else}}
-              <li><a class="pop-register" href="#">Register</a></li>
-              <li><a class="pop-signin" href="#">Sign In</a></li>
+            <li><a class="pop-register" href="#">Register</a></li>
+            <li><a class="pop-signin" href="#">Sign In</a></li>
             {{/if}}
           </ul>
+          {{#if user}}
+          <div id="profile-options-container" class="hide">
+            <li><a href="/profile">Update Profile</a></li>
+            <li><a href="/profile">Change Email</a></li>
+            <li><a href="/profile">Change Password</a></li>
+            <li><a id="signout" href="/signout">Sign Out</a></li>
+          </div>
+          {{/if}}
         </div>
+
       </nav>
       <div class="navbar-menu">
         <span class="icon-bar"></span>

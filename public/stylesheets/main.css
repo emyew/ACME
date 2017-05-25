@@ -26,6 +26,19 @@ body {
     float: left; }
   .navbar .navbar-right {
     float: right; }
+  .navbar #options-toggle {
+    display: inline-block;
+    width: 160px;
+    text-overflow: ellipsis;
+    text-align: center;
+    font-weight: bold;
+    background-color: #9CDDC8;
+    color: #0A7571; }
+  .navbar #options-toggle:hover {
+    color: #FCFEF5; }
+  .navbar #options-toggle:focus {
+    background-color: #59BC9C;
+    color: #FCFEF5; }
   .navbar ul {
     list-style-type: none;
     margin: 0; }
@@ -36,6 +49,25 @@ body {
     text-decoration: none;
     padding: 0 20px;
     color: #0A7571; }
+  .navbar a:hover {
+    color: #0A7571; }
+  .navbar #profile-options-container {
+    float: right;
+    position: relative;
+    display: block;
+    width: 200px;
+    background-color: #84d8bd;
+    overflow: hidden;
+    height: 0; }
+    .navbar #profile-options-container li {
+      display: block;
+      margin: 0; }
+    .navbar #profile-options-container #signout {
+      font-weight: bold; }
+    .navbar #profile-options-container a:hover {
+      display: block;
+      color: #FCFEF5;
+      background-color: #9CDDC8; }
   .navbar .navbar-menu {
     float: right;
     display: none;
@@ -62,14 +94,19 @@ body {
       width: 100%;
       overflow: hidden;
       height: 0; }
-    .navbar .navbar-left {
-      background-color: #9CDDC8; }
-    .navbar .navbar-right {
-      background-color: #9CDDC8; }
     .navbar .navbar-right,
     .navbar .navbar-left {
+      background-color: #9CDDC8;
       width: 100%;
       float: left; }
+    .navbar #options-toggle, .navbar #options-toggle:hover, .navbar #options-toggle:focus {
+      display: none; }
+    .navbar #profile-options-container {
+      width: 100%;
+      height: 200px; }
+      .navbar #profile-options-container a:hover {
+        color: #FCFEF5;
+        background-color: #84d8bd; }
     .navbar a {
       display: inline-block;
       width: 100%; } }
@@ -244,9 +281,9 @@ main {
   overflow: hidden;
   /*
   #location-search-box {
-    position: relative;
-  }
-  */ }
+  position: relative;
+}
+*/ }
   #map-container #map {
     height: 100%;
     width: 100%;

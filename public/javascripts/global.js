@@ -47,11 +47,31 @@ $(".popup-content").click(function(e) {
 //toggle navigation
 $(".navbar-menu").click(function() {
   if ($(".navbar-lists").hasClass("hide")) {
-    $(".navbar-lists").animate({ height: "250px" }, 200).removeClass("hide");
+    $(".navbar-lists").animate({ height: "500px" }, 200).removeClass("hide");
   } else {
     $(".navbar-lists").animate({ height: 0 }, 200).addClass("hide");
   }
 });
+
+$("#options-toggle").click(function () {
+  if ($("#profile-options-container").hasClass("hide")) {
+    $("#profile-options-container").animate({ height: "200px" }, 200).removeClass("hide");
+  } else {
+    $("#profile-options-container").animate({ height: 0 }, 200).addClass("hide");
+  }
+});
+
+//reset window if resized to undo toggled states and changes
+$(window).resize(function() {
+  if($(window).width() > 900) {
+    $(".navbar-lists").css({height: 0}, 200).addClass("hide");
+    $("#profile-options-container").css({height: 0}, 200).addClass("hide");
+  }
+  else {
+    $("#profile-options-container").css({height: "200px"}, 200).removeClass("hide");
+  }
+});
+
 
 /*********** Loader Functionality ************/
 $(window).bind("load", function() {

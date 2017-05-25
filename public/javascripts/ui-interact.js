@@ -78,7 +78,6 @@ else if (pathname == EXPLORE) {
 //reset window if resized to undo toggled states and changes
 $(window).resize(function() {
   if($(window).width() > 900) {
-    $(".navbar-lists").css({height: 0}, 200).addClass("hide");
     if(MAP.test(pathname) || pathname == CREATE) {
       $("#side-menu").css({"margin-top": 0}).addClass("show");
       $(".fa-caret-square-o-up").removeClass("fa-caret-square-o-up").addClass("fa-caret-square-o-down");
