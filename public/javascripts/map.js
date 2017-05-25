@@ -424,7 +424,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 function addWaypoint(waypts) {
-  deleteMarkers();
+  //deleteMarkers();
   var newWaypoint = place.name;
   if (newWaypoint != '') {
     namesArray.push(newWaypoint);
@@ -447,6 +447,9 @@ function addWaypoint(waypts) {
     document.getElementById('new-waypoint').value = '';
 
     cols = document.querySelectorAll('.points');
+    place.name = '';
+  } else {
+    // do nothing -- can't add
   }
 }
 
