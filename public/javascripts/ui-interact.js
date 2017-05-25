@@ -1,11 +1,11 @@
 // this file describes all ui interaction functionality
 var pathname = window.location.pathname;
-var MAP = "/list";
+var MAP = /list\/?[a-z0-9]+$/i;
 var EXPLORE = "/explore";
 var CREATE = "/create";
 
 //////////////////// MAP ////////////////////
-if (pathname == MAP || pathname == CREATE) {
+if (MAP.test(pathname) || pathname == CREATE) {
   //make list able to be reordered by dragging
   if ($("#waypoints").hasClass("sortable-waypoints")) {
     var elem = document.getElementById("waypoints");
@@ -30,11 +30,18 @@ if (pathname == MAP || pathname == CREATE) {
   });
 
   //tagging functionality
-  if (pathname == MAP) {
+  if (MAP.test(pathname)) {
+    Selectize.define('no-delete', function(options) {
+      this.deleteSelection = function() {};
+    });
+    var trip_tag_list = $("#trip-tags").val();
+    $("#trip-tags").val(trip_tag_list.substr(0, trip_tag_list.length-1));
     $('#trip-tags').selectize({
+      plugins: {
+        'no-delete': {}
+      },
       delimiter: ',',
       persist: false,
-      maxItems: 12,
       create: function(input) {
         return {
           value: input,
@@ -44,7 +51,7 @@ if (pathname == MAP || pathname == CREATE) {
     });
     document.getElementById('trip-tags-selectized').readOnly = true;
   }
-  else {
+  else if (pathname == CREATE) {
     $('#trip-tags').selectize({
       plugins: ['remove_button'],
       delimiter: ',',
@@ -64,7 +71,7 @@ if (pathname == MAP || pathname == CREATE) {
 $(window).resize(function() {
   if($(window).width() > 900) {
     $(".navbar-lists").css({height: 0}, 200).addClass("hide");
-    if(pathname == MAP || pathname == CREATE) {
+    if(MAP.test(pathname) || pathname == CREATE) {
       $("#side-menu").css({"margin-top": 0}).addClass("show");
       $(".fa-caret-square-o-up").removeClass("fa-caret-square-o-up").addClass("fa-caret-square-o-down");
     }
