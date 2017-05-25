@@ -297,6 +297,7 @@ main {
   background-color: rgba(0, 0, 0, 0.65);
   z-index: 5;
   width: 100%;
+  overflow-x: hidden;
   height: 100%; }
   .modal .field-error {
     color: white;
@@ -319,7 +320,6 @@ main {
     max-height: 80%;
     border-radius: 5px;
     overflow: scroll;
-    overflow-x: hidden;
     margin: auto; }
     .modal .popup .popup-content {
       border-radius: 5px;
