@@ -429,11 +429,11 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 function addWaypoint(waypts) {
   //deleteMarkers();
   var newWaypoint = place.name;
+  document.getElementById('waypoints-error').innerHTML = '';
   if (newWaypoint != '') {
     var isDuplicate = false;
     waypts.filter(function(loc) {
       isDuplicate = loc.location == document.getElementById('new-waypoint').value;
-      //return 
     });
     if (!isDuplicate) {
       namesArray.push(newWaypoint);
@@ -456,8 +456,8 @@ function addWaypoint(waypts) {
       // document.getElementById('new-waypoint').value = '';
       // cols = document.querySelectorAll('.points');
     } else {
-      // location is already in the list
-      console.log('location already in list');
+      document.getElementById('waypoints-error').innerHTML = 'Destination already exists in the list';
+      console.log('duplicate');
     }
     document.getElementById('new-waypoint').value = '';
     cols = document.querySelectorAll('.points');
@@ -527,6 +527,11 @@ function mapWaypoints(directionsService, directionsDisplay, waypts) {
       stopover: true
     });
     namesArray.push(places[i].getAttribute('name'));
+  }
+
+  console.log('waypts length is ' + waypts.length);
+  if (window.location.pathname == '/create') {
+    document.getElementById('waypoints-error').innerHTML = '';
   }
 
   if (waypts.length == 0) {

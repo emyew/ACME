@@ -36,8 +36,9 @@
       </div>
       <div id="tag-container" class="readonly">
         <label for="trip-tags">Tags:</label>
-        <input id="trip-tags" class="selectized" type="text" name="tags" value="{{#each tags}}{{this}},{{/each}}">
-        <!-- {{#each tags}}{{this}}{{/each}} -->
+        {{#each tags}}
+        {{this}} 
+        {{/each}}
         <!-- <input id="trip-tags" class="selectized" type="text" name="tags" value readonly> -->
       </div>
       <div id="side-menu-btns">
