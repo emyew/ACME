@@ -69,7 +69,9 @@ if (MAP.test(pathname) || pathname == CREATE) {
 else if (pathname == EXPLORE) {
   var jets = new Jets({
     searchTag: '#search',
-    contentTag: '#card-container'
+    contentTag: '#card-container',
+    hideBy: 'opacity: 0; transition: all .2s ease-in-out;',
+    searchSelector: '*'
   });
 }
 
