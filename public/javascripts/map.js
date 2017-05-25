@@ -341,7 +341,7 @@ function initMap() {
 
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
-    if (window.location.pathname == "/create") {
+    if (window.location.pathname == '/create') {
       mapWaypoints(directionsService, directionsDisplay, waypts);
     } else {
       if (document.getElementById('curr-location').checked) {
@@ -367,11 +367,10 @@ function initMap() {
         }, function() {
           handleLocationError(true, infoWindow, map.getCenter());
         });
+      } else {
+        mapWaypoints(directionsService, directionsDisplay, waypts);
       }
     }
-    // } else {
-    //   mapWaypoints(directionsService, directionsDisplay, waypts);
-    // }
   } else {
     // Browser doesn't support Geolocation
     handleLocationError(false, infoWindow, map.getCenter());
@@ -436,25 +435,37 @@ function addWaypoint(waypts) {
   //deleteMarkers();
   var newWaypoint = place.name;
   if (newWaypoint != '') {
-    namesArray.push(newWaypoint);
-    waypts.push({
-      location: document.getElementById('new-waypoint').value,
-      stopover: true
+    var isDuplicate = false;
+    waypts.filter(function(loc) {
+      isDuplicate = loc.location == document.getElementById('new-waypoint').value;
+      //return 
     });
-    var li = document.createElement('li');
-    li.appendChild(document.createTextNode(newWaypoint));
-    li.className += "points";
-    li.draggable = true;
-    li.setAttribute('data-value', document.getElementById('new-waypoint').value);
-    li.setAttribute('name', newWaypoint);
-    var point_i = document.createElement('i');
-    point_i.className += "fa fa-times fa-lg remove-point";
-    point_i.setAttribute('aria-hidden', "true");
-    li.appendChild(point_i);
-    wayptsList.appendChild(li);
-    document.getElementById('waypoints').appendChild(li);
-    document.getElementById('new-waypoint').value = '';
+    if (!isDuplicate) {
+      namesArray.push(newWaypoint);
+      waypts.push({
+        location: document.getElementById('new-waypoint').value,
+        stopover: true
+      });
+      var li = document.createElement('li');
+      li.appendChild(document.createTextNode(newWaypoint));
+      li.className += "points";
+      li.draggable = true;
+      li.setAttribute('data-value', document.getElementById('new-waypoint').value);
+      li.setAttribute('name', newWaypoint);
+      var point_i = document.createElement('i');
+      point_i.className += "fa fa-times fa-lg remove-point";
+      point_i.setAttribute('aria-hidden', "true");
+      li.appendChild(point_i);
+      wayptsList.appendChild(li);
+      document.getElementById('waypoints').appendChild(li);
+      // document.getElementById('new-waypoint').value = '';
 
+      // cols = document.querySelectorAll('.points');
+    } else {
+      // location is already in the list
+      console.log('location already in list');
+    }
+    document.getElementById('new-waypoint').value = '';
     cols = document.querySelectorAll('.points');
     place.name = '';
   } else {
