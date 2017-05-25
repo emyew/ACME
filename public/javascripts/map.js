@@ -399,11 +399,6 @@ function initMap() {
   function detectListChange() {
     if (map_waypoints != $("#waypoints").html()) {
       map_waypoints = $("#waypoints").html();
-      // currPosMarker.setVisible(false);
-      // infoWindow.close();
-      // currPosMarker.open = true;
-
-      //calculateAndDisplayRoute(directionsService, directionsDisplay, currPos, waypts);
       mapWaypoints(directionsService, directionsDisplay, waypts);
     }
   }
@@ -459,7 +454,6 @@ function addWaypoint(waypts) {
       wayptsList.appendChild(li);
       document.getElementById('waypoints').appendChild(li);
       // document.getElementById('new-waypoint').value = '';
-
       // cols = document.querySelectorAll('.points');
     } else {
       // location is already in the list
@@ -469,7 +463,7 @@ function addWaypoint(waypts) {
     cols = document.querySelectorAll('.points');
     place.name = '';
   } else {
-    // do nothing -- can't add
+    // do nothing -- can't add if nothing in the field
   }
 }
 
@@ -537,8 +531,11 @@ function mapWaypoints(directionsService, directionsDisplay, waypts) {
 
   if (waypts.length == 0) {
     deleteMarkers();
+    document.getElementById('directions-panel').innerHTML = '';
+    directionsDisplay.setMap(null);
   } else if (waypts.length == 1) {
     deleteMarkers();
+    document.getElementById('directions-panel').innerHTML = '';
     var onePointLocation = waypts[0].location;
     geocoder.geocode( { 'address': onePointLocation}, function(results, status) {
       if (status == 'OK') {
@@ -551,12 +548,14 @@ function mapWaypoints(directionsService, directionsDisplay, waypts) {
         var html = "<b>" + namesArray[0] + "</b> <br/>" + results[0].formatted_address;
         attachText(onePointMarker, html);
         markers.push(onePointMarker);
+        directionsDisplay.setMap(null);
       } else {
         alert('Geocode was not successful for the following reason: ' + status);
       }
     });
   } else {
     deleteMarkers();
+    directionsDisplay.setMap(map);
     for (var i = 0; i < waypts.length; i++) {
       waypts[i].stopover = true;
     }
