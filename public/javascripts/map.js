@@ -557,7 +557,7 @@ function mapWaypoints(directionsService, directionsDisplay, waypts) {
     deleteMarkers();
     document.getElementById('directions-panel').innerHTML = '';
     var onePointLocation = waypts[0].location;
-    geocoder.geocode( { 'address': onePointLocation}, function(results, status) {
+    geocoder.geocode( {'address': onePointLocation}, function(results, status) {
       if (status == 'OK') {
         map.setCenter(results[0].geometry.location);
         var onePointMarker = new google.maps.Marker({

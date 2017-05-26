@@ -22,6 +22,7 @@ router.post('/newList', function(req, res) {
         newList.description = req.body.description;
         newList.locations = req.body.locations;
         newList.tags = req.body.tags;
+        newList.startCoords = req.body.startCoords;
         newList.url = "/list/" + generateURL();
         newList.save(function(err) {
           if (err) {

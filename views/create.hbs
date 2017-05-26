@@ -62,6 +62,8 @@
     var title = $("#trip-name").val();
     var desc = $("#trip-desc").val();
     var locations = [];
+    var geo = new google.maps.Geocoder();
+    var firstAddrLong, firstAddrLat;
     $("#waypoints").children().each(function() {
       locations.push({
         name: $(this).attr("name"),
@@ -70,34 +72,46 @@
     });
     var tags = $("#trip-tags").val().split(",");
 
-    var startCoords = {
-      long: 1 // LONG GOES HERE,
-      lat: 1 // LAT GOES HERE
+    if (locations.length > 0) {
+      var firstAddr = locations[0].address;
+      geo.geocode( {'address': firstAddr}, function(results, status) {
+        if (status == 'OK') {
+          firstAddrLong = results[0].geometry.location.lng();
+          firstAddrLat = results[0].geometry.location.lat();
+
+          var startCoords = {
+            long: firstAddrLong, // LONG GOES HERE,
+            lat: firstAddrLat // LAT GOES HERE
+          };
+
+          // create payload
+          var postObj = {
+            title: title,
+            description: desc,
+            locations: locations,
+            tags: tags,
+            startCoords: startCoords
+          };
+
+          // send post req
+          $.ajax('/newList', {
+            data: JSON.stringify(postObj),
+            contentType: 'application/json',
+            type: 'POST'
+          }).done(function(res) {
+            // TODO SHOW SUCCESS FEEDBACK
+            window.location.replace(res);
+          }).fail(function() {
+            // TODO SHOW FAILURE FEEDBACK
+            console.log("fail!");
+          }).always(function(res) {
+            console.log(res.responseText);
+          });
+        } else {
+          alert('Geocode was not successful for the following reason: ' + status);
+        }
+      });
     }
-
-    // create payload
-    var postObj = {
-      title: title,
-      description: desc,
-      locations: locations,
-      tags: tags
-      startCoords: startCoords
-    };
-
-    // send post req
-    $.ajax('/newList', {
-      data: JSON.stringify(postObj),
-      contentType: 'application/json',
-      type: 'POST'
-    }).done(function(res) {
-      // TODO SHOW SUCCESS FEEDBACK
-      window.location.replace(res);
-    }).fail(function() {
-      // TODO SHOW FAILURE FEEDBACK
-      console.log("fail!");
-    }).always(function(res) {
-      console.log(res.responseText);
-    });
   });
 </script>
 {{/extend}}
