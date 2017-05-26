@@ -1,90 +1,52 @@
 {{#extend "stylesheets"}}
 <link rel="shortcut icon" type="image/png" href="/favicons/favicon-explore.png"/>
 {{/extend}}
-<main>
+<main id="explore-content">
   <div id="search-container">
-    <input type="text" id="search" placeholder="Enter keywords or tags in the format #tag to search" value="">
+    <input type="text" id="search" class="search" placeholder="Enter keywords or tags in the format #tag to search" value="">
     <input class="button-primary" id="search-btn" type="submit" value="Search">
   </div>
-  <ul id="card-container">
+  <ul id="card-container" class="list">
     <li>
-      <a href="/">
-        <div class="card">
+      <a href="{{url}}" class="url" list-id="{{url}}">
+        <div class="card" author="{{author}}" favcount="{{favoriteCount}}">
           <img src="/imgs/temp.png">
           <div class="overlay">
             <div class="hover-text">
-              <h5>Trip Name</h5>
-              <p>mood + tags</p>
+              <h5 class="trip" date-made="{{dateCreated}}" date-update="{{dateUpdated}}">{{title}}</h5>
+              <p class="description" tags="{{#each tags}}#{{this}}{{/each}}" locations="{{#each locations}}#{{this.name}}{{/each}}" address="{{#each tags}}#{{this.address}}{{/each}}">{{description}}</p>
             </div>
           </div>
         </div>
       </a>
     </li>
     <li>
-      <a href="/">
-        <div class="card">
+      <a href="{{url}}" class="url" list-id="{{url}}">
+        <div class="card" author="{{author}}" favcount="{{favoriteCount}}">
           <img src="/imgs/temp.png">
           <div class="overlay">
             <div class="hover-text">
-              <h5>Trip Name</h5>
-              <p>mood + tags</p>
+              <h5 class="trip" date-made="{{dateCreated}}" date-update="{{dateUpdated}}">Testing</h5>
+              <p class="description" tags="{{#each tags}}#{{this}}{{/each}}" locations="{{#each locations}}#{{this.name}}{{/each}}" address="{{#each tags}}#{{this.address}}{{/each}}">description here</p>
             </div>
           </div>
         </div>
       </a>
     </li>
     <li>
-      <a href="/">
-        <div class="card">
+      <a href="/" class="url" list-id="/">
+        <div class="card" author="author" favcount="favoriteCount">
           <img src="/imgs/temp.png">
           <div class="overlay">
             <div class="hover-text">
-              <h5>Trip Name</h5>
-              <p>mood + tags</p>
+              <h5 class="trip info" date-made="dateCreated" date-update="dateUpdated">Testing</h5>
+              <p class="description details" tags="#fun #woo" locations="rakiraki" address="">description here</p>
             </div>
           </div>
         </div>
       </a>
     </li>
-    <li>
-      <a href="/">
-        <div class="card">
-          <img src="/imgs/temp.png">
-          <div class="overlay">
-            <div class="hover-text">
-              <h5>Trip Name</h5>
-              <p>mood + tags</p>
-            </div>
-          </div>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="/">
-        <div class="card">
-          <img src="/imgs/temp.png">
-          <div class="overlay">
-            <div class="hover-text">
-              <h5>Trip Name</h5>
-              <p>mood + tags</p>
-            </div>
-          </div>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="/">
-        <div class="card">
-          <img src="/imgs/temp.png">
-          <div class="overlay">
-            <div class="hover-text">
-              <h5>Trip Name</h5>
-              <p>mood + tags</p>
-            </div>
-          </div>
-        </div>
-      </a>
-    </li>
+
   </ul>
 </main>
 

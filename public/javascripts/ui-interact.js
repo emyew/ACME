@@ -39,7 +39,9 @@ if (MAP.test(pathname) || pathname == CREATE) {
       this.deleteSelection = function() {};
     });
     var trip_tag_list = $("#trip-tags").val();
-    $("#trip-tags").val(trip_tag_list.substr(0, trip_tag_list.length-1));
+    if (trip_tag_list) {
+      $("#trip-tags").val(trip_tag_list.substr(0, trip_tag_list.length-1));
+    }
     $('#trip-tags').selectize({
       plugins: {
         'no-delete': {}
@@ -71,12 +73,18 @@ if (MAP.test(pathname) || pathname == CREATE) {
   }
 }
 else if (pathname == EXPLORE) {
-  var cardlist = new List('card-container', {
+  var cardlist = new List('explore-content', {
     valueNames: [
-      'name',
+      'trip',
       'description',
-      { data: ['id'] },
-      { name: 'tags' }
+      { name: 'url', attr: 'list-id' },
+      { name: 'card', attr: 'author' },
+      { name: 'card', attr: 'favcount' },
+      { name: 'info', attr: 'date-made' },
+      { name: 'info', attr: 'date-update' },
+      { name: 'details', attr: 'tags' },
+      { name: 'details', attr: 'locations' },
+      { name: 'details', attr: 'address' }
     ]
   });
   // var jets = new Jets({
