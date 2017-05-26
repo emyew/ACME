@@ -111,8 +111,8 @@
           <ul class="navbar-links">
             <!-- IF USER SIGNED IN -->
             {{#if user}}
-            <li><a href="/profile?page=mylists">My Lists</a></li>
-            <li><a href="/profile?page=fav">Favorites</a></li>
+            <li><a href="/mylists">My Lists</a></li>
+            <li><a href="/favorites">Favorites</a></li>
             <li><a id="options-toggle" href="#">{{user.email}}</a></li>
             {{else}}
             <li><a class="pop-register" href="#">Register</a></li>
@@ -121,9 +121,9 @@
           </ul>
           {{#if user}}
           <div id="profile-options-container" class="hide">
-            <li><a href="/profile">Update Profile</a></li>
-            <li><a href="/profile">Change Email</a></li>
-            <li><a href="/profile">Change Password</a></li>
+            <li><a href="/profile?page=bio">Update Profile</a></li>
+            <li><a href="/profile?page=email">Change Email</a></li>
+            <li><a href="/profile?page=password">Change Password</a></li>
             <li><a id="signout" href="/signout">Sign Out</a></li>
           </div>
           {{/if}}
