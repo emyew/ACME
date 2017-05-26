@@ -5,7 +5,7 @@ var User = require('../config/model_user');
 /* GET specific list page. */
 router.get('/', function(req, res, next) {
   // check if user is logged in
-  User.findById(req.user.id).populate('lists').exec(function(err, user) {
+  User.findById(req.user._id).populate('lists').exec(function(err, user) {
     console.log("PROFILE USER FOUND!");
     if (err) res.status(500).send(err);
     if (!user) {

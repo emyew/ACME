@@ -22,6 +22,7 @@ router.post('/newList', function(req, res) {
         newList.description = req.body.description;
         newList.locations = req.body.locations;
         newList.tags = req.body.tags;
+        newList.startCoords = req.body.startCoords;
         newList.url = "/list/" + generateURL();
         newList.save(function(err) {
           if (err) {
@@ -84,6 +85,16 @@ router.get('/query', function(req, res) {
       res.send(true);
     }
   });
+});
+
+router.post('/favorite', function(req, res) {
+  if (req.user) {
+    User.findById(req.user._id, function(err, user) {
+      console.log(req.body);
+    });
+  } else {
+    res.status(404).send("Invalid user");
+  }
 });
 
 module.exports = router;
