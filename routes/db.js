@@ -59,23 +59,6 @@ function generateURL() {
   return url;
 }
 
-// retrieves all lists under current user
-router.get('/myLists', function(req, res) {
-  if (req.user) {
-    // lookup user and populate list ref with the actual lists
-    User.findById(req.user._id).populate('lists').exec(function(err, user) {
-      if (err) res.status(500).send(err);
-      if (!user) {
-        res.status(404).send("User not found!");
-      } else {
-        res.status(200).send(user.lists);
-      }
-    });
-  } else {
-    res.status(404).send("No user found");
-  }
-});
-
 // query email address if taken
 router.get('/query', function(req, res) {
   User.findOne({ 'email': req.query.email }, function(err, user) {
