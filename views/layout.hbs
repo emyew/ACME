@@ -23,14 +23,14 @@
             <div class="form-group">
               <label for="register-name">Name</label>
               <div class="input-helpers">
-                <input type="text" id="register-name" name="name" value required autofocus>
+                <input type="text" id="register-name" name="name" value required autofocus maxlength="50">
                 <span class="field-error"></span>
               </div>
             </div>
             <div class="form-group">
               <label for="register-email">Email</label>
               <div class="input-helpers">
-                <input type="email" id="register-email" name="email" value required>
+                <input type="email" id="register-email" name="email" value required maxlength="254">
                 <span class="field-error"></span>
               </div>
             </div>
@@ -69,7 +69,7 @@
             <div class="form-group">
               <label for="signin-email">Email</label>
               <div class="input-helpers">
-                <input type="email" id="signin-email" name="email" value required autofocus>
+                <input type="email" id="signin-email" name="email" value required autofocus maxlength="254">
                 <span class="field-error"></span>
               </div>
             </div>
@@ -151,6 +151,7 @@
 <script type="text/javascript" src="/javascripts/Sortable.min.js"></script>
 <script type="text/javascript" src="/javascripts/selectize.min.js"></script>
 <script type="text/javascript" src="/javascripts/jets.min.js"></script>
+<script type="text/javascript" src="/javascripts/list.min.js"></script>
 <script type="text/javascript" src="/javascripts/ui-interact.js"></script>
 <script type="text/javascript" src="/javascripts/global.js"></script>
 {{{block "scripts"}}}
