@@ -668,6 +668,3 @@ main {
   #edit-profile-container hr.profile-form-separator {
     margin: 0;
     border-top: 5px double #84d8bd; }
-
-#edit-profile-container, #favs-container {
-  display: none; }

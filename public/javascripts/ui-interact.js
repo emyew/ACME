@@ -1,8 +1,12 @@
 // this file describes all ui interaction functionality
 var pathname = window.location.pathname;
+var search = window.location.search;
 var MAP = /list\/?[a-z0-9]+$/i;
 var EXPLORE = "/explore";
 var CREATE = "/create";
+var MYLISTS = "/mylists";
+var FAVORITES = "/favorites";
+var PROFILE = "/profile";
 
 //////////////////// MAP ////////////////////
 if (MAP.test(pathname) || pathname == CREATE) {
@@ -67,12 +71,32 @@ if (MAP.test(pathname) || pathname == CREATE) {
   }
 }
 else if (pathname == EXPLORE) {
-  var jets = new Jets({
-    searchTag: '#search',
-    contentTag: '#card-container',
-    hideBy: 'opacity: 0; transition: all .2s ease-in-out;',
-    searchSelector: '*'
+  var cardlist = new List('card-container', {
+    valueNames: [
+      'name',
+      'description',
+      { data: ['id'] },
+      { name: 'tags' }
+    ]
   });
+  // var jets = new Jets({
+  //   searchTag: '#search',
+  //   contentTag: '#card-container',
+  //   hideBy: 'opacity: 0; transition: all .2s ease-in-out;',
+  //   searchSelector: '*'
+  // });
+
+}
+else if (pathname == PROFILE) {
+  if (search == "?page=bio") {
+
+  }
+  else if (search == "?page=email") {
+
+  }
+  else if (search == "?page=password") {
+    
+  }
 }
 
 //reset window if resized to undo toggled states and changes
