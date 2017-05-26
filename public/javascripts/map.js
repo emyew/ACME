@@ -380,9 +380,11 @@ function initMap() {
   document.getElementById('directions-panel').innerHTML = '';
   directionsDisplay.setPanel(document.getElementById('directions-panel'));
 
-  document.getElementById('add-waypoint-btn').addEventListener('click', function() {
-    addWaypoint(waypts);
-  });
+  if (window.location.pathname == '/create') {
+    document.getElementById('add-waypoint-btn').addEventListener('click', function() {
+      addWaypoint(waypts);
+    });
+  }
 
     // document.getElementById('submit').addEventListener('click', function() {
     //     currPosMarker.setVisible(false);
@@ -555,24 +557,60 @@ function mapWaypoints(directionsService, directionsDisplay, waypts) {
     directionsDisplay.setMap(null);
   } else if (waypts.length == 1) {
     deleteMarkers();
-    document.getElementById('directions-panel').innerHTML = '';
     var onePointLocation = waypts[0].location;
-    geocoder.geocode( {'address': onePointLocation}, function(results, status) {
-      if (status == 'OK') {
-        map.setCenter(results[0].geometry.location);
-        var onePointMarker = new google.maps.Marker({
-            map: map,
-            position: results[0].geometry.location,
-            label: labels[labelIndex++ % labels.length]
-        });
-        var html = "<b>" + namesArray[0] + "</b> <br/>" + results[0].formatted_address;
-        attachText(onePointMarker, html);
-        markers.push(onePointMarker);
-        directionsDisplay.setMap(null);
-      } else {
-        alert('Geocode was not successful for the following reason: ' + status);
-      }
-    });
+    if (window.location.pathname == '/create') {
+      document.getElementById('directions-panel').innerHTML = '';
+      geocoder.geocode( {'address': onePointLocation}, function(results, status) {
+        if (status == 'OK') {
+          map.setCenter(results[0].geometry.location);
+          var onePointMarker = new google.maps.Marker({
+              map: map,
+              position: results[0].geometry.location,
+              label: labels[labelIndex++ % labels.length]
+          });
+          var html = "<b>" + namesArray[0] + "</b> <br/>" + results[0].formatted_address;
+          attachText(onePointMarker, html);
+          markers.push(onePointMarker);
+          directionsDisplay.setMap(null);
+        } else {
+          alert('Geocode was not successful for the following reason: ' + status);
+        }
+      });
+    } else {
+      document.getElementById('directions-panel').innerHTML = '';
+      geocoder.geocode( {'address': onePointLocation}, function(results, status) {
+        if (status == 'OK') {
+          map.setCenter(results[0].geometry.location);
+          var onePointMarker = new google.maps.Marker({
+              map: map,
+              position: results[0].geometry.location,
+              label: labels[labelIndex++ % labels.length]
+          });
+          var html = "<b>" + namesArray[0] + "</b> <br/>" + results[0].formatted_address;
+          attachText(onePointMarker, html);
+          markers.push(onePointMarker);
+          if (document.getElementById('curr-location').checked) {
+            directionsDisplay.setMap(map);
+            waypts[0].stopover = false;
+            directionsService.route({
+              origin: currPos,
+              destination: onePointLocation,
+              waypoints: waypts,
+              optimizeWaypoints: true,
+              travelMode: 'DRIVING'
+            }, function(response, status) {
+              if (status === 'OK') {
+                directionsDisplay.setDirections(response);
+              }
+            });
+          } else {
+            directionsDisplay.setMap(null);
+          }
+        } else {
+          alert('Geocode was not successful for the following reason: ' + status);
+        }
+      });
+    }
   } else {
     deleteMarkers();
     directionsDisplay.setMap(map);
