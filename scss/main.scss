@@ -519,11 +519,8 @@ main {
   margin: auto;
   margin-top: 25px;
   max-width: 80%;
-  #search,
   #search-btn {
-    margin-bottom: 0;
-  }
-  #search-btn {
+    display: inline-block;
     position: absolute;
     top: 0;
     right: 0;
@@ -532,8 +529,15 @@ main {
     margin: 0;
     width: 70px;
     text-align: center;
+    border-color: $color-accent;
+    background-color: $color-accent;
+  }
+  #search-btn:hover {
+    border-color: $color-accent-hover;
+    background-color: $color-accent-hover;
   }
   #search {
+    margin-bottom: 0;
     width: 100%;
     padding-right: 80px;
     text-overflow: ellipsis;
@@ -544,38 +548,47 @@ main {
   #search:focus {
     border-color: $color-accent-hover;
   }
-  #search-btn {
-    border-color: $color-accent;
-    background-color: $color-accent;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
   }
-  #search-btn:hover {
-    border-color: $color-accent-hover;
-    background-color: $color-accent-hover;
+  to {
+    opacity: 1;
   }
 }
 
 #card-container {
-  -webkit-column-count: 3;
-  -moz-column-count: 3;
-  column-count: 3;
-  -webkit-column-gap: 35px;
-  -moz-column-gap: 35px;
-  column-gap: 35px;
   margin: auto;
   margin-top: 30px;
   width: 80%;
   li {
-    display: inline-block;
+    margin: 1rem;
+    margin-bottom: 1rem;
+    display: block;
+    animation-name: fadein;
+    animation-duration: .7s;
   }
-  @media (max-width: 1024px) {
-    -webkit-column-count: 2;
-    -moz-column-count: 2;
-    column-count: 2;
+  span.hidden-details {
+    display: block;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    text-overflow: clip;
   }
-  @media (max-width: 570px) {
-    -webkit-column-count: 1;
-    -moz-column-count: 1;
-    column-count: 1;
+  @media screen and (min-width: 600px) {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    li {
+      width: 45%;
+    }
+  }
+  @media screen and (min-width: 1000px) {
+    li {
+      width: 29%;
+    }
   }
 }
 
@@ -584,7 +597,6 @@ main {
   img {
     width: 100%;
     display: block;
-    margin-bottom: 20px;
   }
   h5,
   p {

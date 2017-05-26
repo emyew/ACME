@@ -77,15 +77,16 @@ else if (pathname == EXPLORE) {
     valueNames: [
       'trip',
       'description',
-      { name: 'url', attr: 'list-id' },
-      { name: 'card', attr: 'author' },
-      { name: 'card', attr: 'favcount' },
-      { name: 'info', attr: 'date-made' },
-      { name: 'info', attr: 'date-update' },
-      { name: 'details', attr: 'tags' },
-      { name: 'details', attr: 'locations' },
-      { name: 'details', attr: 'address' }
-    ]
+      'tags',
+      'author',
+      'locations',
+      'url',
+      'favcount',
+      'date-made',
+      'date-update'
+    ],
+    page: 9,
+    pagination: true
   });
   // var jets = new Jets({
   //   searchTag: '#search',
