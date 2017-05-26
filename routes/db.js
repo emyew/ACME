@@ -92,4 +92,27 @@ router.post('/favorite', function(req, res) {
   }
 });
 
+router.post('/unfavorite', function(req, res) {
+  if (req.user) {
+    User.findById(req.user._id, function(err, user) {
+      if (err) res.status(500).send(err);
+      if (user) {
+        // update favorites
+        index = user.favorites.indexOf(req.body.id);
+        if (index > -1) {
+          user.favorites.splice(index, 1);
+          user.save(function(err) {
+            if (err) res.status(500).send(err);
+            res.status(200).send(true);
+          });
+        } else {
+          res.status(500).send("Not in favorites!");
+        }
+      }
+    });
+  } else {
+    res.status(404).send("Invalid user");
+  }
+})
+
 module.exports = router;

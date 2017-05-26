@@ -10,6 +10,7 @@ router.get('/:id', function(req, res, next) {
     if (!list) {
       res.status(404).redirect('../404');
     } else {
+      list['favorited'] = req.user && (req.user.favorites.indexOf(list._id) > -1);
       res.render('list', list);
     }
   });

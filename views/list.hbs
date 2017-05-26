@@ -38,7 +38,8 @@
         <input id="trip-tags" class="selectized" type="text" name="tags" value="{{#each tags}}{{this}},{{/each}}">
       </div>
       <div id="side-menu-btns">
-        {{#if user}}
+        {{#if user}} 
+        <input class="button-primary" type="button" id="unfav-list" value="Unfavorite">
         <input class="button-primary" type="button" id="fav-list" value="Favorite">
         <input class="button-primary" type="button" id="edit-list" value="Edit">
         {{else}}
@@ -57,11 +58,29 @@
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7l3pxQ6dq-Kgg-aVUO6-A0zf2swG2Cec&callback=initMap&libraries=places">
 </script>
 <script>
-console.log(`{{_id}}`);
+// render fav/unfav conditionally
+if (`{{favorited}}` == 'true') {
+  $("#unfav-list").show();
+} else {
+  $("#fav-list").show();
+}
 
 // click handler for favorite
 $("#fav-list").click(function() {
-  $.post('/favorite', { id: `{{_id}}` });
+  $.post('/favorite', { id: `{{_id}}` })
+    .done(function(data) {
+      $("#fav-list").hide();
+      $("#unfav-list").show();
+    });
 });
+
+// click handler for unfavorite
+$("#unfav-list").click(function() {
+  $.post('/unfavorite', {id :`{{_id}}`})
+    .done(function(data) {
+      $("#unfav-list").hide();
+      $("#fav-list").show();
+    });
+})
 </script>
 {{/extend}}

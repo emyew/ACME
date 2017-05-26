@@ -240,6 +240,9 @@ main {
     background-color: $color-accent-hover;
     border-color: $color-accent-hover;
   }
+  #fav-list, #unfav-list {
+    display: none;
+  }
   #fav-list, #create-list {
     background-color: $color-accent2;
     border-color: $color-accent2;
@@ -858,3 +861,4 @@ main {
 #edit-profile-container, #favs-container {
   // display: none;
 }
+
