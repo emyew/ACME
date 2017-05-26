@@ -73,7 +73,19 @@ router.get('/query', function(req, res) {
 router.post('/favorite', function(req, res) {
   if (req.user) {
     User.findById(req.user._id, function(err, user) {
-      console.log(req.body);
+      if (err) res.status(500).send(err);
+      if (user) {
+        // update favorites
+        if (user.favorites.indexOf(req.body.id) > -1) {
+          res.status(500).send("Already favorited!");
+        } else {
+          user.favorites.push(req.body.id);
+          user.save(function(err) {
+            if (err) res.status(500).send(err);
+            res.status(200).send(true);
+          });
+        }
+      }
     });
   } else {
     res.status(404).send("Invalid user");

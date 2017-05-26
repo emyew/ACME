@@ -55,6 +55,11 @@
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7l3pxQ6dq-Kgg-aVUO6-A0zf2swG2Cec&callback=initMap&libraries=places">
 </script>
 <script>
+console.log(`{{_id}}`);
 
+// click handler for favorite
+$("#fav-list").click(function() {
+  $.post('/favorite', { id: `{{_id}}` });
+});
 </script>
 {{/extend}}

@@ -9,7 +9,7 @@ var userSchema = Schema({
   dateCreated: Date,
   dateUpdated: Date,
   bio: String,
-  favorites: [],
+  favorites: [{ type: Schema.Types.ObjectId, ref: 'List' }],
   lists: [{ type: Schema.Types.ObjectId, ref: 'List' }]
 });
 
