@@ -89,13 +89,16 @@ else if (pathname == EXPLORE) {
 }
 else if (pathname == PROFILE) {
   if (search == "?page=bio") {
-
+    $("#edit-password-form").hide();
+    $("#edit-email-form").hide();
   }
   else if (search == "?page=email") {
-
+    $("#edit-bio-form").hide();
+    $("#edit-password-form").hide();
   }
   else if (search == "?page=password") {
-    
+    $("#edit-bio-form").hide();
+    $("#edit-email-form").hide();
   }
 }
 

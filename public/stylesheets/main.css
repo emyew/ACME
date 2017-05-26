@@ -649,7 +649,8 @@ main {
     font-size: 25px; }
   #edit-profile-container form {
     width: 100%;
-    margin: 30px auto; }
+    margin: 30px auto;
+    margin-bottom: 50px; }
   #edit-profile-container input[type="button"], #edit-profile-container input[type="submit"] {
     margin: 20px auto;
     display: block;
