@@ -15,45 +15,23 @@
 		</div>
 		<div id="profile-tabs-container">
 			<ul>
-				<a href="#"><li id="my-lists-tab" class="profile-tabs selected-tab">My Lists</li></a>
-				<a href="#"><li id="favs-tab" class="profile-tabs">Favorites</li></a>
-				<a href="#"><li id="edit-profile-tab" class="profile-tabs">Edit Profile</li></a>
+				<a href="/mylists"><li id="my-lists-tab" class="profile-tabs">My Lists</li></a>
+				<a href="/favorites"><li id="favs-tab" class="profile-tabs">Favorites</li></a>
+				<a href="/profile"><li id="edit-profile-tab" class="profile-tabs selected-tab">Edit Profile</li></a>
 			</ul>
 		</div>
 		<section id="profile-items">
-			<div id="my-lists-container">
-				<ul id="my-lists-cards">
-					{{#each lists}}
-					<li>
-						<a href="{{this.url}}">
-							<div class="card">
-								<img src="imgs/temp.png">
-								<div class="overlay">
-									<div class="hover-text">
-										<h5>{{this.title}}</h5>
-									</div>
-								</div>
-							</div>
-						</a>
-					</li>
-					{{/each}}
-				</ul>
-			</div>
-			<div id="favs-container">
-				<ul id="favorites-cards">
-				</ul>
-			</div>
 			<div id="edit-profile-container">
 				<form id="edit-bio-form" action="index.html" method="post">
 					<h3>Update Bio</h3>
 					<div class="form-group">
 						<label for="edit-profile-name">Name</label>
 						<div class="input-helpers">
-							<input type="text" id="profile-name" name="edit-profile-name" value>
+							<input type="text" id="profile-name" name="edit-profile-name" value maxlength="50">
 							<span class="field-error"></span>
 						</div>
 						<label for="edit-user-bio">Bio</label>
-						<textarea name="edit-user-bio" id="edit-user-bio" value=""></textarea>
+						<textarea name="edit-user-bio" id="edit-user-bio" value="" maxlength="400"></textarea>
 					</div>
 					<input type="button" id="submit-bio" class="button-primary" value="Update Profile">
 				</form>
@@ -61,16 +39,16 @@
 				<form id="edit-email-form" action="index.html" method="post">
 					<h3>Change Email</h3>
 					<div class="form-group">
-						<label for="edit-profile-name">Name</label>
+						<label for="edit-profile-email">Email</label>
 						<div class="input-helpers">
-							<input type="text" id="profile-name" name="edit-profile-name" value>
+							<input type="email" id="profile-email" name="edit-profile-email" value maxlength="254">
 							<span class="field-error"></span>
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="edit-profile-email">Email</label>
+						<label for="edit-profile-email2">Confirm Email</label>
 						<div class="input-helpers">
-							<input type="email" id="profile-email" name="edit-profile-email" value>
+							<input type="email" id="profile-email2" name="edit-profile-email2" value maxlength="254">
 							<span class="field-error"></span>
 						</div>
 					</div>
@@ -95,7 +73,6 @@
 					</div>
 					<input type="submit" id="submit-profile" class="submit button-primary" value="Change Password">
 				</form>
-
 			</div>
 		</section>
 	</main>

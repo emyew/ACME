@@ -75,10 +75,10 @@ app.use('/', require('./routes/db'));
 app.use('/test', require('./routes/test'));
 app.use('/explore', require('./routes/explore'));
 app.use('/list', require('./routes/list'));
-// app.use('/create', require('./routes/create'));
-// app.use('/profile', require('./routes/profile'));
 app.use('/create', isAuthenticated, require('./routes/create'));
 app.use('/profile', isAuthenticated, require('./routes/profile'));
+app.use('/favorites', isAuthenticated, require('./routes/favorites'));
+app.use('/mylists', isAuthenticated, require('./routes/mylists'));
 app.get('/success', function(req, res) {
   res.send('action success');
 });

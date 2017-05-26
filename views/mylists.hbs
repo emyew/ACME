@@ -1,0 +1,46 @@
+{{#extend "stylesheets"}}
+<link rel="shortcut icon" type="image/png" href="/favicons/favicon-user.png"/>
+{{/extend}}
+
+<main>
+	<div id="profile-content">
+		<div id="profile-info-container">
+			<div id="profile-pic-container">
+				<img src="/imgs/profile-img-temp.png" alt="Profile Picture" id="profile-pic">
+			</div>
+			<div id="user-info">
+				<h5 id="user-name">{{user.name}}</h5>
+				<p id="user-bio">Vice fanny pack chicharrones 90's put a bird on it. Intelligentsia irony quinoa bitters pok pok, hexagon hashtag succulents. Vice fanny pack chicharrones 90's put a bird on it.</p>
+			</div>
+		</div>
+		<div id="profile-tabs-container">
+			<ul>
+				<a href="/mylists"><li id="my-lists-tab" class="profile-tabs selected-tab">My Lists</li></a>
+				<a href="/favorites"><li id="favs-tab" class="profile-tabs">Favorites</li></a>
+				<a href="/profile"><li id="edit-profile-tab" class="profile-tabs">Edit Profile</li></a>
+			</ul>
+		</div>
+		<section id="profile-items">
+			<div id="my-lists-container">
+				<ul id="my-lists-cards">
+					{{#each lists}}
+					<li>
+						<a href="{{this.url}}">
+							<div class="card">
+								<img src="imgs/temp.png">
+								<div class="overlay">
+									<div class="hover-text">
+										<h5>{{this.title}}</h5>
+									</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					{{/each}}
+				</ul>
+			</div>
+		</section>
+	</main>
+
+	{{#extend "scripts"}}
+	{{/extend}}
