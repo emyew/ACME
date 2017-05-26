@@ -558,59 +558,40 @@ function mapWaypoints(directionsService, directionsDisplay, waypts) {
   } else if (waypts.length == 1) {
     deleteMarkers();
     var onePointLocation = waypts[0].location;
-    if (window.location.pathname == '/create') {
-      document.getElementById('directions-panel').innerHTML = '';
-      geocoder.geocode( {'address': onePointLocation}, function(results, status) {
-        if (status == 'OK') {
-          map.setCenter(results[0].geometry.location);
-          var onePointMarker = new google.maps.Marker({
-              map: map,
-              position: results[0].geometry.location,
-              label: labels[labelIndex++ % labels.length]
+    document.getElementById('directions-panel').innerHTML = '';
+    geocoder.geocode( {'address': onePointLocation}, function(results, status) {
+      if (status == 'OK') {
+        map.setCenter(results[0].geometry.location);
+        var onePointMarker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location,
+            label: labels[labelIndex++ % labels.length]
+        });
+        var html = "<b>" + namesArray[0] + "</b> <br/>" + results[0].formatted_address;
+        attachText(onePointMarker, html);
+        markers.push(onePointMarker);
+        // if on list view and checking box to start from current location
+        if (!(window.location.pathname == '/create') && document.getElementById('curr-location').checked) {
+          directionsDisplay.setMap(map);
+          waypts[0].stopover = false;
+          directionsService.route({
+            origin: currPos,
+            destination: onePointLocation,
+            waypoints: waypts,
+            optimizeWaypoints: true,
+            travelMode: 'DRIVING'
+          }, function(response, status) {
+            if (status === 'OK') {
+              directionsDisplay.setDirections(response);
+            }
           });
-          var html = "<b>" + namesArray[0] + "</b> <br/>" + results[0].formatted_address;
-          attachText(onePointMarker, html);
-          markers.push(onePointMarker);
+        } else { // list view without starting from curr location or create page for single location
           directionsDisplay.setMap(null);
-        } else {
-          alert('Geocode was not successful for the following reason: ' + status);
         }
-      });
-    } else {
-      document.getElementById('directions-panel').innerHTML = '';
-      geocoder.geocode( {'address': onePointLocation}, function(results, status) {
-        if (status == 'OK') {
-          map.setCenter(results[0].geometry.location);
-          var onePointMarker = new google.maps.Marker({
-              map: map,
-              position: results[0].geometry.location,
-              label: labels[labelIndex++ % labels.length]
-          });
-          var html = "<b>" + namesArray[0] + "</b> <br/>" + results[0].formatted_address;
-          attachText(onePointMarker, html);
-          markers.push(onePointMarker);
-          if (document.getElementById('curr-location').checked) {
-            directionsDisplay.setMap(map);
-            waypts[0].stopover = false;
-            directionsService.route({
-              origin: currPos,
-              destination: onePointLocation,
-              waypoints: waypts,
-              optimizeWaypoints: true,
-              travelMode: 'DRIVING'
-            }, function(response, status) {
-              if (status === 'OK') {
-                directionsDisplay.setDirections(response);
-              }
-            });
-          } else {
-            directionsDisplay.setMap(null);
-          }
-        } else {
-          alert('Geocode was not successful for the following reason: ' + status);
-        }
-      });
-    }
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
   } else {
     deleteMarkers();
     directionsDisplay.setMap(map);
