@@ -70,12 +70,18 @@
     });
     var tags = $("#trip-tags").val().split(",");
 
+    var startCoords = {
+      long: 1 // LONG GOES HERE,
+      lat: 1 // LAT GOES HERE
+    }
+
     // create payload
     var postObj = {
       title: title,
       description: desc,
       locations: locations,
       tags: tags
+      startCoords: startCoords
     };
 
     // send post req

@@ -10,6 +10,7 @@ var listSchema = Schema({
   author: { type: Schema.Types.ObjectId, ref: 'User' },
   locations: [{ name: String, address: String }],
   tags: [],
+  startCoords: { long: Number, lat: Number },
   favoriteCount: 0
 });
 

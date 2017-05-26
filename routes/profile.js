@@ -6,7 +6,8 @@ var User = require('../config/model_user');
 router.get('/', function(req, res, next) {
   // check if user is logged in
   User.findById(req.user.id).populate('lists').exec(function(err, user) {
-    if (err) res.status(404).send(err);
+    console.log("PROFILE USER FOUND!");
+    if (err) res.status(500).send(err);
     if (!user) {
       res.status(404).redirect('../404');
     } else {
@@ -17,22 +18,5 @@ router.get('/', function(req, res, next) {
   });
 });
 
-// render other profile (not current user)
-router.get('/:id', function(req, res, next) {
-  // lookup other user
-  User.findById(req.params.id, function(err, user) {
-    if (err)
-      res.status(500);
-
-    if (user) {
-      res.render('profile', {
-        title: 'User' + req.params.id,
-        user: user
-      });
-    } else {
-      res.status(500);
-    }
-  });
-});
 
 module.exports = router;
