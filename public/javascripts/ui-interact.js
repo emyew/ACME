@@ -85,8 +85,18 @@ else if (pathname == EXPLORE) {
       'date-made',
       'date-update'
     ],
+    insensitive: true,
     page: 9,
-    pagination: true
+    pagination: [{
+      name: "paginationTop",
+      paginationClass: "paginationTop",
+      outerWindow: 2
+    }, {
+      paginationClass: "paginationBottom",
+      innerWindow: 3,
+      left: 2,
+      right: 4
+    }]
   });
   // var jets = new Jets({
   //   searchTag: '#search',

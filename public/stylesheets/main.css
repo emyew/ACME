@@ -465,7 +465,6 @@ main {
 
 #card-container {
   margin: auto;
-  margin-top: 30px;
   width: 80%; }
   #card-container li {
     margin: 1rem;
@@ -484,13 +483,36 @@ main {
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;
-      align-items: center;
-      justify-content: center; }
+      align-items: center; }
       #card-container li {
         width: 45%; } }
   @media screen and (min-width: 1000px) {
     #card-container li {
       width: 29%; } }
+
+ul.paginationBottom, ul.paginationTop {
+  width: 80%;
+  list-style: none;
+  margin: auto;
+  display: block;
+  text-align: center; }
+  ul.paginationBottom li, ul.paginationTop li {
+    display: inline-block;
+    margin-right: 1rem;
+    margin-bottom: 0; }
+  ul.paginationBottom a, ul.paginationTop a {
+    font-weight: bold;
+    text-decoration: none;
+    background-color: #84d8bd;
+    color: white;
+    padding: 0.5rem 1rem;
+    line-height: 38px;
+    border-radius: 3px; }
+  ul.paginationBottom a:hover, ul.paginationTop a:hover {
+    background-color: #59BC9C; }
+
+ul.paginationBottom {
+  margin-bottom: 2rem; }
 
 .card {
   position: relative; }
@@ -625,8 +647,7 @@ main {
     flex-wrap: row;
     flex-direction: row;
     text-decoration: none;
-    align-items: center;
-    justify-content: center; }
+    align-items: center; }
     #profile-content #profile-tabs-container ul {
       list-style: none;
       justify-content: space-around;

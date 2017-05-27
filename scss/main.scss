@@ -594,7 +594,6 @@ main {
 
 #card-container {
   margin: auto;
-  margin-top: 30px;
   width: 80%;
   li {
     margin: 1rem;
@@ -615,7 +614,6 @@ main {
     flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
     li {
       width: 45%;
     }
@@ -625,6 +623,34 @@ main {
       width: 29%;
     }
   }
+}
+
+ul.paginationBottom, ul.paginationTop {
+  width: 80%;
+  list-style: none;
+  margin: auto;
+  display: block;
+  text-align: center;
+  li {
+    display: inline-block;
+    margin-right: 1rem;
+    margin-bottom: 0;
+  }
+  a {
+    font-weight: bold;
+    text-decoration: none;
+    background-color: $color-accent2;
+    color: white;
+    padding: 0.5rem 1rem;
+    line-height: 38px;
+    border-radius: 3px;
+  }
+  a:hover {
+    background-color: $color-accent2-hover;
+  }
+}
+ul.paginationBottom {
+  margin-bottom: 2rem;
 }
 
 .card {
@@ -732,7 +758,6 @@ main {
   resize: none;
 }
 
-
 /* ---------------- Profile Page ----------------- */
 
 #profile-content {
@@ -785,7 +810,6 @@ main {
     flex-direction: row;
     text-decoration: none;
     align-items: center;
-    justify-content: center;
     ul {
       list-style: none;
       justify-content: space-around;
