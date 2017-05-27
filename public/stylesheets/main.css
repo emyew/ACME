@@ -179,9 +179,15 @@ main {
   #side-menu #fav-list, #side-menu #create-list {
     background-color: #84d8bd;
     border-color: #84d8bd; }
+  #side-menu #unfav-list {
+    background-color: #F1BBBA;
+    border-color: #F1BBBA; }
   #side-menu #fav-list:hover, #side-menu #create-list:hover {
     background-color: #59BC9C;
     border-color: #59BC9C; }
+  #side-menu #unfav-list:hover {
+    background-color: #EB9F9F;
+    border-color: #EB9F9F; }
   #side-menu #list-container {
     margin: auto; }
   #side-menu #tag-container {

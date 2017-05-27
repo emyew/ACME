@@ -22,6 +22,8 @@ $color-inactive-tags: #edf4f2;
 $color-profile-tab: #edf4f2;
 $color-profile-bottom: #C2E3CD;
 $color-profile-bottom-sel: #9CDDC8;
+$color-accent3: #F1BBBA;
+$color-accent3-hover: #EB9F9F;
 
 html,
 body {
@@ -246,11 +248,18 @@ main {
   #fav-list, #create-list {
     background-color: $color-accent2;
     border-color: $color-accent2;
-
+  }
+  #unfav-list {
+    background-color: $color-accent3;
+    border-color: $color-accent3;
   }
   #fav-list:hover, #create-list:hover {
     background-color: $color-accent2-hover;
     border-color: $color-accent2-hover;
+  }
+  #unfav-list:hover {
+    background-color: $color-accent3-hover;
+    border-color: $color-accent3-hover;
   }
   #list-container {
     margin: auto;
