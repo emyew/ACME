@@ -22,7 +22,7 @@ router.post('/newList', function(req, res) {
         newList.description = req.body.description;
         newList.locations = req.body.locations;
         newList.tags = req.body.tags;
-        newList.startCoords = req.body.startCoords;
+        newList.loc = req.body.loc;
         newList.url = "/list/" + generateURL();
         newList.save(function(err) {
           if (err) {
@@ -113,6 +113,44 @@ router.post('/unfavorite', function(req, res) {
   } else {
     res.status(404).send("Invalid user");
   }
+});
+
+router.post('/deleteList', function(req, res) {
+  if (req.user) {
+    User.findById(req.user._id, function(err, user) {
+      if (err) res.status(500).send(err);
+      if (user) {
+        // find list in user's list
+        favindex = user.favorites.indexOf(req.body.id);
+        listindex = user.lists.indexOf(req.body.id);
+        if (listindex <= -1) {
+          res.status(500).send("Not current user's list!");
+        } else {
+          // remove from favorites and lists
+          if (favindex > -1) {
+            user.favorites.splice(favindex, 1);
+          }
+          user.lists.splice(listindex, 1);
+          user.save(function(err) {
+            if (err) res.status(500).send(err);
+            // delete list
+            List.findByIdAndRemove(req.body.id, function(err, list) {
+              if (err) res.status(500).send(err);
+              res.status(200).send("Deleted" + list.id);
+            });
+          });
+        }
+      }
+    });
+  } else {
+    res.status(404).send("Invalid user");
+  }
 })
+
+// test db aggregation
+// var result = List.aggregate().near({
+//   near: [lng, lat],
+//   distanceField: '100'
+// })
 
 module.exports = router;

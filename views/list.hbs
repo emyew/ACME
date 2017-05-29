@@ -42,6 +42,7 @@
         <input class="button-primary" type="button" id="unfav-list" value="Unfavorite">
         <input class="button-primary" type="button" id="fav-list" value="Favorite">
         <input class="button-primary" type="button" id="edit-list" value="Edit">
+        <input class="button-primary" type="button" id="delete-list" value="Delete">
         {{else}}
         <input class="button-primary pop-register" type="button" id="edit-list" value="Edit">
         {{/if}}
@@ -80,6 +81,14 @@ $("#unfav-list").click(function() {
     .done(function(data) {
       $("#unfav-list").hide();
       $("#fav-list").show();
+    });
+})
+
+// click handler for delete
+$("#delete-list").click(function() {
+  $.post('/deleteList', {id : `{{_id}}`})
+    .done(function(data) {
+      window.location.replace("/");
     });
 })
 </script>

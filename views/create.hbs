@@ -80,7 +80,7 @@
           firstAddrLong = results[0].geometry.location.lng();
           firstAddrLat = results[0].geometry.location.lat();
 
-          var startCoords = {
+          var loc = {
             long: firstAddrLong, // LONG GOES HERE,
             lat: firstAddrLat // LAT GOES HERE
           };
@@ -91,7 +91,7 @@
             description: desc,
             locations: locations,
             tags: tags,
-            startCoords: startCoords
+            loc: loc
           };
 
           // send post req
