@@ -3,27 +3,112 @@
 <style>
   #landing-hero {
     background-color: #84d8bd;
-    height: 100vh;
+    height: 95vh;
+    column-count: 2;
   }
-  #landing-info {
-    height: 1000px;
+  #hero-text {
+    padding-top: 25%;
+    padding-left: 20%;
+    text-align: left;
+  }
+  #hero-image {
+    height: 95%;
+    width: auto;
+    padding-top: 10%;
+    padding-left: 20%;
+    padding-right: 50%;
+  }
+  #sign-up-btn {
+    text-align: center;
+    background-color: white;
+    border-color: white;
+    color: #84d8bd;
+  }
+  #landing-features {
+    background-color: #f7af63;
+    height: 95vh;
+  }
+  #features-title {
+    text-align: center;
+    padding-top: 25px;
+  }
+  #features-description {
+    text-align: center;
+    padding: 5px;
+  }
+  #features-list {
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    padding: 7%;
+  }
+  #features-image {
+    display: inline-block;
+    margin: auto;
+    height: 80%;
+    width: auto;
   }
   #landing-footer {
-    background-color: grey;
-    height: 300px;
+    background-color: #33c3f0;
+    height: 75px;
+  }
+  #footer-description {
+    text-align: center;
+    padding-top: 25px;
   }
 </style>
 {{/extend}}
 
 <main>
   <div id="landing-hero">
-    cool landing page
+    <div id="hero-text">
+      <div id="app-slogan">
+        <h4>CATCHY SLOGAN HERE</h4>
+      </div>
+      <div id="app-description">
+        <p>Currently, planning fun day trips requires the use of multiple applications such as Google Maps,
+          TripAdvisor, and Yelp. Our app incorporates features from all three sources to create an all-in-one
+          experience that makes trip planning easy and fun! (description placeholder)</p>
+      </div>
+      <div id="sign-up-btn">
+        <a>Start Exploring Now!</a>
+      </div>
+    </div>
+    <div id="hero-image">
+      <img src="/imgs/mobile_list_view.png" alt="mobile view" id="hero-image">
+    </div>
   </div>
-  <div id="landing-info">
-    more cool information about our app
+  <div id="landing-features">
+    <div id="features-title">
+      <h4>Features</h4>
+    </div>
+    <div id="features-description">
+      <p>short description sentence</p>
+    </div>
+    <div id="features-list">
+      <div id=features-text>
+        feature 1
+      </div>
+      <div id=features-text>
+        feature 2
+      </div>
+    </div>
+    <div id="features-image">
+      <img src="/imgs/view_list_desktop.png" alt="desktop view" id="features-image">
+    </div>
+    <div id="features-list">
+      <div id=features-text>
+        feature 3
+      </div>
+      <div id=features-text>
+        feature 4
+      </div>
+    </div>
   </div>
   <div id="landing-footer">
-    footer and stuff
+    <div id="footer-description">
+      <h6>--- A COGS 121 PROJECT ---</h6>
+    </div>
   </div>
 </main>
 
