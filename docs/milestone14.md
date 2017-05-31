@@ -14,9 +14,10 @@ When viewing a specific list, users can choose to start from their current locat
 <hr>
 
 ### Emily
+I worked on designing the UI for the Explore page and making sure the whole app was responsive on mobile. I also implemented the pagination and filtering/search functionality on the Explore page. I helped implement the Edit page and also fixed numerous UI bugs that came up when we added other functionality to the app. For the Profile page, I worked on conditionally showing the forms for each user. I also redesigned the navbar, so that more user-related features were on one side and general features were on the other.
 
 ### Christy
-I worked on calculating and displaying the total duration and distance for each trip. I also helped implement the edit list functionality and styling (displaying the path on the map and adding new waypoints).
+I worked on calculating and displaying the total duration and distance for each trip. I added validity checks for create and edit when adding new waypoints, so it can't add more than 22 waypoints (max limit with the API is 23 but for us, one was for the current location if users chose to select that option) and for invalid addresses. I also helped implement the edit list functionality and styling (displaying the path on the map and adding new waypoints).
 
 ### Mohsin
 I designed and implemented the landing page. I also worked on fixing various UI bugs with responsiveness and content styling.
