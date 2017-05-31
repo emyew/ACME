@@ -646,12 +646,12 @@ main {
     flex-direction: row;
     align-items: center;
     li {
-      width: 43%;
+      width: 45%;
     }
   }
   @media screen and (min-width: 1000px) {
     li {
-      width: 27%;
+      width: 29%;
     }
   }
 }
@@ -944,7 +944,6 @@ ul.paginationBottom {
 }
 
 /* ---------------- Index Page ----------------- */
-
 .landing-hero {
   box-sizing: border-box;
   background-color: #84d8bd;
@@ -1031,6 +1030,7 @@ ul.paginationBottom {
   }
 }
 .landing-features {
+  overflow-x: hidden;
   box-sizing: border-box;
   background-color: #f7af63;
   height: 95vh;
