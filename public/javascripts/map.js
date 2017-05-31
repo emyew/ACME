@@ -453,6 +453,10 @@ function addWaypoint(waypts) {
   wayptsList = document.getElementById('waypoints');
   var places = wayptsList.getElementsByTagName('li');
   namesArray = [];
+  if (places.length > 21) {
+    alert('Too many locations!');
+    return;
+  }
   for (var i = 0; i < places.length; i++) {
     waypts.push({
       location: places[i].getAttribute('data-value'),

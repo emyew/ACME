@@ -550,7 +550,7 @@ ul.paginationBottom {
     right: 0;
     height: 100%;
     width: 100%;
-    opacity: 0;
+    opacity: 1;
     transition: .5s ease;
     background: rgba(0, 0, 0, 0.5);
     cursor: pointer; }
@@ -564,9 +564,6 @@ ul.paginationBottom {
     -ms-transform: translate(-50%, -50%);
     width: 100%;
     padding: 0px 15px; }
-  @media (max-width: 1024px) {
-    .card .overlay {
-      opacity: 1; } }
 
 .card:hover .overlay {
   opacity: 1; }
