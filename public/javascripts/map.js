@@ -539,6 +539,8 @@ function mapWaypoints(directionsService, directionsDisplay, waypts) {
   wayptsList = document.getElementById('waypoints');
   var places = wayptsList.getElementsByTagName('li');
   namesArray = [];
+  var totalDistance = 0;
+  var totalDuration = 0;
   for (var i = 0; i < places.length; i++) {
     waypts.push({
       location: places[i].getAttribute('data-value'),
@@ -583,6 +585,15 @@ function mapWaypoints(directionsService, directionsDisplay, waypts) {
           }, function(response, status) {
             if (status === 'OK') {
               directionsDisplay.setDirections(response);
+
+              var route = response.routes[0];
+              for (var i = 0; i < route.legs.length; i++) {
+                // calculating total distance and duration
+                totalDistance += route.legs[i].distance.value;
+                totalDuration += route.legs[i].duration.value;
+              }
+            } else {
+              window.alert('Directions request failed due to ' + status);
             }
           });
         } else { // list view without starting from curr location or create page for single location
@@ -639,6 +650,10 @@ function mapWaypoints(directionsService, directionsDisplay, waypts) {
             var html = "<b>" + namesArray[i] + "</b> <br/>" + route.legs[i].start_address;
             attachText(marker, html);
             markers.push(marker);
+
+            // calculating total distance and duration
+            totalDistance += route.legs[i].distance.value;
+            totalDuration += route.legs[i].duration.value;
           }
           var marker = new google.maps.Marker({
             position: route.legs[i - 1].end_location,
@@ -649,6 +664,13 @@ function mapWaypoints(directionsService, directionsDisplay, waypts) {
           markers.push(marker);
           var html = "<b>" + namesArray[i] + "</b> <br/>" + route.legs[i - 1].end_address;
           attachText(marker, html);
+
+          totalDistance = totalDistance/1609.34; // convert from meters (default) to miles
+          totalDistance = totalDistance.toFixed(1); // 2 decimal places
+          totalDuration = totalDuration/60; // convert from seconds to minutes
+          totalDuration = totalDuration.toFixed(1); // 2 decimal places
+          document.getElementById('total-distance').innerHTML = 'Total Distance: ' + totalDistance + ' mi.';
+          document.getElementById('total-duration').innerHTML = 'Total Duration: ' + totalDuration + ' mins';
         } else {
           // list page -- checkbox to start from current location is checked
           if (document.getElementById('curr-location').checked) {
@@ -661,6 +683,10 @@ function mapWaypoints(directionsService, directionsDisplay, waypts) {
               var html = "<b>" + namesArray[i - 1] + "</b> <br/>" + route.legs[i].start_address;
               attachText(marker, html);
               markers.push(marker);
+
+              // calculating total distance and duration
+              totalDistance += route.legs[i - 1].distance.value;
+              totalDuration += route.legs[i - 1].duration.value;
             }
             var marker = new google.maps.Marker({
               position: route.legs[i - 1].end_location,
@@ -670,6 +696,13 @@ function mapWaypoints(directionsService, directionsDisplay, waypts) {
             markers.push(marker);
             var html = "<b>" + namesArray[i - 1] + "</b> <br/>" + route.legs[i - 1].end_address;
             attachText(marker, html);
+           
+            totalDistance = totalDistance/1609.34; // convert from meters (default) to miles
+            totalDistance = totalDistance.toFixed(1); // 2 decimal places
+            totalDuration = totalDuration/60; // convert from seconds to minutes
+            totalDuration = totalDuration.toFixed(1); // 2 decimal places
+            document.getElementById('total-distance').innerHTML = 'Total Distance: ' + totalDistance + ' mi.';
+            document.getElementById('total-duration').innerHTML = 'Total Duration: ' + totalDuration + ' mins';
           } else { // list view -- checkbox not checked (display normally)
             for (var i = 0; i < route.legs.length; i++) {
               var marker = new google.maps.Marker({
@@ -680,6 +713,10 @@ function mapWaypoints(directionsService, directionsDisplay, waypts) {
               var html = "<b>" + namesArray[i] + "</b> <br/>" + route.legs[i].start_address;
               attachText(marker, html);
               markers.push(marker);
+
+              // calculating total distance and duration
+              totalDistance += route.legs[i].distance.value;
+              totalDuration += route.legs[i].duration.value;
             }
             var marker = new google.maps.Marker({
               position: route.legs[i - 1].end_location,
@@ -689,6 +726,13 @@ function mapWaypoints(directionsService, directionsDisplay, waypts) {
             markers.push(marker);
             var html = "<b>" + namesArray[i] + "</b> <br/>" + route.legs[i - 1].end_address;
             attachText(marker, html);
+
+            totalDistance = totalDistance/1609.34; // convert from meters (default) to miles
+            totalDistance = totalDistance.toFixed(1); // 2 decimal places
+            totalDuration = totalDuration/60; // convert from seconds to minutes
+            totalDuration = totalDuration.toFixed(1); // 2 decimal places
+            document.getElementById('total-distance').innerHTML = 'Total Distance: ' + totalDistance + ' mi.';
+            document.getElementById('total-duration').innerHTML = 'Total Duration: ' + totalDuration + ' mins';
           }
         }
       } else {
