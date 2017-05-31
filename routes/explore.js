@@ -6,10 +6,9 @@ router.get('/', function(req, res, next) {
   // aggregate db
   List.aggregate([{
     '$geoNear': {
-      'near': { lng: -117.2196990, lat: 32.8611640 },
+      'near': { lng: -117.235277, lat: 32.877492 },
       'distanceField': 'dis',
-      'spherical': true,
-      'num': 20
+      'spherical': true
     }
   }], function(err, result) {
     var render = {};
