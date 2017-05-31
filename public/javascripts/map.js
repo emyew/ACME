@@ -380,7 +380,7 @@ function initMap() {
   document.getElementById('directions-panel').innerHTML = '';
   directionsDisplay.setPanel(document.getElementById('directions-panel'));
 
-  if (window.location.pathname == '/create') {
+  if (window.location.pathname == '/create' || window.location.pathname == '/edit') {
     document.getElementById('add-waypoint-btn').addEventListener('click', function() {
       addWaypoint(waypts);
     });
@@ -696,7 +696,7 @@ function mapWaypoints(directionsService, directionsDisplay, waypts) {
             markers.push(marker);
             var html = "<b>" + namesArray[i - 1] + "</b> <br/>" + route.legs[i - 1].end_address;
             attachText(marker, html);
-           
+
             totalDistance = totalDistance/1609.34; // convert from meters (default) to miles
             totalDistance = totalDistance.toFixed(1); // 2 decimal places
             totalDuration = totalDuration/60; // convert from seconds to minutes

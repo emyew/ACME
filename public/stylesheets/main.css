@@ -161,11 +161,13 @@ main {
       width: 100%; }
   #side-menu .trip-title {
     text-align: center;
-    font-weight: bold; }
-  #side-menu #desc {
     font-weight: bold;
-    text-align: left;
     margin-bottom: 10px; }
+  #side-menu #desc {
+    text-align: center;
+    margin-bottom: 10px; }
+  #side-menu #destination-header {
+    font-weight: bold; }
   #side-menu #instr {
     font-size: 12px; }
   #side-menu #edit-list {
@@ -188,6 +190,18 @@ main {
   #side-menu #unfav-list:hover {
     background-color: #EB9F9F;
     border-color: #EB9F9F; }
+  #side-menu #delete-list {
+    background-color: #F5634A;
+    border-color: #F5634A; }
+  #side-menu #delete-list:hover {
+    background-color: #ED303C;
+    border-color: #ED303C; }
+  #side-menu #cancel-edit {
+    background-color: #9CDDC8;
+    border-color: #9CDDC8; }
+  #side-menu #cancel-edit:hover {
+    background-color: #84d8bd;
+    border-color: #84d8bd; }
   #side-menu #list-container {
     margin: auto; }
   #side-menu #tag-container {
@@ -200,15 +214,14 @@ main {
     text-align: left;
     margin-bottom: 15px;
     list-style-type: upper-alpha; }
-  #side-menu #side-menu-btns {
-    margin: 20px 0;
+  #side-menu .side-menu-btns {
+    margin: 20px auto;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row; }
   #side-menu input[type="button"] {
     margin: auto;
-    display: block;
-    margin-bottom: 10px; }
+    display: block; }
   #side-menu input[type="text"], #side-menu textarea {
     display: block;
     width: 100%; }

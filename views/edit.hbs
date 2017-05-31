@@ -4,7 +4,7 @@
 {{/extend}}
 <main>
   <div class="error-message modal close-link">
-    <section class="popup">
+    <section class="popup create-error">
       <div class="popup-content">
         <h3>Whoa There!</h3>
         <p>Adding this location to the road trip requires driving through a body of water!</p>
@@ -19,16 +19,21 @@
     </button>
   </div>
   <div id="map-container">
+    <!-- <input id="location-search-box" class="controls" type="text" placeholder="Search"> -->
     <div id="map"></div>
   </div>
   <div id="side-menu">
     <section id="side-menu-content">
-      <h5>Create New List</h5>
-      <input type="text" id="trip-name" placeholder="Trip Name" value="">
-      <textarea name="trip-desc" id="trip-desc" placeholder="Description"></textarea>
-      <h6 id="desc">Destinations:</h6>
+      <h5>Edit List</h5>
+      <input type="text" id="trip-name" placeholder="Trip Name" value="{{}}">
+      <textarea name="trip-desc" id="trip-desc" placeholder="Description" value="{{}}"></textarea>
+      <h6 id="destination-header">Destinations:</h6>
+      <!--<p>Use the search bar below to add locations to your list. Drag & reorder places for different paths. Click submit to see the suggested path starting from your current location.</p>-->
       <div id="list-container">
         <ul id="waypoints" class="sortable-waypoints">
+          {{#each locations}}
+          <li name="{{this.name}}" data-value="{{this.address}}" class="points">{{this.name}}<i class="fa fa-times fa-lg remove-point" aria-hidden="true"></i></li>
+          {{/each}}
         </ul>
         <div id="add-waypoints-container">
           <input type="text" id="new-waypoint" placeholder="Type Address" value="">
@@ -38,13 +43,14 @@
       </div>
       <div id="tag-container">
         <label for="trip-tags">Tags:</label>
-        <input id="trip-tags" class="selectized" type="text" name="tags" value>
+        <input id="trip-tags" class="selectized" type="text" name="tags" value="{{#each tags}}{{this}},{{/each}}">
       </div>
-      <div id="side-menu-btns">
-        <input class="button-primary" type="button" id="create-list" value="Create">
+      <div class="side-menu-btns">
+        <input class="button-primary" type="button" id="cancel-edit" value="Cancel">
+        <input class="button-primary" type="button" id="edit-list" value="Edit">
       </div>
-      <div id="total-duration"></div>
       <div id="total-distance"></div>
+      <div id="total-duration"></div>
       <div id="directions-panel"></div>
     </section>
   </div>
@@ -56,7 +62,7 @@
 </script>
 <script type="text/javascript">
   // create list and send to database
-  $("#create-list").click(function() {
+  $("#edit-list").click(function() {
     // gather data
     var title = $("#trip-name").val();
     var desc = $("#trip-desc").val();

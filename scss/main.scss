@@ -24,6 +24,10 @@ $color-profile-bottom: #C2E3CD;
 $color-profile-bottom-sel: #9CDDC8;
 $color-accent3: #F1BBBA;
 $color-accent3-hover: #EB9F9F;
+$color-accent4: #F5634A;
+$color-accent4-hover: #ED303C;
+$color-accent5: #9CDDC8;
+$color-accent5-hover: #84d8bd;
 
 html,
 body {
@@ -225,11 +229,14 @@ main {
   .trip-title {
     text-align: center;
     font-weight: bold;
+    margin-bottom: 10px;
   }
   #desc {
-    font-weight: bold;
-    text-align: left;
+    text-align: center;
     margin-bottom: 10px;
+  }
+  #destination-header {
+    font-weight: bold;
   }
   #instr {
     font-size: 12px;
@@ -261,6 +268,22 @@ main {
     background-color: $color-accent3-hover;
     border-color: $color-accent3-hover;
   }
+  #delete-list {
+    background-color: $color-accent4;
+    border-color: $color-accent4;
+  }
+  #delete-list:hover {
+    background-color: $color-accent4-hover;
+    border-color: $color-accent4-hover;
+  }
+  #cancel-edit {
+    background-color: $color-accent5;
+    border-color: $color-accent5;
+  }
+  #cancel-edit:hover {
+    background-color: $color-accent5-hover;
+    border-color: $color-accent5-hover;
+  }
   #list-container {
     margin: auto;
   }
@@ -278,8 +301,8 @@ main {
     margin-bottom: 15px;
     list-style-type: upper-alpha;
   }
-  #side-menu-btns {
-    margin: 20px 0;
+  .side-menu-btns {
+    margin: 20px auto;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -287,7 +310,6 @@ main {
   input[type="button"] {
     margin: auto;
     display: block;
-    margin-bottom: 10px;
   }
   input[type="text"], textarea {
     display: block;
