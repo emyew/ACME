@@ -629,16 +629,18 @@ ul.paginationBottom {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row; }
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; }
     #profile-content #profile-info-container #profile-pic-container {
       background-color: grey;
-      display: block;
+      display: inline-block;
+      text-align: center;
       position: relative;
       border-radius: 50%;
       max-width: 150px;
       max-height: 150px;
       overflow: hidden;
-      margin: auto;
       margin-bottom: 15px; }
     #profile-content #profile-info-container #profile-pic {
       max-width: 150px;
@@ -646,8 +648,7 @@ ul.paginationBottom {
     #profile-content #profile-info-container #user-info {
       display: block;
       max-width: 75%;
-      padding: 0 30px;
-      margin: auto; }
+      padding: 0 30px; }
       #profile-content #profile-info-container #user-info #user-name {
         text-transform: uppercase;
         font-weight: bold;
