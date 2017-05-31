@@ -378,39 +378,48 @@ function addWaypoint(waypts) {
   var newWaypoint = place.name;
   document.getElementById('waypoints-error').innerHTML = '';
   if (newWaypoint != '') {
-    // check if user is trying to add a duplicate destination
-    var x;
-    for (x = 0; x < waypts.length; x++) {
-      if (document.getElementById('new-waypoint').value == waypts[x].location) {
-        document.getElementById('waypoints-error').innerHTML = 'Destination already exists in the list';
+    // check if valid address
+    geocoder.geocode({'address': document.getElementById('new-waypoint').value}, function(results, status) {
+      if (status === google.maps.GeocoderStatus.OK && results.length > 0) {
+        // check if user is trying to add a duplicate destination
+        var x;
+        for (x = 0; x < waypts.length; x++) {
+          if (document.getElementById('new-waypoint').value == waypts[x].location) {
+            document.getElementById('waypoints-error').innerHTML = 'Destination already exists in the list';
+            document.getElementById('new-waypoint').value = '';
+            cols = document.querySelectorAll('.points');
+            place.name = '';
+            return;
+          }
+        }
+
+        // if not, add the new destination to the list
+        namesArray.push(newWaypoint);
+        waypts.push({
+          location: document.getElementById('new-waypoint').value,
+          stopover: true
+        });
+        var li = document.createElement('li');
+        li.appendChild(document.createTextNode(newWaypoint));
+        li.className += "points";
+        li.draggable = true;
+        li.setAttribute('data-value', document.getElementById('new-waypoint').value);
+        li.setAttribute('name', newWaypoint);
+        var point_i = document.createElement('i');
+        point_i.className += "fa fa-times fa-lg remove-point";
+        point_i.setAttribute('aria-hidden', "true");
+        li.appendChild(point_i);
+        wayptsList.appendChild(li);
+        document.getElementById('waypoints').appendChild(li);
         document.getElementById('new-waypoint').value = '';
         cols = document.querySelectorAll('.points');
         place.name = '';
+
+      } else {
+        alert('Invalid address!');
         return;
       }
-    }
-
-    // if not, add the new destination to the list
-    namesArray.push(newWaypoint);
-    waypts.push({
-      location: document.getElementById('new-waypoint').value,
-      stopover: true
     });
-    var li = document.createElement('li');
-    li.appendChild(document.createTextNode(newWaypoint));
-    li.className += "points";
-    li.draggable = true;
-    li.setAttribute('data-value', document.getElementById('new-waypoint').value);
-    li.setAttribute('name', newWaypoint);
-    var point_i = document.createElement('i');
-    point_i.className += "fa fa-times fa-lg remove-point";
-    point_i.setAttribute('aria-hidden', "true");
-    li.appendChild(point_i);
-    wayptsList.appendChild(li);
-    document.getElementById('waypoints').appendChild(li);
-    document.getElementById('new-waypoint').value = '';
-    cols = document.querySelectorAll('.points');
-    place.name = '';
   }
 }
 
@@ -489,6 +498,10 @@ function mapWaypoints(directionsService, directionsDisplay, waypts) {
     deleteMarkers();
     document.getElementById('directions-panel').innerHTML = '';
     directionsDisplay.setMap(null);
+    totalDistance = 0;
+    totalDuration = 0;
+    document.getElementById('total-distance').innerHTML = '';
+    document.getElementById('total-duration').innerHTML = '';
   } else if (waypts.length == 1) { // if only one waypoint, display only a marker
     deleteMarkers();
     var onePointLocation = waypts[0].location;
@@ -524,12 +537,23 @@ function mapWaypoints(directionsService, directionsDisplay, waypts) {
                 totalDistance += route.legs[i].distance.value;
                 totalDuration += route.legs[i].duration.value;
               }
+
+              totalDistance = totalDistance/1609.34; // convert from meters (default) to miles
+              totalDistance = totalDistance.toFixed(1); // 1 decimal places
+              totalDuration = totalDuration/60; // convert from seconds to minutes
+              totalDuration = totalDuration.toFixed(1); // 1 decimal places
+              document.getElementById('total-distance').innerHTML = 'Total Distance: ' + totalDistance + ' mi.';
+              document.getElementById('total-duration').innerHTML = 'Total Duration: ' + totalDuration + ' mins';
             } else {
               window.alert('Directions request failed due to ' + status);
             }
           });
         } else { // list view without starting from curr location or create page for single location
           directionsDisplay.setMap(null);
+          totalDistance = 0;
+          totalDuration = 0;
+          document.getElementById('total-distance').innerHTML = '';
+          document.getElementById('total-duration').innerHTML = '';
         }
       } else {
         alert('Geocode was not successful for the following reason: ' + status);
@@ -578,7 +602,6 @@ function mapWaypoints(directionsService, directionsDisplay, waypts) {
               map: map,
               label: labels[labelIndex++ % labels.length]
             });
-            //attachText(marker, route.legs[i].start_address);
             var html = "<b>" + namesArray[i] + "</b> <br/>" + route.legs[i].start_address;
             attachText(marker, html);
             markers.push(marker);
@@ -591,7 +614,6 @@ function mapWaypoints(directionsService, directionsDisplay, waypts) {
             position: route.legs[i - 1].end_location,
             map: map,
             label: labels[labelIndex++ % labels.length]
-            //icon: "https://chart.googleapis.com/chart?chst=d_map_pin_icon&chld=flag|ADDE63"
           });
           markers.push(marker);
           var html = "<b>" + namesArray[i] + "</b> <br/>" + route.legs[i - 1].end_address;
@@ -629,6 +651,8 @@ function mapWaypoints(directionsService, directionsDisplay, waypts) {
             var html = "<b>" + namesArray[i - 1] + "</b> <br/>" + route.legs[i - 1].end_address;
             attachText(marker, html);
 
+            totalDistance += route.legs[i - 1].distance.value;
+            totalDuration += route.legs[i - 1].duration.value;
             totalDistance = totalDistance/1609.34; // convert from meters (default) to miles
             totalDistance = totalDistance.toFixed(1); // 1 decimal places
             totalDuration = totalDuration/60; // convert from seconds to minutes
