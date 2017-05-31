@@ -98,13 +98,6 @@ else if (pathname == EXPLORE) {
       right: 4
     }]
   });
-  // var jets = new Jets({
-  //   searchTag: '#search',
-  //   contentTag: '#card-container',
-  //   hideBy: 'opacity: 0; transition: all .2s ease-in-out;',
-  //   searchSelector: '*'
-  // });
-
 }
 else if (pathname == PROFILE) {
   if (search == "?page=bio") {
