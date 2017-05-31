@@ -925,3 +925,101 @@ ul.paginationBottom {
     border-top: 5px double $color-accent2;
   }
 }
+
+/* ---------------- Index Page ----------------- */
+
+* {
+    box-sizing: border-box;
+}
+.landing-hero {
+  background-color: #84d8bd;
+  height: 95vh;
+  width: 100%;
+  .hero-text {
+    width: 60%;
+    height: 100%;
+    float: left;
+    padding-top: 10%;
+    padding-left: 10%;
+    padding-right: 5%;
+    }
+    p {
+      padding-right: 10%;
+    }
+    a {
+      text-align: center;
+      padding: 10px;
+      background-color: white;
+      border-color: white;
+      color: #84d8bd;
+    }
+  .hero-image {
+    width: 40%;
+    height: 100%;
+    float: left;
+    img {
+      max-height: 95%;
+      width: auto;
+      padding-top: 25px;
+      padding-left: 5%;
+    }
+  }
+}
+.landing-features {
+  background-color: #f7af63;
+  height: 95vh;
+  width: 100%;
+  .features-title {
+    height: 10%;
+    width: 100%;
+    h4 {
+      text-align: center;
+      padding: 25px;
+    }
+  }
+  .features-description {
+    height: 10%;
+    width: 100%;
+    p {
+      text-align: center;
+      padding: 10px;
+    }
+  }
+  .features-content {
+    height: 73%;
+    width: 100%;
+    .features-list {
+      width: 20%;
+      height: 100%;
+      float: left;
+      //border: 1px solid green;
+      .features-text {
+        width: 100%;
+        height: 50%;
+        //border: 1px solid green;
+        p {
+          text-align: center;
+          padding: 7%;
+        }
+      }
+    }
+    .features-image {
+      width: 60%;
+      height: 100%;
+      float: left;
+      //border: 1px solid green;
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+.landing-footer {
+  background-color: #33c3f0;
+  height: 75px;
+  #footer-description {
+    text-align: center;
+    padding-top: 25px;
+  }
+}
