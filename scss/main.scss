@@ -928,14 +928,13 @@ ul.paginationBottom {
 
 /* ---------------- Index Page ----------------- */
 
-* {
-    box-sizing: border-box;
-}
 .landing-hero {
+  box-sizing: border-box;
   background-color: #84d8bd;
   height: 95vh;
   width: 100%;
   .hero-text {
+    box-sizing: border-box;
     width: 60%;
     height: 100%;
     float: left;
@@ -954,6 +953,7 @@ ul.paginationBottom {
       color: #84d8bd;
     }
   .hero-image {
+    box-sizing: border-box;
     width: 40%;
     height: 100%;
     float: left;
@@ -966,6 +966,7 @@ ul.paginationBottom {
   }
 }
 .landing-features {
+  box-sizing: border-box;
   background-color: #f7af63;
   height: 95vh;
   width: 100%;
@@ -978,6 +979,7 @@ ul.paginationBottom {
     }
   }
   .features-description {
+    box-sizing: border-box;
     height: 10%;
     width: 100%;
     p {
@@ -986,14 +988,17 @@ ul.paginationBottom {
     }
   }
   .features-content {
+    box-sizing: border-box;
     height: 73%;
     width: 100%;
     .features-list {
+      box-sizing: border-box;
       width: 20%;
       height: 100%;
       float: left;
       //border: 1px solid green;
       .features-text {
+        box-sizing: border-box;
         width: 100%;
         height: 50%;
         //border: 1px solid green;
@@ -1004,6 +1009,7 @@ ul.paginationBottom {
       }
     }
     .features-image {
+      box-sizing: border-box;
       width: 60%;
       height: 100%;
       float: left;
@@ -1016,6 +1022,7 @@ ul.paginationBottom {
   }
 }
 .landing-footer {
+  box-sizing: border-box;
   background-color: #33c3f0;
   height: 75px;
   #footer-description {
