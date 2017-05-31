@@ -23,3 +23,4 @@ I worked on calculating and displaying the total duration and distance for each 
 I designed and implemented the landing page. I also worked on fixing various UI bugs with responsiveness and content styling.
 
 ### Arlen
+I linked the edit bio/password/email to the database, implemented location-based aggregation on the explore page (to pull routes closest to the user), linked the edit page to database functions, modified the index for more zoom effects, conditionally rendered list items.
