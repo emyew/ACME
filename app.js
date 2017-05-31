@@ -70,9 +70,9 @@ app.use(function(req, res, next) {
 });
 
 // per file routes
-app.use('/', require('./routes/index'));
+app.use('/', require('./routes/explore'));
 app.use('/', require('./routes/db'));
-app.use('/test', require('./routes/test'));
+app.use('/about', require('./routes/index'));
 app.use('/explore', require('./routes/explore'));
 app.use('/list', require('./routes/list'));
 app.use('/edit', isAuthenticated, require('./routes/edit'));
