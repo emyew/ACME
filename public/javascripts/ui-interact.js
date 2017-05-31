@@ -35,7 +35,7 @@ if (MAP.test(pathname) || EDIT.test(pathname) || pathname == CREATE) {
   });
 
   //tagging functionality
-  if (MAP.test(pathname) || EDIT.test(pathname)) {
+  if (MAP.test(pathname)) {
     Selectize.define('no-delete', function(options) {
       this.deleteSelection = function() {};
     });
@@ -58,7 +58,7 @@ if (MAP.test(pathname) || EDIT.test(pathname) || pathname == CREATE) {
     });
     document.getElementById('trip-tags-selectized').readOnly = true;
   }
-  else if (pathname == CREATE) {
+  else if (pathname == CREATE || EDIT.test(pathname)) {
     $('#trip-tags').selectize({
       plugins: ['remove_button'],
       delimiter: ',',
