@@ -276,14 +276,14 @@ main {
     background-color: $color-accent4-hover;
     border-color: $color-accent4-hover;
   }
-  /*#cancel-edit {
+  #cancel-edit {
     background-color: $color-accent5;
     border-color: $color-accent5;
   }
   #cancel-edit:hover {
     background-color: $color-accent5-hover;
     border-color: $color-accent5-hover;
-  }*/
+  }
   #list-container {
     margin: auto;
   }
@@ -646,12 +646,12 @@ main {
     flex-direction: row;
     align-items: center;
     li {
-      width: 45%;
+      width: 43%;
     }
   }
   @media screen and (min-width: 1000px) {
     li {
-      width: 29%;
+      width: 27%;
     }
   }
 }

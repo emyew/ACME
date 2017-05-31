@@ -151,15 +151,7 @@ main {
   bottom: 0;
   left: 0;
   z-index: 2;
-  margin-top: 0;
-  /*#cancel-edit {
-    background-color: $color-accent5;
-    border-color: $color-accent5;
-  }
-  #cancel-edit:hover {
-    background-color: $color-accent5-hover;
-    border-color: $color-accent5-hover;
-  }*/ }
+  margin-top: 0; }
   #side-menu #side-menu-content {
     position: relative;
     padding: 30px;
@@ -204,6 +196,12 @@ main {
   #side-menu #delete-list:hover, #side-menu #cancel-edit:hover {
     background-color: #ED303C;
     border-color: #ED303C; }
+  #side-menu #cancel-edit {
+    background-color: #9CDDC8;
+    border-color: #9CDDC8; }
+  #side-menu #cancel-edit:hover {
+    background-color: #84d8bd;
+    border-color: #84d8bd; }
   #side-menu #list-container {
     margin: auto; }
   #side-menu #tag-container {
@@ -506,10 +504,10 @@ main {
       flex-direction: row;
       align-items: center; }
       #card-container li {
-        width: 45%; } }
+        width: 43%; } }
   @media screen and (min-width: 1000px) {
     #card-container li {
-      width: 29%; } }
+      width: 27%; } }
 
 ul.paginationBottom, ul.paginationTop {
   width: 80%;
