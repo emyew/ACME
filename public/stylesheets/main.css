@@ -451,12 +451,12 @@ main {
     border-color: #e58f34;
     background-color: #e58f34; }
   #search-container button.asc:after {
-    content: '\f151';
+    content: '\f0d8';
     font-family: FontAwesome;
     margin-left: 5px;
     text-decoration: none; }
   #search-container button.desc:after {
-    content: '\f150';
+    content: '\f0d7';
     font-family: FontAwesome;
     margin-left: 5px;
     text-decoration: none; }
