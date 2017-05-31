@@ -9,6 +9,7 @@ var FAVORITES = "/favorites";
 var PROFILE = "/profile";
 var EDIT = /edit\/?[a-z0-9]+$/i;
 var ABOUT = "/about";
+var INDEX = "/"
 
 //////////////////// MAP ////////////////////
 if (MAP.test(pathname) || EDIT.test(pathname) || pathname == CREATE) {
@@ -94,7 +95,7 @@ else if (pathname == CREATE) {
   });
 
 }
-else if (pathname == EXPLORE || pathname == ABOUT) {
+else if (pathname == EXPLORE || pathname == ABOUT || pathname == INDEX) {
   var cardlist = new List('explore-content', {
     valueNames: [
       'trip',

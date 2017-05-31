@@ -506,8 +506,10 @@ main {
       #card-container li {
         width: 45%; } }
   @media screen and (min-width: 1000px) {
-    #card-container li {
-      width: 29%; } }
+    #card-container {
+      padding-left: 7rem; }
+      #card-container li {
+        width: 29%; } }
 
 ul.paginationBottom, ul.paginationTop {
   width: 80%;
