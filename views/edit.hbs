@@ -4,7 +4,7 @@
 {{/extend}}
 <main>
   <div class="error-message modal close-link">
-    <section class="popup create-error">
+    <section class="popup">
       <div class="popup-content">
         <h3>Whoa There!</h3>
         <p>Adding this location to the road trip requires driving through a body of water!</p>
@@ -19,7 +19,6 @@
     </button>
   </div>
   <div id="map-container">
-    <!-- <input id="location-search-box" class="controls" type="text" placeholder="Search"> -->
     <div id="map"></div>
   </div>
   <div id="side-menu">
@@ -28,7 +27,6 @@
       <input type="text" id="trip-name" placeholder="Trip Name" value="">
       <textarea name="trip-desc" id="trip-desc" placeholder="Description"></textarea>
       <h6 id="desc">Destinations:</h6>
-      <!--<p>Use the search bar below to add locations to your list. Drag & reorder places for different paths. Click submit to see the suggested path starting from your current location.</p>-->
       <div id="list-container">
         <ul id="waypoints" class="sortable-waypoints">
         </ul>
@@ -45,8 +43,8 @@
       <div id="side-menu-btns">
         <input class="button-primary" type="button" id="create-list" value="Create">
       </div>
-      <div id="total-distance"></div>
       <div id="total-duration"></div>
+      <div id="total-distance"></div>
       <div id="directions-panel"></div>
     </section>
   </div>

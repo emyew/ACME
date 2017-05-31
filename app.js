@@ -75,6 +75,7 @@ app.use('/', require('./routes/db'));
 app.use('/test', require('./routes/test'));
 app.use('/explore', require('./routes/explore'));
 app.use('/list', require('./routes/list'));
+app.use('/edit', isAuthenticated, require('./routes/edit'));
 app.use('/create', isAuthenticated, require('./routes/create'));
 app.use('/profile', isAuthenticated, require('./routes/profile'));
 app.use('/favorites', isAuthenticated, require('./routes/favorites'));
