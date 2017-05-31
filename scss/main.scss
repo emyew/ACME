@@ -971,7 +971,6 @@ ul.paginationBottom {
       border: 2px solid $color-accent;
       border-radius: 10px;
       color: white;
-      //font-weight: bold;
       text-decoration: none;
     }
     a:hover {
@@ -988,6 +987,48 @@ ul.paginationBottom {
       width: auto;
       padding-top: 25px;
       padding-left: 5%;
+    }
+  }
+  @media (max-width: 835px) {
+    .hero-text {
+      width: 100%;
+      height: 40%;
+      text-align: center;
+      padding: 0% 5% 5%;
+      border: 2px solid red;
+    }
+    p {
+      padding: 0%;
+    }
+    .hero-image {
+      width: 100%;
+      height: 60%;
+      border: 2px solid red;
+      img {
+        width: 30%;
+        height: auto;
+        padding-left: 35%;
+      }
+    }
+  }
+  @media (max-width: 450px) {
+    .hero-text {
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      padding: 30% 5% 30%;
+    }
+    p {
+      padding: 10% 0% 10%;
+      line-height: 2;
+    }
+    .hero-image {
+      width: 0%;
+      height: 0%;
+      border: 2px solid red;
+      img {
+        display: none;
+      }
     }
   }
 }
@@ -1020,6 +1061,7 @@ ul.paginationBottom {
     width: 100%;
     .features-list {
       box-sizing: border-box;
+      float: left;
       width: 20%;
       height: 100%;
       float: left;
@@ -1030,9 +1072,11 @@ ul.paginationBottom {
         padding-top: 20%;
         padding-left: 12%;
         padding-right: 12%;
+        img {
+          display: none;
+        }
         h4 {
           text-align: right;
-          //font-variant: small-caps;
         }
         p {
           text-align: right;
@@ -1046,9 +1090,11 @@ ul.paginationBottom {
         padding-top: 20%;
         padding-left: 12%;
         padding-right: 12%;
+        img {
+          display: none;
+        }
         h4 {
           text-align: left;
-          //font-variant: small-caps;
         }
         p {
           text-align: left;
@@ -1058,13 +1104,49 @@ ul.paginationBottom {
     }
     .features-image {
       box-sizing: border-box;
+      float: left;
       width: 60%;
       height: 100%;
-      float: left;
-      //border: 1px solid green;
       img {
         max-width: 100%;
         height: auto;
+      }
+    }
+  }
+  @media (max-width: 835px) {
+    /*
+    .features-description {
+      height: 15%;
+    }
+    */
+    .features-content{
+      height: 80%;
+      .features-list {
+        width: 100%;
+        height: auto;
+        .features-text-left, .features-text-right {
+          height: 30%;
+          padding: 0%;
+          img {
+            display: block;
+            width: 10%;
+            height: auto;
+            margin: auto;
+          }
+          h4 {
+            text-align: center;
+          }
+          p {
+            text-align: center;
+          }
+        }
+      }
+      .features-image {
+        width: 0%;
+        height: 0%;
+        img {
+          display: none;
+        }
       }
     }
   }
@@ -1073,7 +1155,7 @@ ul.paginationBottom {
   box-sizing: border-box;
   background-color: #33c3f0;
   height: 75px;
-  #footer-description {
+  .footer-description {
     text-align: center;
     font-variant: small-caps;
     color: white;
