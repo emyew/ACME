@@ -33,6 +33,7 @@ if (MAP.test(pathname) || EDIT.test(pathname) || pathname == CREATE) {
       $(".fa-caret-square-o-up").removeClass("fa-caret-square-o-up").addClass("fa-caret-square-o-down");
     }
   });
+}
 
   //tagging functionality
   if (MAP.test(pathname)) {
