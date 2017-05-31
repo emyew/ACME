@@ -151,7 +151,15 @@ main {
   bottom: 0;
   left: 0;
   z-index: 2;
-  margin-top: 0; }
+  margin-top: 0;
+  /*#cancel-edit {
+    background-color: $color-accent5;
+    border-color: $color-accent5;
+  }
+  #cancel-edit:hover {
+    background-color: $color-accent5-hover;
+    border-color: $color-accent5-hover;
+  }*/ }
   #side-menu #side-menu-content {
     position: relative;
     padding: 30px;
@@ -178,30 +186,24 @@ main {
     border-color: #e58f34; }
   #side-menu #fav-list, #side-menu #unfav-list, #side-menu #edit-list, #side-menu #delete-list {
     display: none; }
-  #side-menu #fav-list, #side-menu #create-list {
+  #side-menu #fav-list, #side-menu #create-list, #side-menu #save-edit {
     background-color: #84d8bd;
     border-color: #84d8bd; }
   #side-menu #unfav-list {
     background-color: #F1BBBA;
     border-color: #F1BBBA; }
-  #side-menu #fav-list:hover, #side-menu #create-list:hover {
+  #side-menu #fav-list:hover, #side-menu #create-list:hover, #side-menu #save-edit:hover {
     background-color: #59BC9C;
     border-color: #59BC9C; }
   #side-menu #unfav-list:hover {
     background-color: #EB9F9F;
     border-color: #EB9F9F; }
-  #side-menu #delete-list {
+  #side-menu #delete-list, #side-menu #cancel-edit {
     background-color: #F5634A;
     border-color: #F5634A; }
-  #side-menu #delete-list:hover {
+  #side-menu #delete-list:hover, #side-menu #cancel-edit:hover {
     background-color: #ED303C;
     border-color: #ED303C; }
-  #side-menu #cancel-edit {
-    background-color: #9CDDC8;
-    border-color: #9CDDC8; }
-  #side-menu #cancel-edit:hover {
-    background-color: #84d8bd;
-    border-color: #84d8bd; }
   #side-menu #list-container {
     margin: auto; }
   #side-menu #tag-container {

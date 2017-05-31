@@ -252,7 +252,7 @@ main {
   #fav-list, #unfav-list, #edit-list, #delete-list {
     display: none;
   }
-  #fav-list, #create-list {
+  #fav-list, #create-list, #save-edit {
     background-color: $color-accent2;
     border-color: $color-accent2;
   }
@@ -260,7 +260,7 @@ main {
     background-color: $color-accent3;
     border-color: $color-accent3;
   }
-  #fav-list:hover, #create-list:hover {
+  #fav-list:hover, #create-list:hover, #save-edit:hover {
     background-color: $color-accent2-hover;
     border-color: $color-accent2-hover;
   }
@@ -268,22 +268,22 @@ main {
     background-color: $color-accent3-hover;
     border-color: $color-accent3-hover;
   }
-  #delete-list {
+  #delete-list, #cancel-edit {
     background-color: $color-accent4;
     border-color: $color-accent4;
   }
-  #delete-list:hover {
+  #delete-list:hover, #cancel-edit:hover {
     background-color: $color-accent4-hover;
     border-color: $color-accent4-hover;
   }
-  #cancel-edit {
+  /*#cancel-edit {
     background-color: $color-accent5;
     border-color: $color-accent5;
   }
   #cancel-edit:hover {
     background-color: $color-accent5-hover;
     border-color: $color-accent5-hover;
-  }
+  }*/
   #list-container {
     margin: auto;
   }
