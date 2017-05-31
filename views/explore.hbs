@@ -22,7 +22,7 @@
             <div class="hover-text">
               <h5 class="trip">{{this.title}}</h5>
               <p class="description">{{this.description}}</p>
-              <!-- <p class="description"> {{#each this.tags}}#{{this}}{{/each}}</p> -->
+              <p class="description hashtags"> {{#each this.tags}}#{{this}}{{/each}}</p>
               <span class="hidden-details tags">{{#each this.tags}}#{{this}}{{/each}}</span>
               <span class="hidden-details locations">{{#each this.locations}}{{this.name}} {{/each}}</span>
               <span class="hidden-details address">{{#each this.locations}}{{this.address}} {{/each}}</span>
@@ -37,7 +37,6 @@
         </div>
       </a>
     </li>
-    <li>
   {{/each}}
 <!--
 
