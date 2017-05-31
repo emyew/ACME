@@ -6,9 +6,7 @@ var User = require('./model_user');
 User.findOne({ 'email': "test email" }, function(err, user) {
   if (err)
     console.log("test user creation error: ", err);
-  if (user) {
-    console.log("test user already exists");
-  } else {
+  if (!user) {
     // create test user
     var testUser = new User();
     testUser.name = "test user";

@@ -12,6 +12,34 @@
   </div>
   <ul class="paginationTop"></ul>
   <ul id="card-container" class="list">
+  {{#each lists}}
+    <li>
+      <a href="/list/{{this.url}}">
+        <div class="card">
+          <img src="/imgs/temp.png">
+          <div class="overlay">
+            <div class="hover-text">
+              <h5 class="trip">{{this.title}}</h5>
+              <p class="description">{{this.description}}</p>
+              <p class="description"> {{#each this.tags}}#{{this}}{{/each}}</p>
+              <span class="hidden-details tags">{{#each this.tags}}#{{this}}{{/each}}</span>
+              <span class="hidden-details locations">{{#each this.locations}}{{this.name}} {{/each}}</span>
+              <span class="hidden-details address">{{#each this.locations}}{{this.address}} {{/each}}</span>
+              <span class="hidden-details author">{{this.author}}</span>
+              <span class="hidden-details favcount">{{this.favoriteCount}}</span>
+              <span class="hidden-details date-made">{{this.dateCreated}}</span>
+              <span class="hidden-details date-update">{{this.dateUpdated}}</span>
+              <span class="hidden-details url">{{this.url}}</span>
+              <span class="hidden-details distance">{{this.dis}}</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li>
+  {{/each}}
+<!-- 
+
     <li>
       <a href="{{url}}">
         <div class="card">
@@ -56,7 +84,7 @@
     </li>
   </ul>
   <ul class="paginationBottom"></ul>
-</main>
+</main> -->
 
 {{#extend "scripts"}}
 {{/extend}}
