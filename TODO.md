@@ -10,7 +10,7 @@ EDIT:
 
 CREATE:
 - (UX -- FIXED) hitting enter does nothing in the address field
-- (BUG) possible to add invalid values into address fields
+- (BUG -- FIXED) possible to add invalid values into address fields
 - (BUG? i can't reproduce) previously removed paths sometimes stay rendered on the screen
 
 REGISTER:
