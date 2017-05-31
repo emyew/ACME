@@ -750,13 +750,20 @@ ul.paginationBottom {
     padding-left: 10%;
     padding-right: 5%; }
   .landing-hero p {
-    padding-right: 10%; }
+    padding-right: 10%;
+    padding-top: 2%;
+    padding-bottom: 2%; }
   .landing-hero a {
     text-align: center;
     padding: 10px;
-    background-color: white;
-    border-color: white;
-    color: #84d8bd; }
+    background-color: #F7AF63;
+    border: 2px solid #F7AF63;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none; }
+  .landing-hero a:hover {
+    background-color: #e58f34;
+    border-color: #e58f34; }
   .landing-hero .hero-image {
     box-sizing: border-box;
     width: 40%;
@@ -776,7 +783,7 @@ ul.paginationBottom {
   .landing-features .features-title {
     height: 10%;
     width: 100%; }
-    .landing-features .features-title h4 {
+    .landing-features .features-title h3 {
       text-align: center;
       padding: 25px; }
   .landing-features .features-description {
@@ -785,7 +792,8 @@ ul.paginationBottom {
     width: 100%; }
     .landing-features .features-description p {
       text-align: center;
-      padding: 10px; }
+      padding: 20px;
+      font-size: 16px; }
   .landing-features .features-content {
     box-sizing: border-box;
     height: 73%;
@@ -795,13 +803,30 @@ ul.paginationBottom {
       width: 20%;
       height: 100%;
       float: left; }
-      .landing-features .features-content .features-list .features-text {
+      .landing-features .features-content .features-list .features-text-left {
         box-sizing: border-box;
         width: 100%;
-        height: 50%; }
-        .landing-features .features-content .features-list .features-text p {
-          text-align: center;
-          padding: 7%; }
+        height: 50%;
+        padding-top: 20%;
+        padding-left: 12%;
+        padding-right: 12%; }
+        .landing-features .features-content .features-list .features-text-left h4 {
+          text-align: right; }
+        .landing-features .features-content .features-list .features-text-left p {
+          text-align: right;
+          font-size: 16px; }
+      .landing-features .features-content .features-list .features-text-right {
+        box-sizing: border-box;
+        width: 100%;
+        height: 50%;
+        padding-top: 20%;
+        padding-left: 12%;
+        padding-right: 12%; }
+        .landing-features .features-content .features-list .features-text-right h4 {
+          text-align: left; }
+        .landing-features .features-content .features-list .features-text-right p {
+          text-align: left;
+          font-size: 16px; }
     .landing-features .features-content .features-image {
       box-sizing: border-box;
       width: 60%;
@@ -817,4 +842,6 @@ ul.paginationBottom {
   height: 75px; }
   .landing-footer #footer-description {
     text-align: center;
+    font-variant: small-caps;
+    color: white;
     padding-top: 25px; }

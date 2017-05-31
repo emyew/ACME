@@ -944,13 +944,22 @@ ul.paginationBottom {
     }
     p {
       padding-right: 10%;
+      padding-top: 2%;
+      padding-bottom: 2%;
     }
     a {
       text-align: center;
       padding: 10px;
-      background-color: white;
-      border-color: white;
-      color: #84d8bd;
+      background-color: $color-accent;
+      border: 2px solid $color-accent;
+      border-radius: 10px;
+      color: white;
+      //font-weight: bold;
+      text-decoration: none;
+    }
+    a:hover {
+      background-color: $color-accent-hover;
+      border-color: $color-accent-hover;
     }
   .hero-image {
     box-sizing: border-box;
@@ -973,7 +982,7 @@ ul.paginationBottom {
   .features-title {
     height: 10%;
     width: 100%;
-    h4 {
+    h3 {
       text-align: center;
       padding: 25px;
     }
@@ -984,7 +993,8 @@ ul.paginationBottom {
     width: 100%;
     p {
       text-align: center;
-      padding: 10px;
+      padding: 20px;
+      font-size: 16px;
     }
   }
   .features-content {
@@ -996,15 +1006,36 @@ ul.paginationBottom {
       width: 20%;
       height: 100%;
       float: left;
-      //border: 1px solid green;
-      .features-text {
+      .features-text-left {
         box-sizing: border-box;
         width: 100%;
         height: 50%;
-        //border: 1px solid green;
+        padding-top: 20%;
+        padding-left: 12%;
+        padding-right: 12%;
+        h4 {
+          text-align: right;
+          //font-variant: small-caps;
+        }
         p {
-          text-align: center;
-          padding: 7%;
+          text-align: right;
+          font-size: 16px;
+        }
+      }
+      .features-text-right {
+        box-sizing: border-box;
+        width: 100%;
+        height: 50%;
+        padding-top: 20%;
+        padding-left: 12%;
+        padding-right: 12%;
+        h4 {
+          text-align: left;
+          //font-variant: small-caps;
+        }
+        p {
+          text-align: left;
+          font-size: 16px;
         }
       }
     }
@@ -1027,6 +1058,8 @@ ul.paginationBottom {
   height: 75px;
   #footer-description {
     text-align: center;
+    font-variant: small-caps;
+    color: white;
     padding-top: 25px;
   }
 }
