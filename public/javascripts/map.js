@@ -342,7 +342,7 @@ function initMap() {
 
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
-    if (window.location.pathname == '/create' || window.location.pathname == '/edit') {
+    if (window.location.pathname == '/create' || window.location.pathname.indexOf('/edit/') == 0) {
       mapWaypoints(directionsService, directionsDisplay, waypts);
     } else {
       if (document.getElementById('curr-location').checked) {
@@ -391,7 +391,7 @@ function initMap() {
   document.getElementById('directions-panel').innerHTML = '';
   directionsDisplay.setPanel(document.getElementById('directions-panel'));
 
-  if (window.location.pathname == '/create' || window.location.pathname == '/edit') {
+  if (window.location.pathname == '/create' || window.location.pathname.indexOf('/edit/') == 0) {
     document.getElementById('add-waypoint-btn').addEventListener('click', function() {
       addWaypoint(waypts);
     });
@@ -573,7 +573,7 @@ function mapWaypoints(directionsService, directionsDisplay, waypts) {
     namesArray.push(places[i].getAttribute('name'));
   }
 
-  if (window.location.pathname == '/create' || window.location.pathname == '/edit') {
+  if (window.location.pathname == '/create' || window.location.pathname.indexOf('/edit/') == 0) {
     document.getElementById('waypoints-error').innerHTML = '';
   }
 
@@ -597,7 +597,7 @@ function mapWaypoints(directionsService, directionsDisplay, waypts) {
         attachText(onePointMarker, html);
         markers.push(onePointMarker);
         // if on list view and checking box to start from current location
-        if (!(window.location.pathname == '/create') && !(window.location.pathname == '/edit') && document.getElementById('curr-location').checked) {
+        if (!(window.location.pathname == '/create') && !(window.location.pathname.indexOf('/edit/') == 0) && document.getElementById('curr-location').checked) {
           directionsDisplay.setMap(map);
           waypts[0].stopover = false;
           directionsService.route({
@@ -636,7 +636,7 @@ function mapWaypoints(directionsService, directionsDisplay, waypts) {
     waypts.slice(-1)[0].stopover = false;
 
     var startingPoint = null;
-    if (window.location.pathname == '/create' || window.location.pathname == '/edit') {
+    if (window.location.pathname == '/create' || window.location.pathname.indexOf('/edit/') == 0) {
       waypts[0].stopover = false;
       startingPoint = waypts[0].location;
     } else {
@@ -659,7 +659,7 @@ function mapWaypoints(directionsService, directionsDisplay, waypts) {
         directionsDisplay.setDirections(response);
         var route = response.routes[0];
         // create page -- no check box option
-        if (window.location.pathname == '/create' || window.location.pathname == '/edit') {
+        if (window.location.pathname == '/create' || window.location.pathname.indexOf('/edit/') == 0) {
           for (var i = 0; i < route.legs.length; i++) {
             //var icon = "https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=" + i + "|FCB131|FFFFFF";
             /*if (i == 0) {
