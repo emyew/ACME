@@ -1,10 +1,9 @@
 TODO:
 - fix frontend imagery
 - general UI improvements
-- explore pagination??
 
 EDIT:
-- (BUG) rendering produces an empty tag
+- (BUG -- FIXED) rendering produces an empty tag
 - (BUG -- FIXED) adding new addresses doesn't work
 - (UX -- FIXED) map does not render immediately on entering page
 
@@ -24,7 +23,7 @@ LOGIN:
 - (UX) no warning if user tries to use unregistered email to sign in
 
 EXPLORE:
-- { HIGH PRIORITY } strange layout of squares
+- { HIGH PRIORITY -- FIXED } strange layout of squares
 - { HIGH PRIORITY } pass location data to server
 
 PROFILE:
