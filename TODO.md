@@ -3,13 +3,13 @@ TODO:
 - general UI improvements
 - explore pagination??
 
-EDIT: 
+EDIT:
 - (BUG) rendering produces an empty tag
-- (BUG) adding new addresses doesn't work
-- (UX) map does not render immediately on entering page
+- (BUG -- FIXED) adding new addresses doesn't work
+- (UX -- FIXED) map does not render immediately on entering page
 
-CREATE: 
-- (UX) hitting enter does nothing in the address field
+CREATE:
+- (UX -- FIXED) hitting enter does nothing in the address field
 - (BUG) possible to add invalid values into address fields
 - (BUG? i can't reproduce) previously removed paths sometimes stay rendered on the screen
 
