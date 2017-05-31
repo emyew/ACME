@@ -1,7 +1,7 @@
 TODO:
 - fix frontend imagery
 - general UI improvements
-- explore pagination
+- explore pagination??
 
 EDIT: 
 - (BUG) rendering produces an empty tag

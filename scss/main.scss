@@ -948,9 +948,10 @@ ul.paginationBottom {
 .landing-hero {
   box-sizing: border-box;
   background-color: #84d8bd;
-  height: 95vh;
+  height: 100%;
   width: 100%;
   .hero-text {
+    z-index: 10;
     box-sizing: border-box;
     width: 60%;
     height: 100%;
