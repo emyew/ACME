@@ -176,7 +176,7 @@ main {
   #side-menu #edit-list:hover {
     background-color: #e58f34;
     border-color: #e58f34; }
-  #side-menu #fav-list, #side-menu #unfav-list {
+  #side-menu #fav-list, #side-menu #unfav-list, #side-menu #edit-list, #side-menu #delete-list {
     display: none; }
   #side-menu #fav-list, #side-menu #create-list {
     background-color: #84d8bd;

@@ -10,7 +10,10 @@ var listSchema = Schema({
   author: { type: Schema.Types.ObjectId, ref: 'User' },
   locations: [{ name: String, address: String }],
   tags: [],
-  loc: { long: Number, lat: Number },
+  coords: {
+    type: { type: String },
+    coordinates: [Number]
+  },
   favoriteCount: 0
 });
 
@@ -22,5 +25,8 @@ listSchema.pre('save', function(next) {
     this.dateCreated = currentDate;
   next();
 });
+
+// define coords index
+listSchema.index({ "coords": "2dsphere" });
 
 module.exports = mongoose.model('List', listSchema);

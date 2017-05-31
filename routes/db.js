@@ -22,8 +22,12 @@ router.post('/newList', function(req, res) {
         newList.description = req.body.description;
         newList.locations = req.body.locations;
         newList.tags = req.body.tags;
-        newList.loc = req.body.loc;
-        newList.url = "/list/" + generateURL();
+        newList.favoriteCount = 0;
+        newList.coords = {
+          type: "Point",
+          coordinates: [req.body.loc.long, req.body.loc.lat]
+        };
+        newList.url = generateURL();
         newList.save(function(err) {
           if (err) {
             res.status(500).send(err);
@@ -34,7 +38,7 @@ router.post('/newList', function(req, res) {
               if (err) {
                 res.status(500).send(err);
               } else {
-                res.status(200).send(newList.url);
+                res.status(200).send("/list/" + newList.url);
               }
             });
           }
@@ -53,7 +57,7 @@ router.post('/newList', function(req, res) {
 function generateURL() {
   var url = "";
   var possible = "abcdefghijklmnopqrstuvwxyz1234567890";
-  for (var i=0; i < 5; i++) {
+  for (var i = 0; i < 5; i++) {
     url += possible.charAt(Math.floor(Math.random() * possible.length));
   }
   return url;
@@ -79,11 +83,21 @@ router.post('/favorite', function(req, res) {
         if (user.favorites.indexOf(req.body.id) > -1) {
           res.status(500).send("Already favorited!");
         } else {
+          // add list to user favs
           user.favorites.push(req.body.id);
           user.save(function(err) {
             if (err) res.status(500).send(err);
-            res.status(200).send(true);
+            // increase favorite count of list
+            List.findById(req.body.id, function(err, list) {
+              list.favoriteCount++;
+              list.save(function(err) {
+                if (err) res.status(500).send(err);
+                res.status(200).send(true);
+              });
+            });
           });
+
+
         }
       }
     });
@@ -102,8 +116,15 @@ router.post('/unfavorite', function(req, res) {
         if (index > -1) {
           user.favorites.splice(index, 1);
           user.save(function(err) {
-            if (err) res.status(500).send(err);
-            res.status(200).send(true);
+            if (err) res.status(500).send(err);           
+            // decrease favorite count of list
+            List.findById(req.body.id, function(err, list) {
+              list.favoriteCount--;
+              list.save(function(err) {
+                if (err) res.status(500).send(err);
+                res.status(200).send(true);
+              });
+            });
           });
         } else {
           res.status(500).send("Not in favorites!");
@@ -145,12 +166,40 @@ router.post('/deleteList', function(req, res) {
   } else {
     res.status(404).send("Invalid user");
   }
-})
+});
 
-// test db aggregation
-// var result = List.aggregate().near({
-//   near: [lng, lat],
-//   distanceField: '100'
-// })
+router.post('/editList', function(req, res) {
+  console.log("POST /editList request: ", req.body);
+  // check for valid input
+  if (req.user && req.body.title && (req.body.locations.length > 0)) {
+    // locate user to populate to associated lists
+    User.findById(req.user._id, function(err, user) {
+      if (err) res.status(500).send(err);
+      if (user) {
+        // lookup list
+        List.findById(req.body.id, function(err, list) {
+          if (err) res.status(500).send(err);
+          // edit fields and save
+          list.title = req.body.title;
+          list.description = req.body.description;
+          list.locations = req.body.locations;
+          list.tags = req.body.tags;
+          list.coords = {
+            type: "Point",
+            coordinates: [req.body.loc.long, req.body.loc.lat]
+          };
+          list.save(function(err) {
+            if (err) res.status(500).send(err);
+            res.status(200).send("/list/" + list.url);
+          });
+        });
+      } else {
+        res.status(404).send("No user found");
+      }
+    });
+  } else {
+    res.status(404).send("Invalid input!");
+  }
+});
 
 module.exports = router;

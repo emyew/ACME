@@ -27,11 +27,11 @@
 					<div class="form-group">
 						<label for="edit-profile-name">Name</label>
 						<div class="input-helpers">
-							<input type="text" id="profile-name" name="edit-profile-name" value maxlength="50">
+							<input type="text" id="profile-name" name="edit-profile-name" value="{{user.name}}" maxlength="50">
 							<span class="field-error"></span>
 						</div>
 						<label for="edit-user-bio">Bio</label>
-						<textarea name="edit-user-bio" id="edit-user-bio" value="" maxlength="400"></textarea>
+						<textarea name="edit-user-bio" id="edit-user-bio" value="{{user.bio}}" maxlength="400">{{user.bio}}</textarea>
 					</div>
 					<input type="button" id="submit-bio" class="button-primary" value="Update Profile">
 				</form>
