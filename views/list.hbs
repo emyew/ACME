@@ -25,6 +25,15 @@
     <section id="side-menu-content">
       <h5 class="trip-title">{{title}} by {{author.name}}</h5>
       <p id="desc">{{description}}</p>
+      <div class="side-menu-btns">
+        {{#if user}}
+        <input class="button-primary" type="button" id="unfav-list" value="Unfavorite">
+        <input class="button-primary" type="button" id="fav-list" value="Favorite">
+        <input class="button-primary" type="button" id="edit-list" value="Edit">
+        {{else}}
+        <input class="button-primary pop-register" type="button" id="edit-list" value="Edit">
+        {{/if}}
+      </div>
       <input type="checkbox" name="curr-location" id="curr-location" value="Current Location" onclick="initMap()"> Start from Current Location
       <div id="list-container">
         <ol id="waypoints">
@@ -37,14 +46,9 @@
         <label for="trip-tags">Tags:</label>
         <input id="trip-tags" class="selectized" type="text" name="tags" value="{{#each tags}}{{this}},{{/each}}">
       </div>
-      <div id="side-menu-btns">
-        {{#if user}} 
-        <input class="button-primary" type="button" id="unfav-list" value="Unfavorite">
-        <input class="button-primary" type="button" id="fav-list" value="Favorite">
-        <input class="button-primary" type="button" id="edit-list" value="Edit">
+      <div class="side-menu-btns">
+        {{#if user}}
         <input class="button-primary" type="button" id="delete-list" value="Delete">
-        {{else}}
-        <input class="button-primary pop-register" type="button" id="edit-list" value="Edit">
         {{/if}}
       </div>
       <div id="total-distance"></div>
