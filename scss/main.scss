@@ -950,22 +950,25 @@ ul.paginationBottom {
 .landing-hero {
   box-sizing: border-box;
   background-color: #84d8bd;
-  height: 100%;
   width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  overflow: hidden;
   .hero-text {
     z-index: 10;
     box-sizing: border-box;
     width: 60%;
-    height: 100%;
     float: left;
-    padding-top: 10%;
+    margin-top: 10%;
     padding-left: 10%;
-    padding-right: 5%;
     }
     p {
       padding-right: 10%;
       padding-top: 2%;
       padding-bottom: 2%;
+    }
+    .button-container {
+      margin-bottom: 30px;
     }
     a {
       text-align: center;
@@ -983,19 +986,14 @@ ul.paginationBottom {
   .hero-image {
     box-sizing: border-box;
     width: 40%;
-    height: 100%;
     float: left;
     img {
-      max-height: 95%;
-      width: auto;
-      padding-top: 25px;
-      padding-left: 5%;
+      max-width: 300px;
     }
   }
   @media (max-width: 835px) {
     .hero-text {
       width: 100%;
-      height: 40%;
       text-align: center;
       padding: 0% 5% 0%;
     }
@@ -1003,12 +1001,11 @@ ul.paginationBottom {
       padding: 0%;
     }
     .hero-image {
+      margin: auto;
       width: 100%;
-      height: 60%;
       img {
-        height: 100%;
-        width: auto;
-        margin-left: 30%;
+        margin: auto;
+        display: block;
       }
     }
   }
@@ -1017,7 +1014,7 @@ ul.paginationBottom {
       width: 100%;
       height: 100%;
       text-align: center;
-      padding: 30% 5% 30%;
+      padding: 5%;
     }
     p {
       padding: 10% 0% 10%;
@@ -1036,19 +1033,17 @@ ul.paginationBottom {
   overflow: hidden;
   box-sizing: border-box;
   background-color: #f7af63;
-  height: 95vh;
+  padding-bottom: 30px;
+  padding-top: 30px;
   width: 100%;
   .features-title {
-    height: 10%;
     width: 100%;
     h3 {
       text-align: center;
-      padding: 25px;
     }
   }
   .features-description {
     box-sizing: border-box;
-    height: 10%;
     width: 100%;
     p {
       text-align: center;
@@ -1058,24 +1053,19 @@ ul.paginationBottom {
   }
   .features-content {
     box-sizing: border-box;
-    height: 73%;
     width: 100%;
     .features-list {
       box-sizing: border-box;
       float: left;
       width: 20%;
-      height: 100%;
       float: left;
       .features-text-left {
         box-sizing: border-box;
-        width: 100%;
-        height: 50%;
         padding-top: 10%;
         padding-left: 12%;
         padding-right: 12%;
         img {
           width: 25%;
-          height: auto;
           margin-left: 37%;
         }
         h4 {
@@ -1083,13 +1073,11 @@ ul.paginationBottom {
         }
         p {
           text-align: center;
-          font-size: 16px;
+          font-size: 15px;
         }
       }
       .features-text-right {
         box-sizing: border-box;
-        width: 100%;
-        height: 50%;
         padding-top: 10%;
         padding-left: 12%;
         padding-right: 12%;
@@ -1103,7 +1091,7 @@ ul.paginationBottom {
         }
         p {
           text-align: center;
-          font-size: 16px;
+          font-size: 15px;
         }
       }
     }
@@ -1111,10 +1099,8 @@ ul.paginationBottom {
       box-sizing: border-box;
       float: left;
       width: 60%;
-      height: 100%;
       img {
         max-width: 100%;
-        height: auto;
       }
     }
   }
@@ -1123,21 +1109,17 @@ ul.paginationBottom {
       padding-top: 5%;
     }
     .features-description {
-      height: 20%;
       padding-top: 10px;
     }
     .features-content{
-      height: 80%;
       .features-list {
         width: 50%;
         height: auto;
         .features-text-left, .features-text-right {
-          height: 60%;
           padding: 0% 0% 10%;
           img {
             display: block;
             width: 25%;
-            height: auto;
             margin: auto;
             padding-bottom: 5px;
           }
@@ -1161,12 +1143,17 @@ ul.paginationBottom {
 }
 .landing-footer {
   box-sizing: border-box;
-  background-color: #33c3f0;
+  background-color: $color-navbar;
   height: 75px;
   .footer-description {
     text-align: center;
     font-variant: small-caps;
     color: white;
     padding-top: 25px;
+    background-color: $color-navbar;
+    padding-bottom: 25px;
+    h6 {
+      margin-bottom: 0;
+    }
   }
 }
