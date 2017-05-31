@@ -10,7 +10,7 @@
 			</div>
 			<div id="user-info">
 				<h5 id="user-name">{{user.name}}</h5>
-				<p id="user-bio">Vice fanny pack chicharrones 90's put a bird on it. Intelligentsia irony quinoa bitters pok pok, hexagon hashtag succulents. Vice fanny pack chicharrones 90's put a bird on it.</p>
+				<p id="user-bio">{{#if user.bio}}{{user.bio}}{{else}}No user bio! Add one via Edit Profile{{/if}}</p>
 			</div>
 		</div>
 		<div id="profile-tabs-container">

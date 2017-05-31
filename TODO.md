@@ -26,3 +26,7 @@ LOGIN:
 EXPLORE:
 { HIGH PRIORITY } strange layout of squares
 { HIGH PRIORITY } pass location data to server
+
+PROFILE:
+(UX) User image is unused
+(UX) no feedback on changing email/password/bio (or failing changes)

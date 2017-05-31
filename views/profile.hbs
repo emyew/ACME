@@ -1,79 +1,129 @@
 {{#extend "stylesheets"}}
-<link rel="shortcut icon" type="image/png" href="/favicons/favicon-user.png"/>
+<link rel="shortcut icon" type="image/png" href="/favicons/favicon-user.png" />
 {{/extend}}
 
 <main>
-	<div id="profile-content">
-		<div id="profile-info-container">
-			<div id="profile-pic-container">
-				<img src="/imgs/profile-img-temp.png" alt="Profile Picture" id="profile-pic">
-			</div>
-			<div id="user-info">
-				<h5 id="user-name">{{user.name}}</h5>
-				<p id="user-bio">Vice fanny pack chicharrones 90's put a bird on it. Intelligentsia irony quinoa bitters pok pok, hexagon hashtag succulents. Vice fanny pack chicharrones 90's put a bird on it.</p>
-			</div>
-		</div>
-		<div id="profile-tabs-container">
-			<ul>
-				<a href="/mylists"><li id="my-lists-tab" class="profile-tabs">My Lists</li></a>
-				<a href="/favorites"><li id="favs-tab" class="profile-tabs">Favorites</li></a>
-				<a href="/profile?page=bio"><li id="edit-profile-tab" class="profile-tabs selected-tab">Edit Profile</li></a>
-			</ul>
-		</div>
-		<section id="profile-items">
-			<div id="edit-profile-container">
-				<form id="edit-bio-form" action="index.html" method="post">
-					<h3>Update Bio</h3>
-					<div class="form-group">
-						<label for="edit-profile-name">Name</label>
-						<div class="input-helpers">
-							<input type="text" id="profile-name" name="edit-profile-name" value="{{user.name}}" maxlength="50">
-							<span class="field-error"></span>
-						</div>
-						<label for="edit-user-bio">Bio</label>
-						<textarea name="edit-user-bio" id="edit-user-bio" value="{{user.bio}}" maxlength="400">{{user.bio}}</textarea>
-					</div>
-					<input type="button" id="submit-bio" class="button-primary" value="Update Profile">
-				</form>
-				<form id="edit-email-form" action="index.html" method="post">
-					<h3>Change Email</h3>
-					<div class="form-group">
-						<label for="edit-profile-email">Email</label>
-						<div class="input-helpers">
-							<input type="email" id="profile-email" name="edit-profile-email" value maxlength="254">
-							<span class="field-error"></span>
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="edit-profile-email2">Confirm Email</label>
-						<div class="input-helpers">
-							<input type="email" id="profile-email2" name="edit-profile-email2" value maxlength="254">
-							<span class="field-error"></span>
-						</div>
-					</div>
-					<input type="submit" id="submit-profile" class="submit button-primary" value="Change Email">
-				</form>
-				<form id="edit-password-form" action="index.html" method="post">
-					<h3>Change Password</h3>
-					<div class="form-group">
-						<label for="edit-profile-password">New Password</label>
-						<div class="input-helpers">
-							<input type="password" id="profile-password" name="edit-profile-password" value>
-							<span class="field-error"></span>
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="edit-profile-password2">Confirm Password</label>
-						<div class="input-helpers">
-							<input type="password" id="profile-confirm" name="edit-profile-password2" value>
-							<span class="field-error"></span>
-						</div>
-					</div>
-					<input type="submit" id="submit-profile" class="submit button-primary" value="Change Password">
-				</form>
-			</div>
-		</section>
-	</main>
+  <div id="profile-content">
 
-	{{#extend "scripts"}}
-	{{/extend}}
+    <div id="profile-info-container">
+      <div id="profile-pic-container">
+        <img src="/imgs/profile-img-temp.png" alt="Profile Picture" id="profile-pic">
+      </div>
+      <div id="user-info">
+        <h5 id="user-name">{{user.name}}</h5>
+        <p id="user-bio">{{#if user.bio}}{{user.bio}}{{else}}No user bio! Add one via Edit Profile{{/if}}</p>
+      </div>
+    </div>
+
+    <div id="profile-tabs-container">
+      <ul>
+        <a href="/mylists">
+          <li id="my-lists-tab" class="profile-tabs">My Lists</li>
+        </a>
+        <a href="/favorites">
+          <li id="favs-tab" class="profile-tabs">Favorites</li>
+        </a>
+        <a href="/profile?page=bio">
+          <li id="edit-profile-tab" class="profile-tabs selected-tab">Edit Profile</li>
+        </a>
+      </ul>
+    </div>
+
+    <section id="profile-items">
+      <div id="edit-profile-container">
+
+        <form id="edit-bio-form" action="index.html" method="post">
+          <h3>Update Bio</h3>
+          <div class="form-group">
+            <label for="edit-profile-name">Name</label>
+            <div class="input-helpers">
+              <input type="text" id="profile-name" name="edit-profile-name" value="{{user.name}}" maxlength="50">
+              <span class="field-error"></span>
+            </div>
+            <label for="edit-user-bio">Bio</label>
+            <textarea name="edit-user-bio" id="edit-user-bio" value="{{user.bio}}" maxlength="400">{{user.bio}}</textarea>
+          </div>
+          <input type="button" id="submit-bio" class="button-primary" value="Update Profile">
+        </form>
+
+        <form id="edit-email-form" action="index.html" method="post">
+          <h3>Change Email</h3>
+          <div class="form-group">
+            <label for="edit-profile-email">Email</label>
+            <div class="input-helpers">
+              <input type="email" id="profile-email" name="edit-profile-email" value maxlength="254">
+              <span class="field-error"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="edit-profile-email2">Confirm Email</label>
+            <div class="input-helpers">
+              <input type="email" id="profile-email2" name="edit-profile-email2" value maxlength="254">
+              <span class="field-error"></span>
+            </div>
+          </div>
+          <input type="button" id="submit-email" class="submit button-primary" value="Change Email">
+        </form>
+
+        <form id="edit-password-form" action="index.html" method="post">
+          <h3>Change Password</h3>
+          <div class="form-group">
+            <label for="edit-profile-password">New Password</label>
+            <div class="input-helpers">
+              <input type="password" id="profile-password" name="edit-profile-password" value>
+              <span class="field-error"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="edit-profile-password2">Confirm Password</label>
+            <div class="input-helpers">
+              <input type="password" id="profile-confirm" name="edit-profile-password2" value>
+              <span class="field-error"></span>
+            </div>
+          </div>
+          <input type="button" id="submit-password" class="submit button-primary" value="Change Password">
+        </form>
+
+      </div>
+    </section>
+</main>
+
+{{#extend "scripts"}}
+<script>
+$("#submit-bio").click(function() {
+  var name = $("#profile-name").val();
+  var bio = $("#edit-user-bio").val();
+  $.post('/editBio', {name: name, bio: bio})
+    .done(function(data) {
+      location.reload();
+    });
+});
+
+$("#submit-email").click(function() {
+  var email = $("#profile-email").val();
+  var email2 = $("#profile-email2").val();
+  if (email == email2) {
+  	// check if email is taken
+  	$.get('/query', {email: email}).done(function(valid) {
+  		if (valid) {
+		    $.post('/editEmail', {email: email})
+		    	.done(function(data) {
+		    		location.reload();
+		    	});
+  		}
+  	});
+  }
+});
+
+$("#submit-password").click(function() {
+	var pw = $("#profile-password").val();
+	var pw2 = $("#profile-confirm").val();
+	if (pw == pw2) {
+		$.post('/editPassword', {pw: pw})
+			.done(function(data) {
+				location.reload();
+			});
+	}
+});
+</script>
+{{/extend}}

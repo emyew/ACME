@@ -202,4 +202,49 @@ router.post('/editList', function(req, res) {
   }
 });
 
+router.post('/editBio', function(req, res) {
+  if (req.user) {
+    User.findById(req.user._id, function(err, user) {
+      if (err) res.status(500).send(err);
+      if (user) {
+        user.name = req.body.name;
+        user.bio = req.body.bio;
+        user.save(function(err) {
+          if (err) res.status(500).send(err);
+          res.status(200).send("Successfully changed");
+        });
+      }
+    });
+  }
+});
+
+router.post('/editEmail', function(req, res) {
+  if (req.user) {
+    User.findById(req.user._id, function(err, user) {
+      if (err) res.status(500).send(err);
+      if (user) {
+        user.email = req.body.email;
+        user.save(function(err) {
+          if (err) res.status(500).send(err);
+          res.status(200).send("Successfully changed");
+        });
+      }
+    });
+  }
+});
+
+router.post('/editPassword', function(req, res) {
+  if (req.user) {
+    User.findById(req.user._id, function(err, user) {
+      if (err) res.status(500).send(err);
+      if (user) {
+        user.password = user.generateHash(req.body.pw);
+        user.save(function(err) {
+          if (err) res.status(500).send(err);
+          res.status(200).send("Successfully changed");
+        });
+      }
+    });
+  }
+});
 module.exports = router;
