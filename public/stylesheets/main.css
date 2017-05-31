@@ -770,7 +770,7 @@ ul.paginationBottom {
     padding: 10px;
     background-color: #F7AF63;
     border: 2px solid #F7AF63;
-    border-radius: 10px;
+    border-radius: 4px;
     color: white;
     text-decoration: none; }
   .landing-hero a:hover {
