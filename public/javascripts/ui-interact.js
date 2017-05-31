@@ -7,9 +7,10 @@ var CREATE = "/create";
 var MYLISTS = "/mylists";
 var FAVORITES = "/favorites";
 var PROFILE = "/profile";
+var EDIT = /edit\/?[a-z0-9]+$/i;
 
 //////////////////// MAP ////////////////////
-if (MAP.test(pathname) || pathname == CREATE) {
+if (MAP.test(pathname) || EDIT.test(pathname) || pathname == CREATE) {
   //make list able to be reordered by dragging
   if ($("#waypoints").hasClass("sortable-waypoints")) {
     var elem = document.getElementById("waypoints");
@@ -34,7 +35,7 @@ if (MAP.test(pathname) || pathname == CREATE) {
   });
 
   //tagging functionality
-  if (MAP.test(pathname)) {
+  if (MAP.test(pathname) || EDIT.test(pathname)) {
     Selectize.define('no-delete', function(options) {
       this.deleteSelection = function() {};
     });
@@ -117,7 +118,7 @@ else if (pathname == PROFILE) {
 //reset window if resized to undo toggled states and changes
 $(window).resize(function() {
   if($(window).width() > 900) {
-    if(MAP.test(pathname) || pathname == CREATE) {
+    if(MAP.test(pathname) || EDIT.test(pathname) || pathname == CREATE) {
       $("#side-menu").css({"margin-top": 0}).addClass("show");
       $(".fa-caret-square-o-up").removeClass("fa-caret-square-o-up").addClass("fa-caret-square-o-down");
     }
